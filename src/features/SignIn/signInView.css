@@ -162,13 +162,11 @@ color: #FFFFFF;
 
 .signup{
     display: flex;
-    width: 178px;
+    width: 173px;
     height: 17px;
-    left: 83px;
+    left: 86px;
     top: 307px;
-    font-family: 'Inter';
     font-size: 14px;
-    /* identical to box height */
     text-align: center;
     margin-bottom: 15px;
 }

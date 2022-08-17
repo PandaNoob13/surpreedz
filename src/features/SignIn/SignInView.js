@@ -41,7 +41,7 @@ const SignInView = () => {
               </div>
               <div className="signup">
                   <div style={{color:'#d9d9d9', fontWeight:'100'}}>Not a member yet ? </div>
-                  <div style={{color:'#ffffff', fontWeight:'bold'}}>Sign up </div>
+                  <div style={{color:'#ffffff', fontWeight:'bold' ,marginLeft:'5px'}}>Sign up </div>
               </div>
           </div>
           
