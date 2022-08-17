@@ -122,9 +122,11 @@ background-color: rgba(217, 217, 217, 1);
     font-size: normal;
     font-size: 14px;
     line-height: 17px;
+    font-weight: 100;
     /* identical to box height */
-    color: rgba(255, 255, 255, 1);
+    color: #d9d9d9;
     text-align: left;
+    margin-left: 2px;
 
 }
 
@@ -153,6 +155,7 @@ color: #FFFFFF;
 }
 
 .signup{
+    display: flex;
     width: 178px;
     height: 17px;
     left: 83px;
@@ -160,10 +163,6 @@ color: #FFFFFF;
     font-family: 'Inter';
     font-size: 14px;
     /* identical to box height */
-
     text-align: center;
-
-    color: #FFFFFF;
     margin-bottom: 15px;
-
 }

@@ -41,7 +41,8 @@ const SignInView = () => {
                 <hr className="line-2"></hr>
               </div>
               <div className="signup">
-                  Not a member yet?<strong>Sign up</strong>
+                  <div style={{color:'#d9d9d9', fontWeight:'100'}}>Not a member yet ? </div>
+                  <div style={{color:'#ffffff', fontWeight:'bold'}}>Sign up </div>
               </div>
           </div>
           
