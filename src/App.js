@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SignUpView from "./features/SignUp/SignUpView";
+import AddEditServicePage from './features/AddEditServicePage/AddEditServicePage';
 
 function App() {
   return (
     <div>
-      <SignUpView/>
+      <AddEditServicePage/>
     </div>
   );
 }
