@@ -7,7 +7,6 @@ const SignInView = () => {
               <div className="welcometext">
                     Welcome Back !
               </div>
-             
               <div className="line">
               </div>
               <div className="signexpression">
