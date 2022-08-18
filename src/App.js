@@ -1,9 +1,14 @@
-import ServiceCard from "./shared/components/ServiceCard/ServiceCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import RequestCard from "./features/RequestListPage/RequestCard/RequestCard"
 
 function App() {
   return (
-    <ServiceCard />
+    <div >
+        <RequestCard />
+    </div>
   );
 }
+
+
 
 export default App;
