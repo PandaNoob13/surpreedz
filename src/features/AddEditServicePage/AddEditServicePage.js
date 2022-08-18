@@ -1,60 +1,71 @@
-import "./AddEditServicePage.css"
+import "./AddEditServicePage.css";
+import VideoInput from "./videoInput/VideoInput";
+
 
 const AddEditServicePage = () => {
   return (
-      <div className="col-md-12 servicecontainer"> 
-            <div className= "col-md-10 requestcard">
-
-                  <div className="title">Your Service</div>
-
-                  <div className="col-md-11 line"></div>
-
-                  <div className="col-md-11 name-service">
-                        <div className="label-name">Name</div>
-                        <input className="input-name" placeholder="Enter your name"/>
+      <div className="bg-request-page">
+        <div className="container d-flex p-5 flex-column">
+            <div className="col-md-12 d-flex p-5 flex-column card bg-card">
+                  <div className="col-md-12 font-title ">
+                        <h3>Your Service</h3>
+                        <div className="hr"></div>
                   </div>
+                  <br/>
 
-                  <div className="col-md-11 name-service">
-                        <div className="label-name">Role</div>
-                        <input className="input-name" placeholder="Enter your role"/>
+                  <div className="col-md-12 d-flex flex-row">
+                        <div className="col-md-3 form-label property-font">Name</div>
+                        <input className="form-control" placeholder="Enter Your Name"/>
                   </div>
+                  <br/>
 
-                  <div className="col-md-11 name-service">
-                        <div className="label-name">Description</div>
-                        <textarea className="input-description" placeholder="Describe yourself"/>
+                  <div className="col-md-12 d-flex flex-row">
+                        <div className="col-md-3 form-label property-font">Role</div>
+                        <input className="form-control" placeholder="Enter Your Role"/>
                   </div>
+                  <br/>
 
-                  <div className="col-md-11 name-service">
-                        <div className="label-name">Price</div>
-                        <input className="input-name" placeholder="Enter the price"/>
+                  <div className="col-md-12 d-flex flex-row">
+                        <div className="col-md-3 form-label property-font">Description</div>
+                        <textarea className="form-control" placeholder="Enter Your Description"/>
                   </div>
+                  <br/>
 
-                  <div className="col-md-11 name-service">
-                        <div className="label-name">Video</div>
+                  <div className="col-md-12 d-flex flex-row">
+                        <div className="col-md-3 form-label property-font">Price</div>
+                        <input className="form-control" placeholder="Enter the price"/>
+                  </div>
+                  <br/>
 
-                        <div className="all-input-video">
-                        <div className="card-input-video">
-                        <input className="input-video" type="file" accept="video/*"/>
+                  <div className="col-md-12 d-flex flex-row">
+                        <div className="col-md-3 form-label property-font">Videos</div>
+                        <div className="col-md-9 d-flex flex-row justify-content-between">
+                              <div className="col-md-3">
+                              <VideoInput width={400} height={300} />
+                              </div>
+                              <div className="col-md-3">
+                              <VideoInput width={400} height={300} />
+                              </div>
+                              <div className="col-md-3">
+                              <VideoInput width={400} height={300} />
+                              </div>
                         </div>
-                        <div className="card-input-video">
-                        <input className="input-video" type="file" accept="video/*"/>
-                        </div>
-                        <div className="card-input-video">
-                        <input className="input-video" type="file" accept="video/*"/>
-                        </div>
-                        <div className="card-input-video">
-                        <input className="input-video" type="file" accept="video/*"/>
-                        </div>
+                  </div>
+                  <br/>
 
-                        </div>
+                  <div className="col-md-12 d-flex flex-row justify-content-end">
+                        <button className="btn btn-light m-2">Cancel</button>
+                        <button className="btn btn-light m-2">Submit</button>
+
                   </div>
 
-                  <div className="col-md-11 button-service">
-                        <button className="button-cancel">Cancel</button>
-                        <button  className="button-submit">Submit</button>
-                  </div>
             </div>
-      </div>
+
+
+           
+            
+        </div>
+    </div>
   )
 }
 
