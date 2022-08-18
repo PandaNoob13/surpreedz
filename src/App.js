@@ -1,8 +1,8 @@
-import ServiceCard from "./shared/components/ServiceCard/ServiceCard";
+import HomePage from "./features/HomePage/HomePage";
 
 function App() {
   return (
-    <ServiceCard />
+    <HomePage />
   );
 }
 
