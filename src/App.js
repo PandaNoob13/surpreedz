@@ -4,7 +4,7 @@ import RequesListPage from './features/RequestListPage/RequestListPage'
 function App() {
   return (
     <>
-      {/* <RequesListPage /> */}
+      <RequesListPage />
     </>
   );
 }
