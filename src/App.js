@@ -7,8 +7,8 @@ import ServiceCard from "./shared/components/ServiceCard/ServiceCard";
 function App() {
   return (
     <>
-      {/* <ServiceCard /> */}
-      {/* <PurchasedCard /> */}
+      <ServiceCard />
+      <PurchasedCard />
       <div>
         <ProfileCard />
         <AccountCard />
