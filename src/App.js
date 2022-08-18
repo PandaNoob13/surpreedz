@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddEditServicePage from './features/AddEditServicePage/AddEditServicePage';
+import PurchaseConfirmationPage from './features/PurchaseConfirmationPage/PurchaseConfirmationPage';
 
 function App() {
   return (
     <div>
-      <AddEditServicePage/>
+      <PurchaseConfirmationPage/>
     </div>
   );
 }
