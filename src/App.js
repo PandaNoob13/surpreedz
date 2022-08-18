@@ -1,14 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RequestCard from "./features/RequestListPage/RequestCard/RequestCard"
+import RequesListPage from './features/RequestListPage/RequestListPage'
 
 function App() {
   return (
-    <div >
-        <RequestCard />
-    </div>
+    <>
+      {/* <RequesListPage /> */}
+    </>
   );
 }
-
-
 
 export default App;
