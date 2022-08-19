@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddEditServicePage from './features/AddEditServicePage/AddEditServicePage';
+import ServicePage from './features/AddEditServicePage/ServicePage';
 
 function App() {
   return (
     <div>
-      <AddEditServicePage/>
+        <ServicePage/>
     </div>
   );
 }

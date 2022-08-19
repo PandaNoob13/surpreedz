@@ -1,8 +1,8 @@
-import "./AddEditServicePage.css";
+import "./ServicePage.css";
 import VideoInput from "./videoInput/VideoInput";
 
 
-const AddEditServicePage = () => {
+const ServicePage = () => {
   return (
       <div className="bg-request-page">
         <div className="container d-flex p-5 flex-column">
@@ -72,4 +72,4 @@ const AddEditServicePage = () => {
   )
 }
 
-export default AddEditServicePage
+export default ServicePage;
