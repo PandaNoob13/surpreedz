@@ -1,11 +1,10 @@
-import SignInView from "./features/SignIn/SignInView";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "./shared/components/Footer/Footer";
 
 function App() {
   return (
-    <div>
-      <SignInView/>
-    </div>
+    <>
+      <Footer />
+    </>
   );
 }
 
