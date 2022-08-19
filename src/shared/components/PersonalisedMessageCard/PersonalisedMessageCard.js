@@ -22,7 +22,7 @@ function PersonalisedMessageCard() {
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <div className="card-body">
-                <h5 className="card-title text-white mb-3">Your Personalised Message</h5>
+                <h4 className="card-title text-white mb-3">Your Personalised Message</h4>
                 <form>
                     <div className="mb-3">
                         <label htmlFor="inputForName" className="form-label text-white">Who is this message for?</label>

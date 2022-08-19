@@ -17,8 +17,8 @@ const VideoCarouselCard = () => {
     const {picUrl, name, category, currency, price, rating} = serviceCardData;
 
     return (
-        <div className="card mx-2" style={{minWidth: '15rem', borderRadius: "12px", backgroundColor:"#373535"}}>
-            <Carousel style={{minWidth: '15rem', padding: "1rem", borderRadius: "12px", overflow: "hidden"}} interval={null}>
+        <div className="card mb-3 p-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
+            <Carousel style={{minWidth: '15rem', borderRadius: "12px", overflow: "hidden"}} interval={null}>
                 <Carousel.Item>
                     <img
                     className="carousel-img d-block w-100"
