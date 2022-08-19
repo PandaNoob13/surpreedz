@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import {plus} from './plus-square.svg'
+import plus from './plus-square.svg'
 
 
 const VideoInput = (props) => {
@@ -38,7 +38,7 @@ const VideoInput = (props) => {
           onChange={handleFileChange}
           accept=".mov,.mp4"
         />
-        {!source && <button className="btn" style={{fontFamily:'SF Pro Display', fontWeight:'bold'}} onClick={handleChoose}><img src="plus" alt="" /><br/>Video {num}
+        {!source && <button className="btn" style={{fontFamily:'SF Pro Display', fontWeight:'400'}} onClick={handleChoose}><img src={plus} alt="plus" /><br/>Video {num}
         </button>}
         {source && (
           <div>
