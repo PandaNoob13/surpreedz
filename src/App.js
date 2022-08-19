@@ -1,9 +1,9 @@
-import PurchasedCard from "./shared/components/PurchasedCard/PurchasedCard";
+import PurchaseListPage from "./features/PurchaseListPage/PurchaseListPage";
 
 function App() {
   return (
     <>
-      <PurchasedCard />
+      <PurchaseListPage/>
     </>
   );
 }
