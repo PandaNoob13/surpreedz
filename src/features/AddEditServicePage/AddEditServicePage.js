@@ -14,40 +14,43 @@ const AddEditServicePage = () => {
                   <br/>
 
                   <div className="col-md-12 d-flex flex-row">
-                        <div className="col-md-3 form-label property-font">Name</div>
+                        <div className="col-md-2 form-label property-font">Name</div>
                         <input className="form-control" placeholder="Enter Your Name"/>
                   </div>
                   <br/>
 
                   <div className="col-md-12 d-flex flex-row">
-                        <div className="col-md-3 form-label property-font">Role</div>
+                        <div className="col-md-2 form-label property-font">Role</div>
                         <input className="form-control" placeholder="Enter Your Role"/>
                   </div>
                   <br/>
 
                   <div className="col-md-12 d-flex flex-row">
-                        <div className="col-md-3 form-label property-font">Description</div>
+                        <div className="col-md-2 form-label property-font">Description</div>
                         <textarea className="form-control" placeholder="Enter Your Description"/>
                   </div>
                   <br/>
 
                   <div className="col-md-12 d-flex flex-row">
-                        <div className="col-md-3 form-label property-font">Price</div>
+                        <div className="col-md-2 form-label property-font">Price</div>
                         <input className="form-control" placeholder="Enter the price"/>
                   </div>
                   <br/>
 
                   <div className="col-md-12 d-flex flex-row">
-                        <div className="col-md-3 form-label property-font">Videos</div>
-                        <div className="col-md-9 d-flex flex-row justify-content-between">
-                              <div className="col-md-3">
-                              <VideoInput width={400} height={300} />
+                        <div className="col-md-2 form-label property-font">Videos</div>
+                        <div className="col-md-10 d-flex flex-row justify-content-between">
+                              <div className="col-md-3" style={{paddingRight:'5px'}}>
+                              <VideoInput width={400} height={300} num={1} />
                               </div>
-                              <div className="col-md-3">
-                              <VideoInput width={400} height={300} />
+                              <div className="col-md-3" style={{paddingRight:'5px'}}>
+                              <VideoInput width={400} height={300} num={2} />
                               </div>
-                              <div className="col-md-3">
-                              <VideoInput width={400} height={300} />
+                              <div className="col-md-3" style={{paddingRight:'5px'}}>
+                              <VideoInput width={400} height={300} num={3} />
+                              </div>
+                              <div className="col-md-3" style={{paddingRight:'5px'}}>
+                              <VideoInput width={400} height={300} num={4} />
                               </div>
                         </div>
                   </div>
