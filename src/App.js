@@ -1,11 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ServicePage from './features/AddEditServicePage/ServicePage';
+import Footer from "./shared/components/Footer/Footer";
+
 
 function App() {
   return (
-    <div>
-        <ServicePage/>
-    </div>
+    <>
+      <Footer />
+    </>
   );
 }
 
