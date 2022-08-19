@@ -18,27 +18,16 @@
     border: 1px solid #ffffff;
 }
 
-.property-font{
+.all-text-font{
     color: #ffffff;
-    font-size: 16px;
 }
 
-.font-title{
+.font-price{
+    font-size: 20px;
+}
+
+.font-nominal{
     color: #ffffff;
-    font-size: 32px;
+    font-size: 20px;
 
 }
-  
-  .VideoInput_input {
-    display: none;
-  }
-  
-  .VideoInput_video {
-    display: block;
-    margin: 0;
-  }
-  
-  .VideoInput_footer {
-    background: #ffffff;
-    text-align: center;
-  }
