@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarLogin from './shared/components/navbar/NavbarLogin';
+import NavbarSellerBuyer from './shared/components/navbar/NavbarSellerBuyer';
+import NavbarSeller from './shared/components/navbar/NavbarSeller';
+import NavbarBuyer from './shared/components/navbar/NavbarBuyer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Navbar login
+     <NavbarLogin/> */}
+     <br/>
+     <NavbarSellerBuyer/>
+     <br/>
+     {/* Navbar seller
+     <NavbarSeller/> */}
+     <br/>
+     {/* Navbar buyer
+     <NavbarBuyer/> */}
+     <br/>
     </div>
+    
   );
 }
 
