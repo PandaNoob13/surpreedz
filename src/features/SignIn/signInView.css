@@ -21,7 +21,6 @@
     font-weight:100;
     font-size: 15px;
     color: #FFFFFF;
-    font-family: 'SF PRO Display';
     margin-top: 5%;
 }
 
@@ -29,27 +28,23 @@
     font-weight:100;
     font-size: 15px;
     color: #FFFFFF;
-    font-family: 'SF PRO Display';
+    margin-right: 10px;
 }
 
 .sign-in{
     font-weight:bold;
     font-size: 15px;
     color: #FFFFFF;
-    font-family: 'SF PRO Display';
-    margin-right: 1%;
-    cursor: po'SF PRO Display';
+    margin-left: 10px;
 }
 
 .welcometext{
-    font-family: ''SF PRO Display'';
     font-weight: bold;
     font-size: 32px;
     color: #FFFFFF;
 }
 
 .liberate{
-    font-family: ''SF PRO Display'';
     font-weight: normal;
     font-size: 16px;
     color: #FFFFFF;
