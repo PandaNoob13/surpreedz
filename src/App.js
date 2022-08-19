@@ -1,13 +1,9 @@
-import AccountCard from "./shared/components/AccountCard/AccountCard";
-import EditProfileCard from "./shared/components/EditProfileCard/EditProfileCard";
+import Footer from "./shared/components/Footer/Footer";
 
 function App() {
   return (
     <>
-      <div>
-        <AccountCard />
-      </div>
-      <EditProfileCard />
+      <Footer />
     </>
   );
 }
