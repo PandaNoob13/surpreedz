@@ -21,7 +21,7 @@ const ReviewCard = () => {
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <div className="card-body text-white">
-                <h5 className="card-title">Reviews</h5>
+                <h4 className="card-title">Reviews</h4>
                 <div id='reviews-container'>
                     <div className="mt-3 " id='review'>
                         <div className='d-flex flex-row align-items-center' id='review-header'>

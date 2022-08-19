@@ -20,7 +20,7 @@ const ProfileCard = () => {
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <img src={picUrl} className="img rounded-circle mx-auto d-block" style={{padding: "4px",width: "150px", height: "150px", objectFit: "cover"}} alt="artist"/>
             <div className="card-body text-white">
-                <h5 className="card-title text-center mb-0">{name}</h5>
+                <h3 className="card-title text-center mb-0">{name}</h3>
                 <p className="card-text text-center"><small className="text-muted">{username}</small></p>
                 <a href={email} className="btn btn-success mx-auto d-block">Email me</a>
                 <div className="mt-3">
