@@ -2,6 +2,7 @@
     background-color: #212121;
 }
 
+
 .hr{
     height: 1px;
     background-color: #ffffff;
@@ -17,15 +18,27 @@
     border: 1px solid #ffffff;
 }
 
-.all-text-font{
+.property-font{
     color: #ffffff;
+    font-size: 16px;
 }
 
-.font-price{
-    font-size: 20px;
-}
-
-.font-nominal{
+.font-title{
     color: #ffffff;
-    font-size: 20px;
+    font-size: 32px;
+
 }
+  
+  .VideoInput_input {
+    display: none;
+  }
+  
+  .VideoInput_video {
+    display: block;
+    margin: 0;
+  }
+  
+  .VideoInput_footer {
+    background: #ffffff;
+    text-align: center;
+  }
