@@ -19,7 +19,7 @@ const AccountCard = () => {
     const {picUrl, name, username, email, category, location, currency, price, rating, createdAt} = serviceCardData;
 
     return (
-        <div className="card mb-3 py-3 col-4" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
+        <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <div className="card-body text-white">
                 <h5 className="card-title">Account Information</h5>
                 <div className="mt-3">

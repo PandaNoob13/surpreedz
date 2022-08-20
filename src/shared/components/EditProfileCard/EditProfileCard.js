@@ -11,7 +11,7 @@ import './EditProfileCard.css';
 
 const EditProfileCard = () => {
     return (
-        <Card style={{borderRadius: "12px", backgroundColor:"black"}}>
+        <Card style={{borderRadius: "12px", borderColor: "#212121", backgroundColor:"#212121"}}>
             <Tab.Container defaultActiveKey="#profile">
                 <Card.Header>
                     <Nav variant="tabs" style={{}}>
@@ -26,7 +26,7 @@ const EditProfileCard = () => {
                         </Nav.Item>
                     </Nav>
                 </Card.Header>
-                <Card.Body style={{backgroundColor:"#373535"}}>
+                <Card.Body style={{borderRadius: "12px", backgroundColor:"#373535"}}>
                     <Tab.Content>
                         <TabPane id="profile" aria-labelledby='profile-tab' eventKey={"#profile"}>
                             <EditProfile />
