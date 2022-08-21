@@ -7,7 +7,7 @@ import NavbarSellerBuyer from './shared/components/navbar/NavbarSellerBuyer';
 function App() {
   return (
     <div className="App">
-      Navbar login
+      {/* Navbar login
      <NavbarLogin/>
      
      <br/>
@@ -16,7 +16,7 @@ function App() {
      <br/>
      Navbar buyer
      <NavbarBuyer/>
-     <br/>
+     <br/> */}
 
      <NavbarSellerBuyer/>
     </div>

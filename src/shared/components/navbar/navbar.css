@@ -1,10 +1,10 @@
+.dropdown-item:active{
+    background-color: #373535;
+}
+
 .font-basic{
     color: #ffffff;
     font-size: 20px;
     font-weight: 400;
     font-family: 'SF Pro Display';
-}
-
-.dropdown-item:active{
-    background-color: #373535;
 }
