@@ -4,3 +4,7 @@
     font-weight: 400;
     font-family: 'SF Pro Display';
 }
+
+.dropdown-item:active{
+    background-color: #373535;
+}
