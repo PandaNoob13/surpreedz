@@ -1,7 +1,7 @@
 import "./navbar.css";
 import logo from "./SurpreedzLogo.png"
 
-function NavbarSellerBuyer() {
+function NavbarLogin() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
@@ -32,4 +32,4 @@ function NavbarSellerBuyer() {
   );
 }
 
-export default NavbarSellerBuyer;
+export default NavbarLogin;
