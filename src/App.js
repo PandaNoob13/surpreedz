@@ -1,10 +1,10 @@
-import OrderDetailPage from "./features/OrderDetailPage/OrderDetailPage";
+import PurchaseListPage from "./features/PurchaseListPage/PurchaseListPage";
 
 function App() {
   return (
-    <div className="App">
-      <OrderDetailPage />
-    </div>
+    <>
+      <PurchaseListPage/>
+    </>
   );
 }
 
