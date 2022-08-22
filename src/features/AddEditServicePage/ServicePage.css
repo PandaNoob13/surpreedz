@@ -1,0 +1,44 @@
+.bg-request-page{
+    background-color: #212121;
+}
+
+
+.hr{
+    height: 1px;
+    background-color: #ffffff;
+    border: none;
+}
+
+.bg-card{
+    background-color: #373535;
+    border-radius: 8px;
+}
+
+.line-vertikal{
+    border: 1px solid #ffffff;
+}
+
+.property-font{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.font-title{
+    color: #ffffff;
+    font-size: 32px;
+
+}
+  
+  .VideoInput_input {
+    display: none;
+  }
+  
+  .VideoInput_video {
+    display: block;
+    margin: 0;
+  }
+  
+  .VideoInput_footer {
+    background: #ffffff;
+    text-align: center;
+  }
