@@ -1,7 +1,8 @@
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import logo from "./SurpreedzLogo.png"
 
-function NavbarSellerBuyer() {
+function NavbarLogin() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
@@ -14,16 +15,18 @@ function NavbarSellerBuyer() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll me-3">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/category">Category</a>
+                        <NavLink to='/' className="nav-link" aria-current="page">Category</NavLink>
                     </li>
                 </ul>
                 <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/category">Sign In</a>
+                        <NavLink to='/sign-in' className="nav-link" aria-current="page">Sign In</NavLink>
                     </li>
                 </ul>
                 <ul className="navbar-nav mb-2 mb-lg-0 mx-1">
+                    <NavLink to='/sign-up'>
                     <button className="btn btn-outline-light" type="submit">Sign Up</button>
+                    </NavLink>
                 </ul>
             </div>
         </div>
@@ -32,4 +35,4 @@ function NavbarSellerBuyer() {
   );
 }
 
-export default NavbarSellerBuyer;
+export default NavbarLogin;

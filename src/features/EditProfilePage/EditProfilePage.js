@@ -1,6 +1,6 @@
 import React from 'react'
 import AccountCard from '../../shared/components/AccountCard/AccountCard'
-import EditProfileCard from '../../shared/components/EditProfieCard/EditProfieCard'
+import EditProfileCard from "../../shared/components/EditProfileCard/EditProfileCard"
 
 function EditProfilePage() {
     return (

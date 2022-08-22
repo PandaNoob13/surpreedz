@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import "./signUpView.css"
 
 const SignUpView = () => {
+  const navigate = useNavigate();
 
   const [step,setStep]= useState(1);
 
@@ -39,7 +41,8 @@ const SignUpView = () => {
                               <div className="col-md-12" style={{border: "1px solid #000000"}}></div>
                               <div className="col-md-12 p-3 d-flex flex-row justify-content-center">
                                   <div className="already"> Already a member ?</div>
-                                  <div className="sign-in btn-link"> Sign In</div>
+                                  <div onClick={()=> {navigate('/sign-in')}}
+                                  className="sign-in btn-link"> Sign In</div>
                               </div>
                           </form> 
                       </div>
@@ -87,7 +90,9 @@ const SignUpView = () => {
                           <div className="col-md-12" style={{border: "1px solid #000000"}}></div>
                           <div className="col-md-12 p-3 d-flex flex-row justify-content-center">
                               <div className="already"> Already a member ?</div>
-                              <div className="sign-in btn-link"> Sign In</div>
+                              <div
+                              onClick={()=> {navigate('/sign-in')}}
+                              className="sign-in btn-link"> Sign In</div>
                           </div>
                       </form> 
                   </div>

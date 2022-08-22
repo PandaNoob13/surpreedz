@@ -1,21 +1,14 @@
 import { NavLink, useNavigate } from "react-router-dom";
-// import { UseAuth } from "../../fakeAuth/UseAuth";
 import "./navbar.css";
 import logo from "./SurpreedzLogo.png"
 
-function NavbarSellerBuyer() {
+const Nav = () => {
+    const auth = localStorage.getItem('userCred')
     const navigate = useNavigate();
-
-
     const handleLogout = () => {
-        console.log('hanldeLogout');
-        localStorage.clear()
-        navigate('/',{replace:true})
-        console.log('Logout');
-
+        localStorage.clear();
+        navigate('/')
     }
-
-    
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
@@ -28,10 +21,14 @@ function NavbarSellerBuyer() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll me-3">
                     <li className="nav-item">
-                        <NavLink to='/#category' onClick={() => window.location.replace("/#category")} className="nav-link" aria-current="page">Category</NavLink>
+                        <NavLink to='/' className="nav-link" aria-current="page">Category</NavLink>
                     </li>
                 </ul>
-                <ul className="navbar-nav mb-2 mb-lg-0" >
+
+            { auth ?
+
+                <div className="d-flex">
+                    <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seller
@@ -64,11 +61,28 @@ function NavbarSellerBuyer() {
                         </ul>
                     </li>
                 </ul>
+                </div>
+                :
+                <div className="d-flex">
+                    <ul className="navbar-nav mb-2 mb-lg-0" >
+                    <li className="nav-item">
+                        <NavLink to='/sign-in' className="nav-link" aria-current="page">Sign In</NavLink>
+                    </li>
+                </ul>
+                <ul className="navbar-nav mb-2 mb-lg-0 mx-1">
+                    <NavLink to='/sign-up'>
+                    <button className="btn btn-outline-light" type="submit">Sign Up</button>
+                    </NavLink>
+                </ul>
+                </div>
+        }
+
+                
             </div>
         </div>
       
     </nav>
-  );
+  )
 }
 
-export default NavbarSellerBuyer;
+export default Nav

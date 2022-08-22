@@ -1,11 +1,19 @@
-import PurchaseListPage from "./features/PurchaseListPage/PurchaseListPage";
+import AppRouter from "./navigation/AppRouter";
 
-function App() {
+const App = () => {
+ 
+
+
+
   return (
     <>
-      <PurchaseListPage/>
+    <AppRouter/>
+    
     </>
-  );
+  )
+  
+
+ 
 }
 
 export default App;
