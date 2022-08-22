@@ -3,7 +3,7 @@ import logo from "./SurpreedzLogo.png"
 
 function NavbarLogin() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
             <div className="navbar-brand pt-0 ms-3">
                 <img src={logo} alt='surpreedz' height={'24'}></img>

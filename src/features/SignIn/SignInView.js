@@ -4,19 +4,15 @@ const SignInView = () => {
 
 return (
           <div className="bg-request-page">
-          <div className="container">
-              <div className="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                  <div className="col-md-4 align-self-center">
+          <div className="container d-flex flex-column min-vh-100 py-auto">
+                  <div className="row my-auto">
+                      <div className="col-md-8 my-auto px-2 py-4">
                       <div className="welcometext m-2">Welcome Back !</div>
                       <div className="col-md-6 hr m-2"></div>
                       <div className="liberate m-2">Sign in to liberate our expression</div>
                   </div>
-
-                  <div className="col-md-4"></div>
-
-                  <div className="col-md-4 card align-items-center align-self-center" style={{backgroundColor:'#373535', borderRadius:'8px'}}>
-
-                      <form className="col-md-10 d-flex p-4 flex-column justify-content-center align-items-center text-center ">
+                  <div className="col-lg-4 card bg-card align-self-center align-items-center">
+                          <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
                           <input className="form-control p-3 m-2" placeholder="Username/email" />
                           <input className="form-control p-3 m-2" placeholder="Password" />
                           <button className="col-md-10 btn btn-light"

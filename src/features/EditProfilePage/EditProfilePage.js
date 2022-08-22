@@ -1,13 +1,15 @@
 import React from 'react'
 import AccountCard from '../../shared/components/AccountCard/AccountCard'
-import EditProfileCard from '../../shared/components/EditProfieCard/EditProfieCard'
+import EditProfileCard from '../../shared/components/EditProfileCard/EditProfileCard'
+import ProfileCard from '../../shared/components/ProfileCard/ProfileCard'
 
 function EditProfilePage() {
     return (
-        <div className='text-white' style={{background: "#212121"}}>
+        <div className='text-white' style={{background: "#212121", marginTop: "3.5rem"}}>
             <div className='container vh-100 py-5'>
                 <div className='row'>
                     <div className='col-md-4 p-2'>
+                        <ProfileCard />
                         <AccountCard />
                     </div>
                     <div className='col-md-8 p-2'>

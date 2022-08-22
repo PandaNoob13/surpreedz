@@ -3,7 +3,7 @@ import logo from "./SurpreedzLogo.png"
 
 function NavbarSellerBuyer() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
             <div className="navbar-brand pt-0 ms-3">
                 <img src={logo} alt='surpreedz' height={'24'}></img>
@@ -19,7 +19,7 @@ function NavbarSellerBuyer() {
                 </ul>
                 <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target=".navbar-collapse.show" aria-expanded="false">
                         Seller
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">

@@ -1,5 +1,8 @@
 .bg-request-page{
     background-color: #212121;
+    height: -o-calc(100% - 89px); /* opera */
+    height: -webkit-calc(100% - 89px); /* google, safari */
+    height: -moz-calc(100% - 89px); /* firefox */
 }
 
 .bg-card{
