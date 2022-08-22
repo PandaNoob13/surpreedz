@@ -1,8 +1,10 @@
-import HomePage from "./features/HomePage/HomePage";
+import OrderDetailPage from "./features/OrderDetailPage/OrderDetailPage";
 
 function App() {
   return (
-    <HomePage />
+    <div className="App">
+      <OrderDetailPage />
+    </div>
   );
 }
 
