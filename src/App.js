@@ -1,12 +1,8 @@
-import EditProfilePage from "./features/EditProfilePage/EditProfilePage";
-import AccountCard from "./shared/components/AccountCard/AccountCard";
-import EditProfileCard from "./shared/components/EditProfieCard/EditProfieCard";
+import HomePage from "./features/HomePage/HomePage";
 
 function App() {
   return (
-    <>
-      <EditProfilePage />
-    </>
+    <HomePage />
   );
 }
 

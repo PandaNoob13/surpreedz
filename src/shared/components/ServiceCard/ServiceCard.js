@@ -15,7 +15,7 @@ const ServiceCard = () => {
     const {picUrl, name, category, currency, price, rating} = serviceCardData;
 
     return (
-        <div className="card mx-2" style={{minWidth: '10rem', height: "300px", borderRadius: "12px", backgroundColor:"#373535"}}>
+        <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
             <img src={picUrl} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
             <div className="card-body text-white" style={{padding: "8px"}}>
                 <p className="card-title h6" style={{marginBottom: "2px"}}>{name}</p>
