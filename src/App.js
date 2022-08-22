@@ -1,10 +1,8 @@
-import Footer from "./shared/components/Footer/Footer";
+import HomePage from "./features/HomePage/HomePage";
 
 function App() {
   return (
-    <>
-      <Footer />
-    </>
+    <HomePage />
   );
 }
 
