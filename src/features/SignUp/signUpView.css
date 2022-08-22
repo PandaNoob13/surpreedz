@@ -1,0 +1,57 @@
+.bg-request-page{
+    background-color: #212121;
+}
+
+.bg-card{
+    background-color: #373535;
+    border-radius: 8px;
+}
+
+.hr{
+    height: 5px;
+    background-color: #ffffff;
+    border: none;
+}
+
+.form-floating:focus-within{
+    z-index: 2;
+}
+
+.by-joining{
+    font-weight:100;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'SF PRO Display';
+    margin-top: 5%;
+}
+
+.already{
+    font-weight:100;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'SF PRO Display';
+}
+
+.sign-in{
+    font-weight:bold;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'SF PRO Display';
+    margin-right: 1%;
+    cursor: po'SF PRO Display';
+}
+
+.welcometext{
+    font-family: ''SF PRO Display'';
+    font-weight: bold;
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.liberate{
+    font-family: ''SF PRO Display'';
+    font-weight: normal;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+

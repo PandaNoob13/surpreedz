@@ -1,14 +1,9 @@
-import './App.css';
-import NavbarLogin from './shared/components/navbar/NavbarLogin';
-import NavbarSellerBuyer from './shared/components/navbar/NavbarSellerBuyer';
+import OrderDetailPage from "./features/OrderDetailPage/OrderDetailPage";
 
 function App() {
   return (
     <div className="App">
-      Navbar login
-     <NavbarLogin/>
-     <br/>
-     <NavbarSellerBuyer/>
+      <OrderDetailPage />
     </div>
   );
 }
