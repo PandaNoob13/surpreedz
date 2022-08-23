@@ -4,7 +4,7 @@ import "./HomePage.css"
 
 function HomePage() {
   return (
-    <div className='text-white' style={{background: "#212121"}}>
+    <div className='text-white min-vh-100' style={{background: "#212121", marginTop: "3.5rem"}}>
         <div className="jumbotron mb-4" style={{backgroundImage: "url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/comedians3-1600899167.jpg')"}}>
             <div className='container'>
                 <div className='col-md-4 py-5 d-flex align-items-center'>
