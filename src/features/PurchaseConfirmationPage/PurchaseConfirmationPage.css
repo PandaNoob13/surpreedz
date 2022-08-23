@@ -20,7 +20,6 @@
 
 .title-payment{
     height: 8%;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 2rem;
@@ -59,7 +58,6 @@
     height: 100%;
     background-color: #212121;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     align-self: flex-start;
@@ -89,7 +87,6 @@
     width: 30%;
     height: 25%;
     background-color: #212121;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     align-self: flex-start;
@@ -118,7 +115,6 @@
 }
 
 .title-service{
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -145,7 +141,6 @@
 }
 
 .what-service{
-    font-family: 'Inter';
     font-style: normal;
     font-size: 20px;
     color: #FFFFFF;
@@ -153,7 +148,6 @@
 }
 
 .price-service{
-    font-family: 'Inter';
     font-style: normal;
     color: #FFFFFF;
     font-size: 20px;
@@ -179,7 +173,6 @@
 }
 
 .total{
-    font-family: 'Inter';
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
@@ -195,7 +188,6 @@
     background-color: #F9FCF9;
     border-radius: 10px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 200%;

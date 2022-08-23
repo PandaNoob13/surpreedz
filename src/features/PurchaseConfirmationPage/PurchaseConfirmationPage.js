@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./PurchaseConfirmationPage.css"
 import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { NavLink } from "react-bootstrap";
 
 
 
@@ -17,17 +18,17 @@ const PurchaseConfirmationPage = () => {
             
             <div className="ewallet-bank">
             <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <img className="img-ewallet" src="https://cdn.kibrispdr.org/data/101/download-logo-dana-4.png" alt="" />
-                <img className="img-ewallet" src="https://kerjoku.com/wp-content/uploads/job-manager-uploads/company_logo/2021/08/ovo.png" alt="" />
-                <img className="img-ewallet" src="https://1.bp.blogspot.com/-GjCpjdW8Hrs/XkXUvE0RseI/AAAAAAAABmk/u5e1zr7RGHQN2TFwPu1IoN8QJBtwXLH5QCLcBGAsYHQ/s400/Logo%2BLink%2BAja%2521.png" alt="" />
-                <img className="img-ewallet" src="https://crm.thetempogroup.com/api/v1/media/product_image/image/6" alt="" />
+                <img className="img-ewallet" src="" alt="" />
+                <img className="img-ewallet" src="" alt="" />
+                <img className="img-ewallet" src="" alt="" />
+                <img className="img-ewallet" src="" alt="" />
             </div>
             <div className="no-ewallet">
                 <h3>+628712345678</h3>
             </div>
             <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <img className="img-bank" src="https://www.banksinarmas.com/id/public/revamp/logoj.png" alt=""></img>
-                <img  className="img-bank" src="https://www.banksinarmas.com/id/public/revamp/logosyariah1.png" alt="" />
+                <img className="img-bank" src="" alt=""></img>
+                <img  className="img-bank" src="" alt="" />
             </div>
             <div className="no-bank">
                 <h3>123456789</h3>
@@ -40,10 +41,10 @@ const PurchaseConfirmationPage = () => {
 
         <div className="col-md-3 invoice">
             <div className="service">
-                    <img className="img-service" src="https://img.okezone.com/content/2022/05/31/455/2603393/sumber-kekayaan-livy-renata-selebgram-cantik-yang-dihujat-netizen-r4mA27iuP4.jpg" alt="">
+                    <img className="img-service" src="" alt="">
                     </img>
                     <div className="title-service">
-                        Graduation greeting from Livy Renata
+                        Graduation greeting
                     </div>
             </div>
 
@@ -51,7 +52,7 @@ const PurchaseConfirmationPage = () => {
 
             <div className="title-invoice">
                     <div className="what-service">
-                            1 minute graduation greeting
+                            Graduation greeting
                     </div>
                     <div className="price-service">
                             Rp. 575K
@@ -62,7 +63,7 @@ const PurchaseConfirmationPage = () => {
                 <table className="font-detail-invoice">
                     <thead></thead>
                     <tbody>
-                    <tr>
+                    {/* <tr>
                         <td><FontAwesomeIcon icon={regular('circle-check')} /></td>
                         <td>1 revision</td>
                     </tr>
@@ -73,7 +74,7 @@ const PurchaseConfirmationPage = () => {
                     <tr>
                         <td> </td>
                         <td>high quality video file</td>
-                    </tr>
+                    </tr> */}
                     </tbody>
                 </table>
             </div>
@@ -95,7 +96,7 @@ const PurchaseConfirmationPage = () => {
 
 
             <div className="box-button-confirm">
-                <button className="confirm">Confirm & Pay</button>
+                <NavLink to='/' className="confirm">Confirm & Pay</NavLink>
             </div>
 
 
