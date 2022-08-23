@@ -19,14 +19,15 @@ function HomePage() {
                 </div>               
             </div>
         </div>
+        
+        <div id='category'>
         <div className='container pb-5'>
             <div className='container p-0'>
                 <h3>Most Loved by Indonesian</h3>
             </div>
             <div className='container-fluid p-0'>
                 <div className=' d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
-                    <ServiceCard />
-                    <ServiceCard />
+                    <ServiceCard/>
                     <ServiceCard />
                     <ServiceCard />
                     <ServiceCard />
@@ -56,6 +57,7 @@ function HomePage() {
                     <ServiceCard />
                 </div>
             </div>
+        </div>
         </div>
     </div>
   )

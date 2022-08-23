@@ -1,7 +1,9 @@
-import { React, useState } from "react"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import "./signUpView.css"
 
 const SignUpView = () => {
+  const navigate = useNavigate();
 
   const [step,setStep]= useState(1);
 
@@ -31,8 +33,7 @@ const SignUpView = () => {
                               <button className="col-6 btn btn-light"
                               onClick={handleContinue}
                               >Continue</button>
-                              <div className="by-joining m-2 pb-2">By joining I agree to receive emails from Surpreedz</div>
-                              
+                              <div className="by-joining m-2 pb-2">By joining I agree to receive emails from Surpreedz</div>                              
                               <div className="col-12" style={{border: "1px solid #000000"}}></div>
                               <div className="col-md-12 py-3 d-flex flex-row justify-content-center">
                                   <div className="already">Already a member?</div>
@@ -73,7 +74,9 @@ const SignUpView = () => {
                           <div className="col-md-12" style={{border: "1px solid #000000"}}></div>
                           <div className="col-md-12 p-3 d-flex flex-row justify-content-center">
                               <div className="already"> Already a member ?</div>
-                              <div className="sign-in btn-link"> Sign In</div>
+                              <div
+                              onClick={()=> {navigate('/sign-in')}}
+                              className="sign-in btn-link"> Sign In</div>
                           </div>
                       </form> 
                   </div>

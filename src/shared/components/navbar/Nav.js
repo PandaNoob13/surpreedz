@@ -1,7 +1,14 @@
+import { NavLink, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import logo from "./SurpreedzLogo.png"
 
-function NavbarSellerBuyer() {
+const Nav = () => {
+    const auth = localStorage.getItem('userCred')
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/')
+    }
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
@@ -14,17 +21,20 @@ function NavbarSellerBuyer() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll me-3">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/category">Category</a>
+                        <NavLink to='/' className="nav-link" aria-current="page">Category</NavLink>
                     </li>
                 </ul>
+
+            { auth ?
+
                 <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target=".navbar-collapse.show" aria-expanded="false">
                         Seller
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/">Request List</a></li>
-                            <li><a className="dropdown-item" href="/">Service</a></li>
+                            <li><NavLink to="/request-list" className="dropdown-item">Request List</NavLink></li>
+                            <li><NavLink to="/service"  className="dropdown-item">Service</NavLink></li>
                         </ul>
                     </li>
                     <li className="nav-item dropdown">
@@ -32,29 +42,41 @@ function NavbarSellerBuyer() {
                             Buyer
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/">Purchase List</a></li>
+                            <li><NavLink to="/purchase-list" className="dropdown-item">Purchase List</NavLink></li>
                         </ul>
                     </li>
-                </ul>
-                <ul className="navbar-nav mb-2 mb-lg-0">
                     <li className="nav-item dropdown me-2">
-                        <a className="nav-link dropdown-toggle py-0" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src="https://media.kompas.tv/library/image/content_article/article_img/20220219044109.jpg" alt="" />
-                        </a>
+                        </div>
                         <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                             <li><span className="dropdown-item text-dropdown">Signed in as <b>conan_kun</b></span></li>
                             <div className="dropdown-divider"></div>
-                            <li><a className="dropdown-item" href="/">Profile</a></li>
+                            <NavLink to="/profile" className="dropdown-item" >Profile</NavLink>
                             <div className="dropdown-divider"></div>
-                            <li><a className="dropdown-item" href="/">Sign Out</a></li>
+                            <button  className="dropdown-item" onClick={handleLogout}>Sign Out</button>
                         </ul>
                     </li>
                 </ul>
+                :
+                <ul className="navbar-nav mb-2 mb-lg-0" >
+                    <li className="nav-item">
+                        <NavLink to='/sign-in' className="nav-link" aria-current="page">Sign In</NavLink>
+                    </li>
+
+                    <NavLink to='/sign-up'>
+                    <button className="btn btn-outline-light" type="submit">Sign Up</button>
+                    </NavLink>
+                </ul>
+                
+        }
+
+                
             </div>
         </div>
       
     </nav>
-  );
+  )
 }
 
-export default NavbarSellerBuyer;
+export default Nav
