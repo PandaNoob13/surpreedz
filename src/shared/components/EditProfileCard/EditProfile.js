@@ -32,10 +32,10 @@ const EditProfile = () => {
                         <label htmlFor="inputLocation" className="form-label text-white">Location</label>
                         <input type="text" className="form-control" placeholder={location} id="inputLocation"/>
                     </div>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                         <label htmlFor="inputLanguage" className="form-label text-white">Language</label>
                         <input type="text" className="form-control" placeholder="Indonesian, English" id="inputLanguage"/>
-                    </div>
+                    </div> */}
                     <button type="submit" className="btn btn-success">Save Changes</button>
                 </form>
             </div>

@@ -18,9 +18,9 @@ const EditProfileCard = () => {
                         <Nav.Item>
                             <Nav.Link eventKey="#profile">Profile</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link eventKey="#account">Account</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             <Nav.Link eventKey="#security">Security</Nav.Link>
                         </Nav.Item>

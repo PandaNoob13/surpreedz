@@ -21,8 +21,8 @@ const AppRouter = () => {
           <Route path="/service" element={<ServicePage/>}></Route>
           <Route path='/purchase-list' element={<PurchaseListPage/>}></Route>
           <Route path='/profile' element={<EditProfilePage/>}></Route>
-        {/* <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route> */}
-
+          <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route>
+          <Route path='/purchase-confirmation'></Route>
       </Route>
 
       <Route index element={<HomePage/>}></Route>
