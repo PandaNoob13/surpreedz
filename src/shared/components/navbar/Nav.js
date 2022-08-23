@@ -27,8 +27,7 @@ const Nav = () => {
 
             { auth ?
 
-                <div className="d-flex">
-                    <ul className="navbar-nav mb-2 mb-lg-0" >
+                <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seller
@@ -46,8 +45,6 @@ const Nav = () => {
                             <li><NavLink to="/purchase-list" className="dropdown-item">Purchase List</NavLink></li>
                         </ul>
                     </li>
-                </ul>
-                <ul className="navbar-nav mb-2 mb-lg-0">
                     <li className="nav-item dropdown me-2">
                         <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src="https://media.kompas.tv/library/image/content_article/article_img/20220219044109.jpg" alt="" />
@@ -61,20 +58,17 @@ const Nav = () => {
                         </ul>
                     </li>
                 </ul>
-                </div>
                 :
-                <div className="d-flex">
-                    <ul className="navbar-nav mb-2 mb-lg-0" >
+                <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item">
                         <NavLink to='/sign-in' className="nav-link" aria-current="page">Sign In</NavLink>
                     </li>
-                </ul>
-                <ul className="navbar-nav mb-2 mb-lg-0 mx-1">
+
                     <NavLink to='/sign-up'>
                     <button className="btn btn-outline-light" type="submit">Sign Up</button>
                     </NavLink>
                 </ul>
-                </div>
+                
         }
 
                 
