@@ -4,12 +4,24 @@ const serviceCardData = {
     picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
     name: "Gisella Anastasia",
     email: "gisella_anastasia@gmail.com",
-    category: "Aktris",
+    //category: "Aktris",
     location: "Indonesia",
     currency: "IDR",
     price: 1600000,
     rating: 4.9,
     createdAt: "01-01-2022"
+}
+
+const IsSeller = (category) => {
+    if (category != undefined){
+        return (
+            <>
+                <p className="card-text mb-0"><small>Category</small></p>
+                <p className="card-text">{category}</p>
+            </>
+
+        )
+    }
 }
 
 const ProfileCard = () => {
@@ -23,8 +35,7 @@ const ProfileCard = () => {
                 {/* <p className="card-text text-center"><small className="text-muted">{username}</small></p> */}
                 {/* <a href={email} className="btn btn-success mx-auto d-block">Email me</a> */}
                 <div className="mt-3">
-                    <p className="card-text mb-0"><small>Category</small></p>
-                    <p className="card-text">{category}</p>
+                    {IsSeller(category)}
                     <p className="card-text mb-0"><small>From</small></p>
                     <p className="card-text">{location}</p>
                     {/* <p className="card-text mb-0"><small>Language</small></p>

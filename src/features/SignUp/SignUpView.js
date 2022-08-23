@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import EditAccount from "../../shared/components/EditProfileCard/EditAccount";
 import "./signUpView.css"
 
 const SignUpView = () => {
@@ -28,16 +29,18 @@ const SignUpView = () => {
                       </div>
     
                       <div className="col-lg-4 card bg-card align-self-center align-items-center">
+                        {/* <EditAccount/> */}
                           <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
-                              <input className="form-control p-3 m-4" placeholder="Enter Your Email" />
-                              <button className="col-6 btn btn-light"
+                              <input className="form-control p-3 m-2" type="email" placeholder="Enter Your Email" />
+                              <input className="form-control p-3 m-2" type="password" placeholder="Choose a Password" />
+                              <button className="col-6 btn btn-light m-4"
                               onClick={handleContinue}
                               >Continue</button>
-                              <div className="by-joining m-2 pb-2">By joining I agree to receive emails from Surpreedz</div>                              
+                              <div className="by-joining m-2 pb-2">By joining I agree to all policies from Surpreedz</div>                              
                               <div className="col-12" style={{border: "1px solid #000000"}}></div>
                               <div className="col-md-12 py-3 d-flex flex-row justify-content-center">
                                   <div className="already">Already a member?</div>
-                                  <div className="sign-in btn-link">Sign In</div>
+                                  <NavLink to='/sign-in' className="sign-in btn-link">Sign In</NavLink>
                               </div>
                           </form> 
                       </div>
@@ -57,26 +60,25 @@ const SignUpView = () => {
                     </div>
                     <div className="col-lg-4 card bg-card align-self-center align-items-center">
                           <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
-                          <input className="form-control p-3 m-2" placeholder="Choose a Username" />
-                          <input className="form-control p-3 m-2" placeholder="Choose a Password" />
+                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your name" />
+                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your location" />
+
 
                           <div className="container justify-content-around row m-2">
-                            <button className="col-md-5 btn btn-light m-1"
+                            <button className="col-md-5 btn btn-light m-2"
                             onClick={handleBack}
                             >Back</button>
-                            <button className="col-md-5 btn btn-light m-1"
+                            <button className="col-md-5 btn btn-light m-2"
                             >Join</button>
 
                           </div>
                           
-                          <div className="by-joining m-2 pb-2">By joining, you agree to Surpreedz's Terms of Service, as well as to receive occasional emails from us</div>
+                          <div className="by-joining m-2 pb-2">By joining I agree to all policies from Surpreedz</div>                              
                           
                           <div className="col-md-12" style={{border: "1px solid #000000"}}></div>
                           <div className="col-md-12 p-3 d-flex flex-row justify-content-center">
                               <div className="already"> Already a member ?</div>
-                              <div
-                              onClick={()=> {navigate('/sign-in')}}
-                              className="sign-in btn-link"> Sign In</div>
+                              <NavLink to='/sign-in' className="sign-in btn-link">Sign In</NavLink>
                           </div>
                       </form> 
                   </div>

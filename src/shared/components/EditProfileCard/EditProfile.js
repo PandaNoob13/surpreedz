@@ -36,7 +36,7 @@ const EditProfile = () => {
                         <label htmlFor="inputLanguage" className="form-label text-white">Language</label>
                         <input type="text" className="form-control" placeholder="Indonesian, English" id="inputLanguage"/>
                     </div> */}
-                    <button type="submit" className="btn btn-success">Save Changes</button>
+                    <button type="submit" className="btn btn-success">Submit</button>
                 </form>
             </div>
         </div>        

@@ -21,7 +21,7 @@ function OrderDetailPage() {
                         <OccasionCard />
                         <PersonalisedMessageCard />
                         <div className='d-flex justify-content-end'>
-                            <NavLink to='/' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
+                            <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
                         </div>
                     </div>
                 </div>

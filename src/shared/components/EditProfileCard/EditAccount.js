@@ -32,7 +32,7 @@ const EditAccount = () => {
                         <label htmlFor="inputEmail" className="form-label text-white">Email</label>
                         <input type="email" className="form-control" placeholder={email} id="inputEmail"/>
                     </div>
-                    <button type="submit" className="btn btn-success">Save Changes</button>
+                    <button type="submit" className="btn btn-success">Submit</button>
                 </form>
             </div>
         </div>

@@ -23,7 +23,7 @@ return (
                           <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
                           <input className="form-control p-3 m-2" placeholder="Username/email" />
                           <input className="form-control p-3 m-2" placeholder="Password" />
-                          <button onClick={handleLogin} className="col-md-10 btn btn-light"
+                          <button onClick={handleLogin} className="col-md-10 btn btn-light m-4"
                           >Continue</button>
                           <div className="col-md-12 d-flex m-3 flex-row justify-content-around">
                                 <div className="form-check">
