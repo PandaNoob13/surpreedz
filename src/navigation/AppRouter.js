@@ -7,7 +7,7 @@ import RequestListPage from "../features/RequestListPage/RequestListPage"
 import ServicePage from "../features/AddEditServicePage/ServicePage"
 import EditProfilePage from '../features/EditProfilePage/EditProfilePage'
 import OrderDetailPage from '../features/OrderDetailPage/OrderDetailPage'
-import ProtectedPage from '../shared/fakeAuth/ProtectedPage'
+import ProtectedPage from "../navigation/ProtectedPage"
 import Nav from '../shared/components/navbar/Nav'
 import Footer from "../shared/components/Footer/Footer"
 
