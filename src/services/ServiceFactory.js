@@ -1,9 +1,11 @@
 import SignInService from "./SignInService"
+import SignUpService from "./SignupService"
 
 
 const ServiceFactory = (apiClient) => {
   return {
-        signInService : SignInService(apiClient)
+        signInService : SignInService(apiClient),
+        signUpService : SignUpService(apiClient)
   }
 }
 

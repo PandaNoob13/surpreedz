@@ -81,24 +81,23 @@ return (
                   <div  className="col-lg-4 card bg-card align-self-center align-items-center">
                       <form onSubmit={handleSubmit} className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
                           <input className="form-control p-3 m-2"
-                          placeholder="Username/email"
-                          type="email"
-                          name="email"
-                          id="email"
-                          onChange={handleEmailChange}
+                            placeholder="Username/email"
+                            type="email"
+                            name="email"
+                            id="email"
+                            onChange={handleEmailChange}
                           />
                           <input className="form-control p-3 m-2" placeholder="Password"
-                          type="password"
-                          name="password"
-                          id="password"
-                          onChange={handlePasswordChange} />
+                            type="password"
+                            name="password"
+                            id="password"
+                            onChange={handlePasswordChange} />
                           <button
-                          type="submit"
-                          name="submit" 
-                          id="submit"  
-                          className="col-md-10 btn btn-light m-4"
-                          disabled={buttonDisabled}
-                          >Continue</button>
+                            type="submit"
+                            name="submit" 
+                            id="submit"  
+                            className="col-md-10 btn btn-light m-4"
+                            disabled={buttonDisabled}>Continue</button>
                           <div className="col-md-12 d-flex m-3 flex-row justify-content-around">
                                 <div className="form-check">
                                         <input className="form-check-input" type="checkbox" value="" id="check-remmeber-me" />
