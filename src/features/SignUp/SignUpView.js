@@ -1,20 +1,10 @@
-import { useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom";
-import EditAccount from "../../shared/components/EditProfileCard/EditAccount";
+import React from "react"
+import { NavLink } from "react-router-dom";
 import "./signUpView.css"
+import UseSignUp from "./UseSignUp";
 
 const SignUpView = () => {
-  const navigate = useNavigate();
-
-  const [step,setStep]= useState(1);
-
-  const handleContinue = () => {
-      setStep(step + 1);
-  }
-
-  const handleBack =  () => {
-    setStep(step - 1);
-  }
+  const {handleContinue, handleBack, navigate, step, email, password, name, location, handleSubmit, buttonDisabled, setEmail, setLocation, setPassword, setName /*photo_blob*/} = UseSignUp()
 
   switch (step) {
     case 1:
@@ -31,8 +21,8 @@ const SignUpView = () => {
                       <div className="col-lg-4 card bg-card align-self-center align-items-center">
                         {/* <EditAccount/> */}
                           <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
-                              <input className="form-control p-3 m-2" type="email" placeholder="Enter Your Email" />
-                              <input className="form-control p-3 m-2" type="password" placeholder="Choose a Password" />
+                              <input className="form-control p-3 m-2" type="email" placeholder="Enter Your Email" value={email} id="email" onChange={e => setEmail(e.target.value)}/>
+                              <input className="form-control p-3 m-2" type="password" placeholder="Choose a Password" value={password} id="password" onChange={e => setPassword(e.target.value)}/>
                               <button className="col-6 btn btn-light m-4"
                               onClick={handleContinue}
                               >Continue</button>
@@ -60,8 +50,8 @@ const SignUpView = () => {
                     </div>
                     <div className="col-lg-4 card bg-card align-self-center align-items-center">
                           <form className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
-                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your name" />
-                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your location" />
+                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your name" value={name} id="name" onChange={e => setName(e.target.value)}/>
+                          <input className="form-control p-3 m-2" type="text" placeholder="Enter your location" value={location} id="Location" onChange={e => setLocation(e.target.value)}/>
 
 
                           <div className="container justify-content-around row m-2">
@@ -69,6 +59,7 @@ const SignUpView = () => {
                             onClick={handleBack}
                             >Back</button>
                             <button className="col-md-5 btn btn-light m-2"
+                            onClick={handleSubmit} disabled={buttonDisabled}
                             >Join</button>
 
                           </div>
