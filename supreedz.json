@@ -1,0 +1,97 @@
+{
+  "uuid": "edae1d90-5d35-4259-9f03-466bd8d7b464",
+  "lastMigration": 22,
+  "name": "Supreedz",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8080,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "bbe79977-ece8-4814-bbde-befa82356eda",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "auth/login",
+      "responses": [
+        {
+          "uuid": "0de72e60-d6ff-4e97-aab9-21a34b1b09e3",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Unauthorized login",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "6845d52e-559b-41b0-bee0-fdb6a57da377",
+          "body": "{\n  \"token\":{\n    \"AccessToken\":\"{{faker 'datatype.uuid'}}\"\n  }\n    \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success login with username and password",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "grup4@email.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "abcdefgh",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
