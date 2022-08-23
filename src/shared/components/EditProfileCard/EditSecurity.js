@@ -39,7 +39,7 @@ const EditSecurity = () => {
                         <label htmlFor="inputRetypeNewPass" className="form-label text-white">Retype New Password</label>
                         <input type="password" className="form-control" id="inputRetypeNewPass"/>
                     </div>
-                    <button type="submit" className="btn btn-success">Save Changes</button>
+                    <button type="submit" className="btn btn-success">Submit</button>
                 </form>
             </div>
         </div>
