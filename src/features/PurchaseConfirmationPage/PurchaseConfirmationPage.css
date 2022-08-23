@@ -1,4 +1,6 @@
-.purchase-confirmation-container{
+
+
+ .purchase-confirmation-container{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -62,7 +64,6 @@
     font-weight: 400;
     align-self: flex-start;
     text-align:center;
-    /* border-radius: 10px; */
     color: #FFFFFF;
     margin-left: 3%;
     margin-bottom: 5%;
@@ -198,4 +199,4 @@
     display: flex;
     justify-content: center;
     margin: 10%;
-}
+} 

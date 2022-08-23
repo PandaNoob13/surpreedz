@@ -7,28 +7,28 @@ import { NavLink } from "react-bootstrap";
 
 const PurchaseConfirmationPage = () => {
   return (
-    <div className="col-md-12 purchase-confirmation-container">
+    <div className='text-white' style={{background: "#212121"}}>
+    <div className="container d-flex">
         <div className="col-md-1"></div>
-        <div className="col-md-5 payment-option">
-            
+        <div className="col-md-5 card " style={{borderRadius: "12px", backgroundColor:"#373535"}} >
             <div className="title-payment">
                     Payment Option
             </div>
             <div className="line"></div>
             
-            <div className="ewallet-bank">
+            <div className="">
             <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <img className="img-ewallet" src="" alt="" />
-                <img className="img-ewallet" src="" alt="" />
-                <img className="img-ewallet" src="" alt="" />
-                <img className="img-ewallet" src="" alt="" />
+                <img className="img-thumbnail" src="" alt="" />
+                <img className="img-thumbnail" src="" alt="" />
+                <img className="img-thumbnail" src="" alt="" />
+                <img className="img-thumbnail" src="" alt="" />
             </div>
             <div className="no-ewallet">
                 <h3>+628712345678</h3>
             </div>
             <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <img className="img-bank" src="" alt=""></img>
-                <img  className="img-bank" src="" alt="" />
+                <img className="img-thumbnail" src="" alt=""></img>
+                <img  className="img-thumbnail" src="" alt="" />
             </div>
             <div className="no-bank">
                 <h3>123456789</h3>
@@ -39,7 +39,7 @@ const PurchaseConfirmationPage = () => {
 
         <div className="col-md-1"></div>
 
-        <div className="col-md-3 invoice">
+        <div className="col-md-3 card " style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <div className="service">
                     <img className="img-service" src="" alt="">
                     </img>
@@ -103,6 +103,7 @@ const PurchaseConfirmationPage = () => {
         </div>
         <div className="col-md-1"></div>
       
+    </div>
     </div>
   )
 }
