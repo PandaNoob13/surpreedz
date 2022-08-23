@@ -1,3 +1,5 @@
+import SignInService from "./SignInService"
+import SignUpProfileService from "./SignUpProfileService"
 
 const ServiceFactory = (apiClient) => {
   return {
