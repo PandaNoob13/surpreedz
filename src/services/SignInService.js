@@ -1,19 +1,14 @@
 const SignInService = ({doPost}) => {
-    const signinPost = async (email,password) => {
-        try{
-            return await doPost({
-                url:'/sign-in',data: {
-                    email,
-                    password
-                }
-            })
-        }catch(e){
-            throw e;
+    const postLogin = async (data) => {
+        console.log("Try Login Service Post");
+        try {
+            return await doPost({url: '/auth/login', data: data})
+        } catch (error) {
+            throw error
         }
     }
-    return {
-        signinPost
-    }
+    return {postLogin}
+  
 }
 
 export default SignInService
