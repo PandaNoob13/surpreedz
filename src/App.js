@@ -1,12 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import PurchaseConfirmationPage from './features/PurchaseConfirmationPage/PurchaseConfirmationPage';
+import AppRouter from "./navigation/AppRouter";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <PurchaseConfirmationPage/>
-    </div>
-  );
+    <>
+    <AppRouter/>
+    
+    </>
+  )
 }
 
 export default App;
