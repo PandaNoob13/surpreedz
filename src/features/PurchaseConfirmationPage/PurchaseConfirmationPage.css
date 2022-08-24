@@ -9,7 +9,6 @@
 .title-payment{
     font-weight: 400;
     color: #FFFFFF;
-    font-family: 'SF Pro Display';
     font-size: 24px;
 }
 
@@ -23,7 +22,6 @@
 
 .font-general{
     color: #FFFFFF;
-    font-family: 'SF Pro Display';
     font-size: 20px;
 }
 
@@ -38,7 +36,6 @@
 }
 
 .button-confirm{
-    font-family: 'SF Pro Display';
     font-size: 24px;
     font-weight: 600;
 }  

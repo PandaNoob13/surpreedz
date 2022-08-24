@@ -10,6 +10,7 @@ import OrderDetailPage from '../features/OrderDetailPage/OrderDetailPage'
 import ProtectedPage from "../navigation/ProtectedPage"
 import Nav from '../shared/components/navbar/Nav'
 import Footer from "../shared/components/Footer/Footer"
+import PurchaseConfirmationPage from '../features/PurchaseConfirmationPage/PurchaseConfirmationPage'
 
 const AppRouter = () => {
   return (
@@ -25,7 +26,7 @@ const AppRouter = () => {
 
       </Route>
 
-      <Route index element={<HomePage/>}></Route>
+      <Route index element={<PurchaseConfirmationPage/>}></Route>
       <Route  path="/sign-in" element={<SignInView/>}></Route>
       <Route  path="/sign-up" element={<SignUpView/>}></Route>
      
