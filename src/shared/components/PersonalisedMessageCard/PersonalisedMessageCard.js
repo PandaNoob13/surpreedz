@@ -3,21 +3,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-const serviceCardData = {
-    picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
-    name: "Gisella Anastasia",
-    username: "gisella_anastasia",
-    email: "gisella_anastasia@gmail.com",
-    category: "Aktris",
-    location: "Indonesia",
-    currency: "IDR",
-    price: 1600000,
-    rating: 4.9,
-    createdAt: "01-01-2022"
-}
-
-function PersonalisedMessageCard() {
-    const {picUrl, name, username, email, category, location, currency, price, rating, createdAt} = serviceCardData;
+function PersonalisedMessageCard(props) {
+    const name = props.name;
 
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 
 const useSignIn = () => {
@@ -44,11 +43,15 @@ const useSignIn = () => {
             window.localStorage.setItem('service_detail_id', account.ServiceDetail.id)
             window.localStorage.setItem('service_detail_role', account.ServiceDetail.role)
             window.localStorage.setItem('service_detail_desc', account.ServiceDetail.description)
-            console.log('role: ', account.ServiceDetail.role);
-            console.log('description: ', account.ServiceDetail.description);
-            const serviceDetail = account.ServiceDetail
-            // const price = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
-            // window.localStorage.setItem('service_detail_price', price.price)
+            if (account.ServiceDetail.id != 0){
+                const serviceDetail = account.ServiceDetail
+                console.log(serviceDetail.ServicePrices);
+                const price = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
+                window.localStorage.setItem('service_detail_price', price.price)
+            } else {
+                window.localStorage.setItem('service_detail_price', 0)
+                console.log("No service detail");
+            }
             const accountDetail = account.AccountDetail
             const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1]
             window.localStorage.setItem('photo_profile', photoProfile.photo_link);
