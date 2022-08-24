@@ -44,7 +44,7 @@ const Nav = () => {
                             <li><NavLink to="/purchase-list" className="dropdown-item">Purchase List</NavLink></li>
                         </ul>
                     </li>
-                    <li className="nav-item dropdown me-2">
+                    <li className="nav-item dropdown me-2 p-2">
                         <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src="https://media.kompas.tv/library/image/content_article/article_img/20220219044109.jpg" alt="" />
                         </div>
