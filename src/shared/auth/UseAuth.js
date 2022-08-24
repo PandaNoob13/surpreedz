@@ -25,23 +25,8 @@ export const AuthProvider = ({children}) => {
         setToken(null)
         navigate('/', {replace: true})
     }
-    const onSignUp = (token) => {
-        if (token.AccessToken !== undefined){
-            console.log(`Token : ${token}`);
-            console.log('dapet token');
-            console.log(token);
-            window.sessionStorage.setItem('token', token.AccessToken);
-            setToken(token.AccessToken);
-            navigate('/#category', {replace: true})
-        } else {
-            console.log(token.AccessToken);
-            console.log('Token is null');
-            window.sessionStorage.clear();
-        }
-
-    }
     return (
-        <AuthContext.Provider value={{token, onLogin, onLogout, onSignUp}}>
+        <AuthContext.Provider value={{token, onLogin, onLogout}}>
             {children}
         </AuthContext.Provider>
     )
