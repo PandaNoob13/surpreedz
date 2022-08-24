@@ -2,21 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import React from 'react';
 
-const serviceCardData = {
-    picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
-    name: "Gisella Anastasia",
-    username: "gisella_anastasia",
-    email: "gisella_anastasia@gmail.com",
-    category: "Aktris",
-    location: "Indonesia",
-    currency: "IDR",
-    price: 1600000,
-    rating: 4.9,
-    createdAt: "01-01-2022"
-}
-
-const EditProfile = () => {
-    const {picUrl, name, username, email, category, location, currency, price, rating, createdAt} = serviceCardData;
+const EditProfile = (props) => {
+    const {picUrl, name, email, location, joinDate} = props.data;
 
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
@@ -24,7 +11,7 @@ const EditProfile = () => {
                 <h5 className="card-title text-white mb-3">Edit Profile</h5>
                 <form>
                     <div className="mb-3">
-                        <label htmlFor="inputFullName" className="form-label text-white">Full name</label>
+                        <label htmlFor="inputFullName" className="form-label text-white">Name</label>
                         <input type="text" className="form-control" placeholder={name} id="inputFullName"/>
                         {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                     </div>

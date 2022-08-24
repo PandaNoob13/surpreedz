@@ -22,6 +22,7 @@ export const AuthProvider = ({children}) => {
     }
     const onLogout = () => {
         window.sessionStorage.clear();
+        window.localStorage.clear();
         setToken(null)
         navigate('/', {replace: true})
     }

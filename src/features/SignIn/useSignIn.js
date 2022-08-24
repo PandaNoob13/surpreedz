@@ -11,24 +11,22 @@ const useSignIn = () => {
     const {signInService} = useDeps();
     const [isLoading, setLoading] = useState(false);
 
-    const [isError, setIsError] = useState(true);
+    const [account, setAccount] = useState('');
     const [posts, setPosts] = useState({})
 
     const onPostSignIn = async (email,password) => {
-        console.log("On Post Sign In Called");
         setLoading(true);
-        console.log(email);
-        console.log(password);
+        console.log("On Post Sign In Called"); 
         try {
             const response = await signInService.postLogin({
                 email: email,
                 password: password
             })
             console.log('response token', response.token);
+            console.log('response account', response.account);
             setPosts(response.token)
-            setIsError(false)
+            setAccount(response.account)
         } catch (error) {
-            setIsError(true)
             console.log(error);
             alert(error)
         }finally{
@@ -37,10 +35,26 @@ const useSignIn = () => {
     }
 
     useEffect(() => {
-        if (isError == false) {
+        if (account != '') {
+            window.localStorage.setItem('account_id', account.id);
+            window.localStorage.setItem('account_email', account.email);
+            window.localStorage.setItem('account_name', account.AccountDetail.name);
+            window.localStorage.setItem('account_location', account.AccountDetail.location);
+            window.localStorage.setItem('account_join_date', account.join_date)
+            window.localStorage.setItem('service_detail_id', account.ServiceDetail.id)
+            window.localStorage.setItem('service_detail_role', account.ServiceDetail.role)
+            window.localStorage.setItem('service_detail_desc', account.ServiceDetail.description)
+            console.log('role: ', account.ServiceDetail.role);
+            console.log('description: ', account.ServiceDetail.description);
+            const serviceDetail = account.ServiceDetail
+            // const price = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
+            // window.localStorage.setItem('service_detail_price', price.price)
+            const accountDetail = account.AccountDetail
+            const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1]
+            window.localStorage.setItem('photo_profile', photoProfile.photo_link);
             navigate('/')
         }
-    }, [isError])
+    }, [account])
 
     useEffect(() => {
         onLogin(posts)
