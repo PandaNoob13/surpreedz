@@ -1,89 +1,89 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./PurchaseConfirmationPage.css"
-import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { NavLink } from "react-router-dom";
 
 
 const PurchaseConfirmationPage = () => {
   return (
-    <div style={{backgroundColor:'#212121'}}>
-    <div className="container">
-
-        <div className="d-flex flex-row justify-content-around align-items-center min-vh-100 py-auto">
-                <div className="col-md-6 card d-flex flex-column p-3" style={{backgroundColor:'#373535'}}>
-                        <div className="col-md-11 title-payment"><h3>Payment Option</h3></div>
-                        <div className="col-md-11  line"></div>
-                        <div className="col-md-12 d-flex flex-row justify-content-around mt-5 mb-3">
+    <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
+        <div className="container py-5">
+            <div className='row'>
+                <div className='payment-option col-md-5 '>
+                    <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
+                        <h4 className="card-title">Payment Option</h4>
+                        <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
+                        <div className="d-flex flex-row justify-content-around mt-5 mb-3">
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                         </div>
-                        <div className="col-md-6 card bg-dark mt-3 mb-3">
-                            <h5 className="no-ewallet">+628XXXXXXXXXX</h5>
+                        <div className="card bg-dark mt-3 mb-3">
+                            <p className="card-text p-2">+628XXXXXXXXXX</p>
                         </div>
-                        <div className="col-md-12 d-flex flex-row justify-content-around mt-5 mb-3">
+                        <div className="d-flex flex-row justify-content-around mt-5 mb-3">
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                             <img className="img-thumbnail" src="" alt="" />
                         </div>
-                        <div className="col-md-6 card bg-dark mt-3 mb-3">
-                            <h5 className="no-ewallet">XXXXXXXXXXXXX</h5>
+                        <div className="card bg-dark mt-3 mb-3">
+                            <p className="card-text p-2">XXXXXXXXXXXXXX</p>
                         </div>
-                        
+                    </div>                    
                 </div>
-                
-                <div className="col-md-4 card p-3" style={{backgroundColor:'#373535'}}>
-                       <div className="col-md-12 d-flex flex-row justify-content-between mt-3">
-                            <img className="col-md-4 img-thumbnail" src="" alt=""></img>
-                            <div className="col-md-6 font-general m-3"><h4>Graduation Greeting</h4></div>
-                       </div>
-                       <div className="col-md-11 line mb-2 mt-3"></div>
-                       <div className="col-md-12 d-flex flex-row ">
-                            <div className="col-md-9 font-general">Graduation greeting</div>
-                            <div className="col-md-3 font-general">Rp 575K</div>
-                       </div>
-                       <div className="col-md-10 card detail-invoice m-4">
-                        <table className="">
-                            <thead></thead>
-                            <tbody>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            </tbody>
-                        </table>
+                <div className='bill-confirm col-md-7'>
+                    <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
+                        <div className="d-flex flex-row align-items-center">
+                            <img className="img-thumbnail" src="" alt=""></img>
+                            <h4 className="card-title ms-3">Graduation Greeting</h4>
+                        </div>
+                        <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
+                        <div className="d-flex flex-row justify-content-between">
+                            <p className="card-text">Graduation greeting</p>
+                            <p className="card-text">Rp575,000,00</p>
+                        </div>
+                        <div className="card detail-order mb-3">
+                            <div className="container text-black py-2">
+                                <div className='d-flex flex-auto align-items-center'>
+                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>1 revision</p>
+                                </div>
+                                <div className='d-flex flex-auto align-items-center'>
+                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>a minute length</p>
+                                </div>
+                                <div className='d-flex flex-auto align-items-center'>
+                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>high quality video file</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="d-flex flex-row justify-content-between">
+                            <p className="card-text">Service fee</p>
+                            <p className="card-text">Rp25.000,00</p>
+                        </div>
+
+                        <div className="d-flex flex-row justify-content-between">
+                            <p className="card-text">Total</p>
+                            <p className="card-text">Rp600.000,00</p>
+                        </div>
+
+                        <div className="d-flex flex-row justify-content-between">
+                            <p className="card-text">Delivery in</p>
+                            <p className="card-text">5 days</p>
+                        </div>
+
+
+                        <div className="d-flex flex-row justify-content-around mb-4 mt-4">
+                            <NavLink to='/' className="col-10 btn btn-light" >Confirm & Pay</NavLink>
+                        </div>
                     </div>
-
-                    <div className="col-md-12 d-flex flex-row mb-2">
-                        <div className="col-md-9 font-general">Service fee</div>
-                        <div className="col-md-3 font-general">Rp 25K</div>
-                    </div>
-
-                    <div className="col-md-12 d-flex flex-row mb-2">
-                        <div className="col-md-9 font-general">Total</div>
-                        <div className="col-md-3 font-general">Rp 600K</div>
-                    </div>
-
-                    <div className="col-md-12 d-flex flex-row mb-2">
-                        <div className="col-md-9 font-general">Delivery in</div>
-                        <div className="col-md-3 font-general">5 days</div>
-                    </div>
-
-
-                    <div className="col-md-12 d-flex flex-row justify-content-around mb-4 mt-4">
-                        <NavLink to='/' className="col-md-10 btn btn-light button-confirm" >Confirm & Pay</NavLink>
-                    </div>
-
-
-
                 </div>
-
-        
+            </div>
         </div>
     </div>
-</div>
   )
 }
 
