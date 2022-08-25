@@ -1,53 +1,59 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import plus from './plus-square.svg'
 
 
 const VideoInput = (props) => {
-    const { width, height,num } = props;
-
-    const inputRef = useRef();
-
-    // console.log('useRef => ', useRef());
+    const { width, height,num,videoNum} = props;
+    const [videoFile, setVideoFile] = useState()
   
     const [source, setSource] = useState();
   
     const handleFileChange = (event) => {
       const file = event.target.files[0];
+      setVideoFile(file)
+      console.log('file => ', file);
       const url = URL.createObjectURL(file);
       setSource(url);
       console.log("source hbs change =",source);
     };
-  
-    const handleChoose = (event) => {
-      inputRef.current.click();
-      console.log("source hbs choose=",source);
-    };
 
-    // const handleCancel = () => {
-    //   console.log("source sblm cancel=",source);
-    //   setSource();
-    //   console.log("source hbs cancel =",source);
-    // }
+    const handleUpload = () => {
+      localStorage.setItem(`video ${num}`,source);
+      console.log(`${videoNum}`,source);
+    }
+
+    const handleSubmitVideo = () => {
+      const formData = new FormData()
+      formData.append('video',videoFile)
+      console.log('form data => ', formData);
+    }
   
     return (
       <div className="card d-flex flex-column justify-content-center" style={{minHeight:'300px'}}>
         <input
-          //ref={inputRef}
-          //className="VideoInput_input"
+          className="VideoInput_input"
           type="file"
           onChange={handleFileChange}
           accept=".mov,.mp4"
+          name={videoNum}
+          id={videoNum}
         />
-        {!source && <button className="btn" style={{fontWeight:'400'}} onClick={handleChoose}><img src={plus} alt="plus" /><br/>Video {num}
-        </button>}
+        {source !== undefined ? 
+         <label className="label-video-input" htmlFor={videoNum}><button className="btn btn-light">Change Video {num}</button></label> :
+         <label className="label-video-input" htmlFor={videoNum}><img style={{width:'40px', height:'20px'}} src={plus} alt="plus" /><div>Video {num}</div></label>
+         
+         }
+
         {source && (
           <div>
+          <br/>
           <video
             className="VideoInput_video"
             width="100%"
             height={height}
             controls
             src={source}
+            onDurationChange={handleSubmitVideo}
           />
           </div>
         )}

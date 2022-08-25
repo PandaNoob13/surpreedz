@@ -30,9 +30,23 @@
 
 }
   
-  .VideoInput_input {
-    display: none;
+.VideoInput_input {
+  
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
   }
+
+  .label-video-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
   
   .VideoInput_video {
     display: block;
