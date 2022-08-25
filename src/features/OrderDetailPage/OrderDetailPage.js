@@ -4,8 +4,11 @@ import OccasionCard from '../../shared/components/OccasionCard/OccasionCard'
 import PersonalisedMessageCard from '../../shared/components/PersonalisedMessageCard/PersonalisedMessageCard'
 import ProfileCard from '../../shared/components/ProfileCard/ProfileCard'
 import VideoCarouselCard from '../../shared/components/VideoCarouselCard/VideoCarouselCard'
+import {useAuth} from "../../shared/auth/UseAuth"
+
 
 function OrderDetailPage() {
+    const {token} = useAuth();
     const location = useLocation()
     const data = location.state
     const name = data.name
@@ -33,8 +36,12 @@ function OrderDetailPage() {
                         </div>
                         <PersonalisedMessageCard name={data.name} />
                         <div className='d-flex justify-content-end'>
-                            <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
-                        </div>
+                             {/* <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink> */}
+                             { token ? <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
+                             :
+                             <NavLink to='/sign-in' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
+                         }
+                         </div>
                 </div>
                 </div>
             </div>
