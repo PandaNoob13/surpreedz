@@ -1,19 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../auth/UseAuth";
 import "./navbar.css";
 import logo from "./SurpreedzLogo.png"
 
 const Nav = () => {
-    const auth = localStorage.getItem('userCred')
+    const {token,onLogout} = useAuth()
     const navigate = useNavigate();
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate('/')
-    }
+
+    
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
         <div className="container-fluid">
             <div className="navbar-brand pt-0 ms-3">
-                <img src={logo} alt='surpreedz' height={'24'}></img>
+                <NavLink to='/' className="nav-link" aria-current="page"><img src={logo} alt='surpreedz' height={'24'}></img></NavLink>
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -25,7 +24,7 @@ const Nav = () => {
                     </li>
                 </ul>
 
-            { auth ?
+            { token ?
 
                 <ul className="navbar-nav mb-2 mb-lg-0" >
                     <li className="nav-item dropdown">
@@ -54,7 +53,7 @@ const Nav = () => {
                             <div className="dropdown-divider"></div>
                             <NavLink to="/profile" className="dropdown-item" >Profile</NavLink>
                             <div className="dropdown-divider"></div>
-                            <button  className="dropdown-item" onClick={handleLogout}>Sign Out</button>
+                            <button  className="dropdown-item" onClick={onLogout}>Sign Out</button>
                         </ul>
                     </li>
                 </ul>

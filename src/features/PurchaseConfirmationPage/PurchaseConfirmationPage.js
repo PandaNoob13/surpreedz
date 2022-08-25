@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import "./PurchaseConfirmationPage.css"
+import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { NavLink } from "react-router-dom";
 
 
