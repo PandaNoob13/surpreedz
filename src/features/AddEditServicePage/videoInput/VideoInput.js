@@ -32,8 +32,8 @@ const VideoInput = (props) => {
     return (
       <div className="card d-flex flex-column justify-content-center" style={{minHeight:'300px'}}>
         <input
-          ref={inputRef}
-          className="VideoInput_input"
+          //ref={inputRef}
+          //className="VideoInput_input"
           type="file"
           onChange={handleFileChange}
           accept=".mov,.mp4"

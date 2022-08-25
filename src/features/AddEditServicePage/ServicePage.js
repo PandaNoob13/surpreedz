@@ -4,10 +4,10 @@ import useAddEditService from "./useAddEditService";
 import VideoInput from "./videoInput/VideoInput";
 
 const ServicePage = () => {
-      const accountId = window.localStorage.getItem('account_id')
-      const serviceDetailRole = window.localStorage.getItem('service_detail_role')
-      const serviceDetailDesc = window.localStorage.getItem('service_detail_desc')
-      const serviceDetailPrice = window.localStorage.getItem('service_detail_price')
+      var accountId = window.localStorage.getItem('account_id')
+      var serviceDetailRole = window.localStorage.getItem('service_detail_role')
+      var serviceDetailDesc = window.localStorage.getItem('service_detail_desc')
+      var serviceDetailPrice = window.localStorage.getItem('service_detail_price')
       const {onPostService} = useAddEditService();
       const [role, setRole] = useState(serviceDetailRole)
       const [description, setDescription] = useState(serviceDetailDesc)
@@ -27,8 +27,7 @@ const ServicePage = () => {
       }
 
       const handleSubmit = async (event) => {
-            event.preventDefault();
-            onPostService(parseInt(accountId) ,role, description, parseInt(price), "Hai monita")
+            onPostService(parseInt(accountId) ,role, description, parseInt(price), "")
       }
 
       const checkInputState = async () => {

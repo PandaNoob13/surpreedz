@@ -4,7 +4,7 @@ import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
 
 const useAddEditService = () => {
-    const serviceDetailId = window.localStorage.getItem('service_detail_id')
+    
     const {addEditServiceService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(true)
@@ -17,6 +17,7 @@ const useAddEditService = () => {
             window.localStorage.setItem('service_detail_price', data.price)
         }    
     }, [isError, data])
+    const serviceDetailId = window.localStorage.getItem('service_detail_id')
     const onPostService = async (accountId ,role, description, price, video_link) => {
         setLoading(true);
         console.log("On Post Service Called");
@@ -45,6 +46,7 @@ const useAddEditService = () => {
                 }finally{
                     setLoading(false)
                 }
+                break;
             default :
                 try {
                     const response = await addEditServiceService.putService({
@@ -66,6 +68,7 @@ const useAddEditService = () => {
                 }finally{
                     setLoading(false)
                 }
+                break;
         }
         
     }
