@@ -18,7 +18,7 @@ const ServiceCard = (props) => {
     const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1]
     const {photo_link} = photoProfile
     const serviceDetail = props.data.ServiceDetail
-    const {role} = serviceDetail
+    const {id, role} = serviceDetail
     const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
     const {price} = servicePrice
 
@@ -28,7 +28,9 @@ const ServiceCard = (props) => {
             name: name,
             email: props.data.email,
             location: location,
-            joinDate: props.data.join_date
+            joinDate: props.data.join_date,
+            serviceDetailId: id,
+            price: price
         }}>
             <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
                 <img src={photo_link} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
