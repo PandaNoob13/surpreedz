@@ -13,6 +13,7 @@ const ServicePage = () => {
       const [description, setDescription] = useState(serviceDetailDesc)
       const [price, setPrice] = useState(serviceDetailPrice)
       const [buttonDisabled, setButtonDisabled] = useState(true)
+      const [dataVideo ,setDataVideo] = useState()
 
       const handleRoleChange = async (event) => {
             setRole(event.target.value)
@@ -27,7 +28,7 @@ const ServicePage = () => {
       }
 
       const handleSubmit = async (event) => {
-            onPostService(parseInt(accountId) ,role, description, parseInt(price), "")
+            onPostService(parseInt(accountId) ,role, description, parseInt(price),dataVideo)
       }
 
       const checkInputState = async () => {
@@ -36,6 +37,12 @@ const ServicePage = () => {
             } else {
                   setButtonDisabled(true)
             }
+      }
+
+      const onSubmitFileVideo = (videoFile) => {
+            const formData = new FormData()
+            formData.append('video',videoFile)
+            setDataVideo(formData)
       }
 
       useEffect(() => {
@@ -80,7 +87,7 @@ const ServicePage = () => {
                                     <label className="col-md-2 col-form-label property-font">Videos</label>
                                     <div className="col-md-10 row justify-content-end">
                                           <div className="col-lg-3 my-2" >
-                                          <VideoInput num={1} videoNum={`video-`+1}/>
+                                          <VideoInput num={1} videoNum={`video-`+1} onSubmitVideo={onSubmitFileVideo}/>
                                           {/* </div>
                                           <div className="col-lg-3 my-2" >
                                           <VideoInput num={2} videoNum={`video-`+2} />
