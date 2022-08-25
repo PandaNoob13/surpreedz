@@ -18,15 +18,16 @@ const VideoInput = (props) => {
     };
 
     const handleUpload = () => {
-      localStorage.setItem(`video ${num}`,source);
+      localStorage.setItem(`${videoNum}`,source);
       console.log(`${videoNum}`,source);
     }
 
-    const handleSubmitVideo = () => {
-      const formData = new FormData()
-      formData.append('video',videoFile)
-      console.log('form data => ', formData);
-    }
+    // const handleSubmitVideo = () => {
+      /* CARA BUAT SENT FILE KE API */
+    //   const formData = new FormData()
+    //   formData.append('video',videoFile)
+    //   
+    // }
   
     return (
       <div className="card d-flex flex-column justify-content-center" style={{minHeight:'300px'}}>
@@ -53,7 +54,7 @@ const VideoInput = (props) => {
             height={height}
             controls
             src={source}
-            onDurationChange={handleSubmitVideo}
+            onDurationChange={handleUpload}
           />
           </div>
         )}
