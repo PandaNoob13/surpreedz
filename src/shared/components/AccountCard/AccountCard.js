@@ -2,20 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import React from 'react';
 
-const serviceCardData = {
-    picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
-    name: "Gisella Anastasia",
-    email: "gisella_anastasia@gmail.com",
-    category: "Aktris",
-    location: "Indonesia",
-    currency: "IDR",
-    price: 1600000,
-    rating: 4.9,
-    createdAt: "01-01-2022"
-}
-
-const AccountCard = () => {
-    const {picUrl, name, email, category, location, currency, price, rating, createdAt} = serviceCardData;
+const AccountCard = (props) => {
+    console.log("Account card service data : ", props.data);
+    const {picUrl, name, email, location, joinDate} = props.data;
 
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
