@@ -13,8 +13,7 @@ const ServicePage = () => {
       const [description, setDescription] = useState(serviceDetailDesc)
       const [price, setPrice] = useState(serviceDetailPrice)
       const [buttonDisabled, setButtonDisabled] = useState(true)
-      const [dataVideo ,setDataVideo] = useState()
-
+      
       const handleRoleChange = async (event) => {
             setRole(event.target.value)
       }
@@ -25,10 +24,15 @@ const ServicePage = () => {
 
       const handlePriceChange = async (event) => {
             setPrice(event.target.value)
+            console.log('Service Page =>', price);
       }
 
       const handleSubmit = async (event) => {
-            onPostService(parseInt(accountId) ,role, description, parseInt(price),dataVideo)
+            onSubmitFileVideo()
+            // alert(`satu`)
+            // console.log('setDataVideo => ', dataVideo);
+            onPostService(parseInt(accountId) ,role, description, parseInt(price),"")
+            alert(`dua`)
       }
 
       const checkInputState = async () => {
@@ -40,9 +44,14 @@ const ServicePage = () => {
       }
 
       const onSubmitFileVideo = (videoFile) => {
-            const formData = new FormData()
-            formData.append('video',videoFile)
-            setDataVideo(formData)
+            console.log('Service Page data file video',videoFile);
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(videoFile)
+            reader.onload = () => {
+                  console.log('reader.result pertama => ', reader.result);
+                  console.log('type data=>', typeof(reader.result));
+                  const dataVideo = reader.result                  
+            }
       }
 
       useEffect(() => {
@@ -78,7 +87,7 @@ const ServicePage = () => {
                               <div className="row">
                                     <label htmlFor="inputPrice" className="col-md-2 col-form-label property-font">Price</label>
                                     <div className="col-md-10">
-                                          <input className="form-control" id="inputPrice" placeholder="Insert your service price" onChange={handlePriceChange} value={price}/>                              
+                                          <input className="form-control" type="number" id="inputPrice" placeholder="Insert your service price" onChange={handlePriceChange} value={price}/>                              
                                     </div>
                               </div>
                               <br/>

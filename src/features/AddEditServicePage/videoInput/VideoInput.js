@@ -17,11 +17,6 @@ const VideoInput = (props) => {
       console.log("source hbs change =",source);
     };
 
-    // const handleUpload = () => {
-    //   localStorage.setItem(`${videoNum}`,source);
-    //   console.log(`${videoNum}`,source);
-    // }
-
     const handleSubmitVideo = () => {
       props.onSubmitVideo(videoFile)
     }
@@ -37,7 +32,9 @@ const VideoInput = (props) => {
           id={videoNum}
         />
         {source !== undefined ? 
-         <label className="label-video-input" htmlFor={videoNum}><button className="btn btn-light">Change Video {num}</button></label> :
+        //  <label className="label-video-input" htmlFor={videoNum}><button className="btn btn-light">Change Video {num}</button></label>
+        <label></label>
+         :
          <label className="label-video-input" htmlFor={videoNum}><img style={{width:'40px', height:'20px'}} src={plus} alt="plus" /><div>Video {num}</div></label>
          
          }
