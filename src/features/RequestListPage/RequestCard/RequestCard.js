@@ -29,8 +29,9 @@ const StatusCondition = (status) => {
    }
 }
 
-const RequestCard = () => {
+const RequestCard = (props) => {
   const [modalShow, setModalShow] = useState(false);
+  const data = props.data
   return (
     <div>
     <div className="col-md-12 d-flex flex-row card bg-card">
@@ -38,23 +39,22 @@ const RequestCard = () => {
                         {/* <div className="col-md-10 text-center">
                            <img className="rounded-circle bg-request-page" style={{width:'50%'}} src={propertiCard.image} alt="" />
                         </div> */}
-                        <div className="col-md-10 text-center all-text-font">{propertiCard.occasions}</div>
+                        <div className="col-md-10 text-center all-text-font">{data.occasion}</div>
                  </div>
 
                  <div className="vr line-vertikal" ></div>
 
                  <div className="col-md-8 d-flex p-2 flex-column justify-content-around">
-                    <div className="col-md-10 all-text-font" style={{fontSize:'32px'}}>{propertiCard.name}</div>
+                    <div className="col-md-10 all-text-font" style={{fontSize:'32px'}}>{data.name}</div>
 
                     <div className="col-md-12 d-flex flex-row">
                            <div className="col-md-1 font-price">Price: </div>
                            {/* <div className="col-md-1 font-price">:</div> */}
-                           <div className="col-md-3 font-nominal">Rp {propertiCard.nominal}</div>
+                           <div className="col-md-3 font-nominal">Rp {data.price}</div>
                     </div>
 
                   <div className="col-md-6">
                            <Button className="btn btn-light" onClick={() => setModalShow(true)}>Request detail</Button>
-
                            <DetailRequest
                            show={modalShow}
                            onHide={() => setModalShow(false)}
@@ -68,11 +68,11 @@ const RequestCard = () => {
 
                  <div className="col-md-3 d-flex p-2 flex-column justify-content-between">
                      <div className="col-md-11 font-price">{propertiCard.date[1]}:</div>
-                     <div className="col-md-11 text-center font-nominal">17-08-2022 00:00:00 WIB</div>
+                     <div className="col-md-11 text-center font-nominal">{data.dueDate}</div>
                      <div className="col-md-11 font-price">Status :</div>
-                     <div className="col-md-11 text-center font-nominal">{propertiCard.status[0]}</div>
+                     <div className="col-md-11 text-center font-nominal">{data.status}</div>
                      <div className="col-md-11 text-center">
-                        {StatusCondition(propertiCard.status[0])}
+                        {StatusCondition(data.status)}
                      </div>
                  </div>
             </div>

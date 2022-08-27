@@ -1,7 +1,20 @@
+import { useEffect } from "react";
 import RequestCard from "./RequestCard/RequestCard";
 import "./RequestListPage.css"
+import useRequestListService from "./UseRequestListPage";
 
 const RequestListPage = () => {
+  const {posts, onGetService} = useRequestListService();
+
+  
+  useEffect(() => {
+    if (posts[0] != undefined) {
+        console.log("Posts is not undefined");
+        console.log(posts[0]);
+        console.log(posts[0].Orders);
+    }
+    onGetService()
+  }, [])
   return (
     <div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
         <div className="container d-flex flex-column ">
@@ -12,11 +25,23 @@ const RequestListPage = () => {
                 <div className="hr"></div>
                 <br/>
             </div>
-
-            <RequestCard/>
-            <RequestCard/>
-            <RequestCard/>
-            
+            {posts ? posts.map((account) => {
+                
+                const orders = account.Orders.map((order) => {
+                    const serviceDetail = account.ServiceDetail
+                    const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
+                    const orderStatus = order.OrderStatus[order.OrderStatus.length - 1]
+                    const sentaccount = {
+                        occasion: order.OrderRequest.occasion,
+                        name: account.AccountDetail.name,
+                        price: servicePrice.price,
+                        dueDate: order.due_date,
+                        status: orderStatus.order_status
+                    }
+                    return <RequestCard data={sentaccount} />
+                })
+                return orders
+            }) : <h1>Empty request</h1>}        
         </div>
     </div>
     

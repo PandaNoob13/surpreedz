@@ -30,8 +30,7 @@ const useOrderService = () => {
             console.log(error);
         }finally{
             setLoading(false)
-        }
-        
+        }   
     }
 
     return {
