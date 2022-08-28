@@ -11,6 +11,8 @@ import './EditProfileCard.css';
 
 const EditProfileCard = (props) => {
     const serviceCardData = props.data
+
+
     return (
         <Card style={{borderRadius: "12px", borderColor: "#212121", backgroundColor:"#212121"}}>
             <Tab.Container defaultActiveKey="#profile">
@@ -30,7 +32,7 @@ const EditProfileCard = (props) => {
                 <Card.Body style={{borderRadius: "12px", backgroundColor:"#373535"}}>
                     <Tab.Content>
                         <TabPane id="profile" aria-labelledby='profile-tab' eventKey={"#profile"}>
-                            <EditProfile data={serviceCardData}/>
+                            <EditProfile data={serviceCardData} />
                         </TabPane>
                         {/* <TabPane id="account" aria-labelledby='account-tab' eventKey={"#account"}>
                             <EditAccount />
