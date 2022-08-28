@@ -1,8 +1,8 @@
 const requestListService = ({doGet, doPost}) => {
-    const postService = async () => {
-        console.log("Try Poasting Request List Cards");
+    const postService = async (data) => {
+        console.log("Try Posting Request List Cards");
         try {
-            return await doPost({url: '', data: {}})
+            return await doPost({url: '/order-status/create-order-status', data: data})
         } catch (error) {
 
         }

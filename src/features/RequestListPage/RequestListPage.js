@@ -1,20 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import RequestCard from "./RequestCard/RequestCard";
 import "./RequestListPage.css"
 import useRequestListService from "./UseRequestListPage";
 
 const RequestListPage = () => {
   const {posts, onGetService} = useRequestListService();
-
-  
+  const [trigger, setTrigger] = useState(false)
+  const triggerChange = () => {
+    setTimeout(() => {
+        setTrigger(!trigger)
+        console.log("Trigger change called");
+    }, 500);
+  }
   useEffect(() => {
-    if (posts[0] != undefined) {
-        console.log("Posts is not undefined");
-        console.log(posts[0]);
-        console.log(posts[0].Orders);
-    }
     onGetService()
-  }, [])
+    console.log("Use effect called");
+  }, [trigger])
   return (
     <div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
         <div className="container d-flex flex-column ">
@@ -36,9 +37,11 @@ const RequestListPage = () => {
                         name: account.AccountDetail.name,
                         price: servicePrice.price,
                         dueDate: order.due_date,
-                        status: orderStatus.order_status
+                        status: orderStatus.order_status,
+                        orderId: order.id,
+                        orderRequest: order.OrderRequest
                     }
-                    return <RequestCard data={sentaccount} />
+                    return <RequestCard data={sentaccount} callback={triggerChange}/>
                 })
                 return orders
             }) : <h1>Empty request</h1>}        
