@@ -21,19 +21,20 @@ const ServiceCard = (props) => {
     const {id, role} = serviceDetail
     const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
     const {price} = servicePrice
-
+    console.log("Photo Link : ", photo_link);
     return (
         <NavLink key={"/order-detail-page"} to='/order-detail-page' state={{
             picUrl: photo_link,
             name: name,
             email: props.data.email,
             location: location,
-            joinDate: props.data.join_date,
+            joinDate: props.data.string_join_date,
             serviceDetailId: id,
-            price: price
+            price: price,
+            dataUrl: props.data.data_url
         }}>
             <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
-                <img src={photo_link} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
+                <img src={`data:image/jpg;base64,${props.data.data_url}`} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
                 <div className="card-body text-white" style={{padding: "8px"}}>
                     <p className="card-title h6" style={{marginBottom: "2px"}}>{name}</p>
                     <p className="card-text" style={{fontSize: "0.75rem"}}>{role}</p>

@@ -15,6 +15,7 @@ const EditProfile = (props) => {
     useEffect(() => {
         if (Object.keys(data).length != 0) {
             console.log("Data load finished");
+            console.log("Data : ", data);
             setIsLoading(false)
         }
     }, [data])
@@ -34,19 +35,19 @@ const EditProfile = (props) => {
             reader.readAsDataURL(file);
             reader.onload = function() {
                 console.log("Data read : ", reader.result);
+                console.log("READER RESULT TYPE : ", typeof reader.result);
                 result = reader.result
                 console.log("READER RESULT : ", result);
+                setData({
+                    photoFile: file,
+                    photoName: file.name,
+                    photoUrl: url,
+                    dataUrl: result
+                })
             };
-        
             reader.onerror = function() {
             console.log(reader.error);
         };}
-        setData({
-            photoFile: file,
-            photoName: file.name,
-            photoUrl: url,
-            dataUrl: result
-        })
     };
 
     const handleChangeName = async (event) => {

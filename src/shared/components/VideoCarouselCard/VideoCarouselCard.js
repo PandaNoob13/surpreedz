@@ -22,11 +22,11 @@ const VideoCarouselCard = () => {
                 <Carousel.Item>
                     <img
                     className="carousel-img d-block w-100"
-                    src="https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg"
+                    src=""
                     alt="First slide"
                     />
                 </Carousel.Item>
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <img
                     className="carousel-img d-block w-100"
                     src="https://vocasia.id/blog/wp-content/uploads/2021/09/pemimpin-otoriter-2.webp"
@@ -39,7 +39,7 @@ const VideoCarouselCard = () => {
                     src="https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=7lrLYx-B"
                     alt="Third slide"
                     />
-                </Carousel.Item>
+                </Carousel.Item> */}
             </Carousel>
         </div>
     )

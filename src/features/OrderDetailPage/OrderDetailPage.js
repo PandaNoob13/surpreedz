@@ -43,7 +43,7 @@ function OrderDetailPage() {
             <div className='container py-5'>
                 <div className='row'>
                     <div className='col-md-5 p-2'>
-                        <VideoCarouselCard />
+                        {/* <VideoCarouselCard /> */}
                         <ProfileCard data={data} />
                         {/* <ReviewCard /> */}
                     </div>

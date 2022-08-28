@@ -39,7 +39,7 @@ const useSignIn = () => {
             window.localStorage.setItem('account_email', account.email);
             window.localStorage.setItem('account_name', account.AccountDetail.name);
             window.localStorage.setItem('account_location', account.AccountDetail.location);
-            window.localStorage.setItem('account_join_date', account.join_date)
+            window.localStorage.setItem('account_join_date', account.string_join_date)
             window.localStorage.setItem('service_detail_id', account.ServiceDetail.id)
             window.localStorage.setItem('service_detail_role', account.ServiceDetail.role)
             window.localStorage.setItem('service_detail_desc', account.ServiceDetail.description)
