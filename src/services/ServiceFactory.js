@@ -1,4 +1,5 @@
 import addEditServiceService from "./AddEditServiceService"
+import EditProfileService from "./EditProfileService"
 import homeService from "./HomeService"
 import OrderService from "./OrderService"
 import purchaseListService from "./PurchaseListService"
@@ -15,7 +16,8 @@ const ServiceFactory = (apiClient) => {
         homeService : homeService(apiClient),
         orderService : OrderService(apiClient),
         purchaseListService : purchaseListService(apiClient),
-        requestListService : requestListService(apiClient)
+        requestListService : requestListService(apiClient),
+        editProfileService : EditProfileService(apiClient)
   }
 }
 

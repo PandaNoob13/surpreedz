@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./PurchaseConfirmationPage.css"
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useLocation, useNavigate } from "react-router-dom";
 import useOrderService from "../OrderDetailPage/useOrderDetail";
