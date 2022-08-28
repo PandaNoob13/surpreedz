@@ -15,7 +15,6 @@ const useEditProfilePage = () => {
             window.localStorage.setItem('account_name', data.name)
             window.localStorage.setItem('account_location',data.location)
         }
-        console.log('useEffect Edit Profile called');
     },[isError, data])
 
     const onPutProfile = async (name,location, photo, photoName, url, dataUrl) => {
@@ -23,7 +22,6 @@ const useEditProfilePage = () => {
         setLoading(true);
         console.log("On Put Profile Called");
         try {
-            console.log('On Put Profile Called => Try');
             const response = await editProfileService.putProfile({
                 account_id: parseInt(window.localStorage.getItem('account_id')),
                 name :name,
@@ -45,11 +43,8 @@ const useEditProfilePage = () => {
             setIsError(false)
             console.log('error edit profile', isError);
         } catch (error) {
-            console.log('On Put Profile Called => Error');
             setPosts(error);
-            console.log('edit profile eror => ', error);
         } finally{
-            console.log('On Put Profile Called => Finally');
             setLoading(false)
         }
     }

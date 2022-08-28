@@ -51,19 +51,15 @@ const EditProfile = (props) => {
 
     const handleChangeName = async (event) => {
         setChangeName(event.target.value)
-        console.log('changeName', changeName);
     }
 
     const handleChangeLocation = async (event) => {
         setChangeLocation(event.target.value)
-        console.log('changeLocation', changeLocation);
 
     }
 
     const handleSubmitEditProfile = async (event) => {
         event.preventDefault()
-        console.log('changeName1', changeName);
-        console.log('changeLocation2', changeLocation);
         onPutProfile(changeName,changeLocation, data.photoFile, data.photoName, data.photoUrl, data.dataUrl);
     }
 
@@ -93,7 +89,7 @@ const EditProfile = (props) => {
                         {data.photoUrl && (
                             <img
                                 width="20%"
-                                src={data.photoUrl}
+                                src={data.photoUrl} alt=''
                             />
                         )}
                     </div>

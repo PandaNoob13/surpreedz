@@ -24,15 +24,16 @@ const useSignUp = () => {
             })
             console.log('status: ', response.status);
             setPosts(response.status)
+            navigate('/sign-in')
         } catch (error) {
             setPosts(error)
             console.log(error);
         }finally{
-            if (posts != "SUCCESS"){
-                alert(posts)
-            } else {
-                navigate('/sign-in')
-            }
+            // if (isError === true){
+            //     alert(posts)
+            // } else {
+            //     navigate('/sign-in')
+            // }
             setLoading(false)
         }
     }

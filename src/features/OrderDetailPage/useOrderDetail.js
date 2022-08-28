@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../shared/auth/UseAuth";
 import { useDeps } from "../../shared/DepContext";
 
 const useOrderService = () => {
     const {orderService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
+    
     useEffect(() => { 
-        
     }, [posts])
+
     const onPostService = async (buyer_id, service_detail_id, due_date, occasion, recipient_name, message_to_recipient, recipient_description) => {
         setLoading(true);
         console.log("On Get Home Service Called");

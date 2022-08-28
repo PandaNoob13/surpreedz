@@ -27,7 +27,7 @@ const useSignIn = () => {
             setAccount(response.account)
         } catch (error) {
             console.log(error);
-            alert(error)
+            alert(`Sign In Failed`)
         }finally{
             setLoading(false)
         }
