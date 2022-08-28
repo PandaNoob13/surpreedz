@@ -20,7 +20,7 @@ const PurchaseListPage = () => {
 			</div>
 				{posts ? posts.map((data) => {
 					console.log(data);
-					if (data.OrderRequest.id !== 0){
+					if (data !== 0){
 						return (<PurchaseCard data={data}/>)
 					}
 					return console.error();

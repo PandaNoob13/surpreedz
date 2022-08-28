@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDeps } from "../../shared/DepContext";
 
 function usePurchaseListPage() {
-    const {orderService} = useDeps();
+    const {purchaseListService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [posts, setPosts] = useState([])
@@ -13,7 +13,7 @@ function usePurchaseListPage() {
         setLoading(true);
         console.log("On Get Order Service Called");
         try {
-            const response = await orderService.getService()
+            const response = await purchaseListService.getService()
             console.log('Response: ', response);
             setPosts(response.data)
             setIsError(false)

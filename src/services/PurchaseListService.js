@@ -2,8 +2,8 @@ const purchaseListService = ({doGet}) => {
     const getService = async () => {
         console.log("Try Getting Purchase List Cards");
         try {
-            const page = 1;
-            return await doGet({url: `/get-all-order-by-buyer-id/?buyerId=${page}`})
+            const buyerId = window.localStorage.getItem('account_id')      
+            return await doGet({url: `/order/get-all-order-by-buyer-id/?buyerId=${buyerId}`})
         } catch (error) {
             throw error
         }

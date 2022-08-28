@@ -17,12 +17,51 @@ const purchasedCardData = {
     status: "REJECTED"
 }
 
+const StatusCondition = (status, videoLink) => {
+    switch (status) {
+        case "accepted":
+            return (
+                <h4 className="card-text">ON PROGRESS</h4>
+            )
+        case "rejected":
+            return (
+                <h4 className="card-text">REJECTED</h4>
+            )
+        case "cancelled":
+            return (
+                <h4 className="card-text">CANCELLED</h4>
+            )
+        case "exceed":
+            return (
+                <h4 className="card-text">EXCEED DUE DATE</h4>
+            )
+        case "done":
+            return (
+                <div>
+                    <h4 className="card-text">DONE</h4>
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        window.open(videoLink, "_blank");
+                        }} className="btn btn-light m-2">Get Video</button>
+                </div>
+            )
+        default:
+            return (
+                <h4 className="card-text">Waiting for confirmation</h4>
+            );
+            
+    }
+ }
+
 const PurchasedCard = (props) => {
     // const {picUrl, name, category, currency, price, rating} = serviceCardData;
     // const {reqType, messageFor, description, due, status} = purchasedCardData;
 
     const name = "gisella";
     const photo_link = "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg";
+    const status = ['rejected', 'accepted', 'exceed', 'cancelled', 'done']
+    const price = 1600000;
+    const videoLink = 'https://www.youtube.com/watch?v=nskYndiHaA8'
 
     // const accountDetail = props.data.AccountDetail
     // const { name } = accountDetail
@@ -30,17 +69,19 @@ const PurchasedCard = (props) => {
     // const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1] // last data index (length-1)
     // const {photo_link} = photoProfile
     
+    const order = props.data;
+    const { due_date, order_id, OrderStatus } = order;
+
     const orderRequest = props.data.OrderRequest
     const { occasion, recipient_name, message } = orderRequest
-    const orderStatus = orderRequest.OrderStatus[orderRequest.OrderStatus.length - 1]
-    const { status } = orderStatus
+    // const orderStatus = props.data.OrderStatus
+    // const orderStatus = orderRequest.OrderStatus[orderRequest.OrderStatus.length - 1]
+    // const status = OrderStatus
 
     const serviceDetail = props.data.ServiceDetail
-    const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1] // last data index (length-1)
-    const {price} = servicePrice
+    // const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1] // last data index (length-1)
+    // const {price} = servicePrice
 
-    const order = props.data.Order;
-    const { due_date, order_id } = order;
     const videoResult = order.VideoResult[order.VideoResult.length - 1];
     const video_link = videoResult;
 
@@ -63,8 +104,8 @@ const PurchasedCard = (props) => {
                     <div className="card-body text-white">
                         <h5 className="card-title">Rp. {price}</h5>
                         <p className="card-text">Due {due_date}</p>
-                        <h4 className="card-text">{status}</h4>
-                        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                        {StatusCondition(status[4], videoLink)}
+                        {/* <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p> */}
                     </div>
                 </div>
             </div>
