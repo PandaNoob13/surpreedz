@@ -28,13 +28,13 @@ const ServiceCard = (props) => {
             name: name,
             email: props.data.email,
             location: location,
-            joinDate: props.data.string_join_date,
+            joinDate: props.date,
             serviceDetailId: id,
             price: price,
-            dataUrl: props.data.data_url
+            dataUrl: props.pic
         }}>
             <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
-                <img src={`data:image/jpg;base64,${props.data.data_url}`} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
+                <img src={`data:image/jpg;base64,${props.pic}`} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
                 <div className="card-body text-white" style={{padding: "8px"}}>
                     <p className="card-title h6" style={{marginBottom: "2px"}}>{name}</p>
                     <p className="card-text" style={{fontSize: "0.75rem"}}>{role}</p>

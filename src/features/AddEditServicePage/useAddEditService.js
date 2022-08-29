@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const useAddEditService = () => {
     
@@ -40,9 +41,18 @@ const useAddEditService = () => {
                         price: price
                     })
                     setIsError(false)
+                    swal({
+                        title:'Submit Your Service Success',
+                        icon:'success'
+                    })
                 } catch (error) {
                     setPosts(error)
                     console.log(error);
+                    swal({
+                        title:'Submit Your Service Failed',
+                        text:'Something wrong , Try again!',
+                        icon:'error'
+                    })
                 }finally{
                     setLoading(false)
                 }
@@ -62,9 +72,18 @@ const useAddEditService = () => {
                         price: price
                     })
                     setIsError(false)
+                    swal({
+                        title:'Your service has been changed successfully',
+                        icon:'success'
+                    })
                 } catch (error) {
                     setPosts(error)
                     console.log(error);
+                    swal({
+                        title:'Your Service Change Failed',
+                        text:'Something wrong , Try again!',
+                        icon:'error'
+                    })
                 }finally{
                     setLoading(false)
                 }

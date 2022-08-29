@@ -33,13 +33,15 @@ function HomePage() {
                     <h3>Musician</h3>
                 </div> */}
                 <div className='container-fluid p-0'>
-                    <div className=' d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
-                        {posts ? posts.map((data) => {
-                            console.log(data);
+                    <div className='d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
+                        {posts ? posts.map((account) => {
+                            const data = account.account
                             if (data.ServiceDetail.id !== 0){
-                                return (<ServiceCard data={data}/>)
+                                return (<ServiceCard data={data} pic={account.data_url} date={account.string_join_date} />)
                             }
-                        }) : <h1>Empty Data</h1>}
+                        })
+                        : 
+                        <h1>Empty Data</h1>}
                     </div>
                 </div>
             </div>
