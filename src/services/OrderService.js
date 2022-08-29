@@ -1,13 +1,13 @@
 const OrderService = ({doPost}) => {
-    const postLogin = async (data) => {
+    const postOrderService = async (data) => {
         console.log("Try Order Service Post");
         try {
-            return await doPost({url: '/api/auth/login', data: data})
+            return await doPost({url: '/order/create-order', data: data})
         } catch (error) {
             throw error
         }
     }
-    return {postLogin}
+    return {postOrderService}
   
 }
 

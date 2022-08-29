@@ -18,7 +18,6 @@ function OccasionCard(props) {
                 return ""
         }
     }
-    console.log("Occasion : ", props.occasion);
     
     return (
         <div className='icon'>

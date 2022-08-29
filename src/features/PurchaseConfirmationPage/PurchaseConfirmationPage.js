@@ -1,12 +1,28 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import useOrderService from "../OrderDetailPage/useOrderDetail";
+import swal from "sweetalert";
 
 
 const PurchaseConfirmationPage = () => {
-  return (
-    <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
+    const {onPostService} = useOrderService()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const data = location.state
+    const price = data.price
+    // console.log("Data purchase: ", data);
+    const handleSubmit = () => {
+        onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
+        //navigate('/')
+        swal({
+            title:'Transaction Success',
+            icon:'success'
+        })
+    }
+    return (
+        <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
         <div className="container py-5">
             <div className='row'>
                 <div className='payment-option col-md-5 '>
@@ -37,54 +53,64 @@ const PurchaseConfirmationPage = () => {
                     <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
                         <div className="d-flex flex-row align-items-center">
                             <img className="img-thumbnail" src="" alt=""></img>
-                            <h4 className="card-title ms-3">Graduation Greeting</h4>
+                            <h4 className="card-title ms-3">{data.occasion} Greeting</h4>
                         </div>
                         <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
                         <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">Graduation greeting</p>
-                            <p className="card-text">Rp575,000,00</p>
+                            <p className="card-text">{data.occasion} greeting</p>
+                            <p className="card-text">Rp. {price}</p>
                         </div>
                         <div className="card detail-order mb-3">
                             <div className="container text-black py-2">
                                 <div className='d-flex flex-auto align-items-center'>
-                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
-                                    <p className='mb-0 ms-2'>1 revision</p>
+                                    {/* <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>1 revision</p> */}
                                 </div>
                                 <div className='d-flex flex-auto align-items-center'>
-                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
-                                    <p className='mb-0 ms-2'>a minute length</p>
+                                    {/* <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>a minute length</p> */}
                                 </div>
                                 <div className='d-flex flex-auto align-items-center'>
-                                    <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
-                                    <p className='mb-0 ms-2'>high quality video file</p>
+                                    {/* <FontAwesomeIcon icon={solid("circle-check")} style={{color: 'green'}}/>
+                                    <p className='mb-0 ms-2'>high quality video file</p> */}
                                 </div>
+                                {/* <table className="font-detail-invoice">
+                                    <thead></thead>
+                                    <tbody>
+                                    </tbody>
+                                </table> */}
+                                <br/>
+                                <br/>
+                                <br/>
+
                             </div>
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">Service fee</p>
-                            <p className="card-text">Rp25.000,00</p>
+                            {/* <p className="card-text">Service fee</p>
+                            <p className="card-text">Rp. {price}</p> */}
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">Total</p>
-                            <p className="card-text">Rp600.000,00</p>
+                            <p className="card-text">TOTAL</p>
+                            <p className="card-text">Rp. {price}</p>
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">Delivery in</p>
+                            <p className="card-text">total delivery days</p>
                             <p className="card-text">5 days</p>
                         </div>
 
 
                         <div className="d-flex flex-row justify-content-around mb-4 mt-4">
-                            <NavLink to='/' className="col-10 btn btn-light" >Confirm & Pay</NavLink>
+                            <NavLink to='/' onClick={handleSubmit} className="col-10 btn btn-light" >Confirm & Pay</NavLink>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
   )
 }
 

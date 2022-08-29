@@ -28,6 +28,7 @@ const ServicePage = () => {
       }
 
       const handleSubmit = async (event) => {
+            event.preventDefault()
             onPostService(parseInt(accountId) ,role, description, parseInt(price),dataVideo)
       }
 
