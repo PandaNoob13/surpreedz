@@ -1,5 +1,6 @@
 const ApiClientFactory = (client) => {
     const doPost = async ({url = '', data = null}) => {
+        console.log('data api client factory =>', data);
         try {
             const response = await client.post(url, data);
             return response.data;

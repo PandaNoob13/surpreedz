@@ -36,6 +36,7 @@ function HomePage() {
                     <div className='d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
                         {posts ? posts.map((account) => {
                             const data = account.account
+                            console.log(data);
                             if (data.ServiceDetail.id !== 0){
                                 return (<ServiceCard data={data} pic={account.data_url} date={account.string_join_date} />)
                             }

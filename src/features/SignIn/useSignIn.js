@@ -6,17 +6,30 @@ import swal from "sweetalert";
 
 
 const useSignIn = () => {
-    const navigate = useNavigate();
     const {onLogin} = useAuth();
     const {signInService} = useDeps();
     const [isLoading, setLoading] = useState(false);
 
     const [data, setData] = useState('');
     const [posts, setPosts] = useState({})
+    const [orderData, setOrderData] = useState('')
+
+    const navigate = useNavigate()
+
+
 
     const onPostSignIn = async (email,password) => {
         setLoading(true);
         console.log("On Post Sign In Called"); 
+        setOrderData({
+            serviceDetailId: localStorage.getItem('order_detail_serviceDetailId'),
+            dueDate: localStorage.getItem('order_detail_dueDate'),
+            occasion: localStorage.getItem('order_detail_occasion'),
+            message: localStorage.getItem('order_detail_message'),
+            description: localStorage.getItem('order_detail_description'),
+            price: localStorage.getItem('order_detail_price'),
+            recipient: localStorage.getItem('order_detail_recipient')
+        })
         try {
             const response = await signInService.postLogin({
                 email: email,
@@ -31,6 +44,7 @@ const useSignIn = () => {
                 text:'Have fun on Surpreedz !',
                 icon:'success'
             })
+            // navigate('/#category', {replace: true})
         } catch (error) {
             console.log(error);
             swal({
@@ -67,9 +81,23 @@ const useSignIn = () => {
             // console.log("Photo Profiles : ", accountDetail.PhotoProfiles);
             // const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1]
             window.localStorage.setItem('photo_profile', data.data_url);
-            navigate('/')
         }
+
+       
     }, [data])
+
+    useEffect(()=> {
+        if(orderData){
+            console.log('orderData use sign in => ', orderData);
+            window.localStorage.setItem('order_detail_serviceDetailId',orderData.serviceDetailId)
+            window.localStorage.setItem('order_detail_dueDate',orderData.dueDate)
+            window.localStorage.setItem('order_detail_occasion',orderData.occasion)
+            window.localStorage.setItem('order_detail_message',orderData.message)
+            window.localStorage.setItem('order_detail_description',orderData.description)
+            window.localStorage.setItem('order_detail_price',orderData.price)
+            window.localStorage.setItem('order_detail_recipient',orderData.recipient)
+        }
+    },[orderData])
 
     useEffect(() => {
         onLogin(posts)
