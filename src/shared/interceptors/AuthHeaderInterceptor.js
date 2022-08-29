@@ -2,10 +2,9 @@ import React from 'react'
 
 const AuthHeaderInterceptor = (config) => {
     if (config.url !== '/auth/sign-in'){
-        config.headers.Authorization = window.sessionStorage.getItem("token");
+        config.headers.Authorization = window.localStorage.getItem("token");
     } else if (window.sessionStorage.getItem('token') === ''){
-        console.log('No token');
-        window.sessionStorage.clear()
+        window.localStorage.clear()
     }
     return config;
 }

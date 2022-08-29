@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./signInView.css"
 import useSignIn from "./useSignIn";
 
@@ -11,9 +11,12 @@ const SignInView = () => {
     const [emailErrorMessage, setEmailErrorMessage] = useState('')
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
     const [buttonDisabled, setButtonDisabled] = useState(true)
+    const location = useLocation();
+    const dataOrder = location.state
 
     const handleEmailChange = async (event) => {
         setEmail(event.target.value)
+        console.log('dataOrder => ', dataOrder);
     }
 
     const validateEmailInput = async () => {
@@ -30,10 +33,20 @@ const SignInView = () => {
 
     useEffect(() => {
         validateEmailInput()
+        if (dataOrder) {
+            localStorage.setItem('order_detail_serviceDetailId',dataOrder.serviceDetailId)
+            localStorage.setItem('order_detail_dueDate',dataOrder.dueDate)
+            localStorage.setItem('order_detail_occasion',dataOrder.occasion)
+            localStorage.setItem('order_detail_message',dataOrder.message)
+            localStorage.setItem('order_detail_description',dataOrder.description)
+            localStorage.setItem('order_detail_price',dataOrder.price)
+            localStorage.setItem('order_detail_recipient',dataOrder.recipient)
+        }
     }, [email])
 
     const handlePasswordChange = async (event) => {
         setPassword(event.target.value)
+        // localStorage.setItem('occasion', dataOrder.occasion)
     }
 
     const validatePasswordInput = async () => {
@@ -92,14 +105,53 @@ return (
                             name="password"
                             id="password"
                             onChange={handlePasswordChange} />
-                          <button
-                            type="submit"
-                            name="submit" 
-                            id="submit"  
-                            className="col-md-10 btn btn-light m-4"
-                            disabled={buttonDisabled}>Continue</button>
+                        
+                          {/* {
+                            dataOrder? <NavLink className="col-md-10"  to="/purchase-confirmation"
+                            state={
+                                {
+                                    buyerId: parseInt(window.localStorage.getItem('account_id')),
+                                    serviceDetailId: dataOrder.serviceDetailId,
+                                    dueDate: dataOrder.dueDate,
+                                    occasion: dataOrder.occasion,
+                                    recipient: dataOrder.recipient,
+                                    message: dataOrder.message,
+                                    description: dataOrder.description,
+                                    price: dataOrder.price
+                                }}
+                                onClick={handleSubmit}
+                                
+                                >
+                                    <button
+                                    type="submit"
+                                    name="submit" 
+                                    id="submit"  
+                                    className="col-md-12 btn btn-light"
+                                    disabled={buttonDisabled}
+                                    
+                                    >Continue</button>
+                            </NavLink>
+                            :
+                            <NavLink className="col-md-10"  to="/" onClick={handleSubmit}>
+                                <button
+                                    type="submit"
+                                    name="submit" 
+                                    id="submit"  
+                                    className="col-md-12 btn btn-light"
+                                    disabled={buttonDisabled}
+                                    >Continue</button>
+                          </NavLink>
+                          } */}
+
+                            <button
+                                    type="submit"
+                                    name="submit" 
+                                    id="submit"  
+                                    className="col-md-10 btn btn-light"
+                                    disabled={buttonDisabled}>Continue</button>
+                          
                           <div className="col-md-12 d-flex m-3 flex-row justify-content-around">
-                                <div className="form-check">
+                                {/* <div className="form-check">
                                         <input className="form-check-input" type="checkbox" value="" id="check-remmeber-me" />
                                         <label className="already" htmlFor="check-remmeber-me">
                                             Remember me
@@ -107,7 +159,7 @@ return (
                                 </div>
                                 <div className="sign-in btn-link">
                                 Forget Password?
-                                </div>
+                                </div> */}
                           </div>
                           
                           <div className="col-md-12" style={{border: "1px solid #000000"}}></div>

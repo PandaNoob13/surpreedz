@@ -84,23 +84,14 @@ const ServicePage = () => {
                               </div>
                               <br/>
 
-                              <div className="row justify-content-between">
+                              {/* <div className="row justify-content-between">
                                     <label className="col-md-2 col-form-label property-font">Videos</label>
                                     <div className="col-md-10 row justify-content-end">
                                           <div className="col-lg-3 my-2" >
                                           <VideoInput num={1} videoNum={`video-`+1} onSubmitVideo={onSubmitFileVideo}/>
-                                          {/* </div>
-                                          <div className="col-lg-3 my-2" >
-                                          <VideoInput num={2} videoNum={`video-`+2} />
-                                          </div>
-                                          <div className="col-lg-3 my-2" >
-                                          <VideoInput num={3} videoNum={`video-`+3} />
-                                          </div>
-                                          <div className="col-lg-3 my-2" >
-                                          <VideoInput num={4} videoNum={`video-`+4} /> */}
                                           </div>
                                     </div>
-                              </div>
+                              </div> */}
                               <br/>
 
                               <div className="col-md-12 row justify-content-end">

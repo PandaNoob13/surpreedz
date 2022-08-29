@@ -7,7 +7,7 @@ export function useDeps() {
 }
 
 export function DepProvider({children, services}){
-    console.log(services);
+    console.log("Services : ", services);
     return(
         <DepContext.Provider value={services}>
             {children}
