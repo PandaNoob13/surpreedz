@@ -22,6 +22,18 @@ const ServiceCard = (props) => {
     const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
     const {price} = servicePrice
 
+    // Create our number formatter.
+    var formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+    });
+
+    formatter.format(2500); /* $2,500.00 */
+
     return (
         <NavLink key={"/order-detail-page"} to='/order-detail-page' state={{
             picUrl: photo_link,
@@ -31,12 +43,12 @@ const ServiceCard = (props) => {
             joinDate: props.data.join_date
         }}>
             <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
-                <img src={photo_link} className="card-img-top" style={{width: '100%', padding: "4px", height: '200px', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
+                <img src={photo_link} className="card-img-top" style={{maxWidth: "12.5rem", padding: "4px", height: '15rem', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
                 <div className="card-body text-white" style={{padding: "8px"}}>
                     <p className="card-title h6" style={{marginBottom: "2px"}}>{name}</p>
                     <p className="card-text" style={{fontSize: "0.75rem"}}>{role}</p>
                     <div className='d-flex flex-row justify-content-between'>
-                        <p className="card-text" style={{fontSize: "0.9rem", marginBottom: "0px"}}>Rp. {price}</p>
+                        <p className="card-text" style={{fontSize: "0.9rem", marginBottom: "0px"}}>{formatter.format(price)}</p>
                         <p className="card-text" style={{fontSize: "0.9rem", marginBottom: "0px"}}>
                             {/* <FontAwesomeIcon icon={solid("star")} style={{color: "gold"}} /> */}
                             {/* {rating} */}

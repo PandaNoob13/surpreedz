@@ -34,12 +34,12 @@ function HomePage() {
                 </div> */}
                 <div className='container-fluid p-0'>
                     <div className=' d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
-                        {/* {posts.map((data) => {
+                        {posts.map((data) => {
                             console.log(data);
                             if (data.ServiceDetail.id !== 0){
                                 return (<ServiceCard data={data}/>)
                             }
-                        })} */}
+                        })}
                     </div>
                 </div>
             </div>
