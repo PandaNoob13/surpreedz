@@ -40,6 +40,7 @@ function HomePage() {
                             if (data.ServiceDetail.id !== 0){
                                 return (<ServiceCard data={data} pic={account.data_url} date={account.string_join_date} />)
                             }
+
                         })
                         : 
                         <h1>Empty Data</h1>}

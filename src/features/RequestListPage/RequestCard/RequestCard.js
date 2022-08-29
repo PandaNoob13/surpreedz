@@ -10,7 +10,7 @@ const RequestCard = (props) => {
    const [buttonDisable, setButtonDisable] = useState(true)
    const {onPostService, onPostVideoResult} = useRequestListService();
    const data = props.data
-   console.log("Data to be sent to detail : ", data.orderRequest);
+   // console.log("Data to be sent to detail : ", data.orderRequest);
 
    useEffect(() => {
       if (Object.keys(videoData).length != 0) {
@@ -26,8 +26,9 @@ const RequestCard = (props) => {
       } else if (value == 'Reject'){
          onPostService(data.orderId, "Rejected")
       } else if (value == 'Submit') {
-         onPostVideoResult(data.orderId, videoData.dataUrl)
+         console.log("Url video : ", videoData.dataUrl);
          onPostService(data.orderId, "Submitted")
+         onPostVideoResult(data.orderId, videoData.dataUrl)
       }
       props.callback()
    }
@@ -72,6 +73,10 @@ const RequestCard = (props) => {
                <input type="file" onChange={handleFileChange} accept=".mov,.mp4"/>
                <button disabled={buttonDisable} className="btn btn-light m-2" onClick={() => handleSubmit('Submit')}>Submit Video</button>
             </div>
+         )
+      } else {
+         return (
+            <></>
          )
       }
    }

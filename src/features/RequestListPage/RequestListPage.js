@@ -26,8 +26,7 @@ const RequestListPage = () => {
                 <div className="hr"></div>
                 <br/>
             </div>
-            {posts ? posts.map((account) => {
-                
+            {posts ? posts.map((account) => {   
                 const orders = account.Orders.map((order) => {
                     const serviceDetail = account.ServiceDetail
                     const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]

@@ -17,7 +17,12 @@ const useEditProfilePage = () => {
         if (isError === false) {
             window.localStorage.setItem('account_name', data.name)
             window.localStorage.setItem('account_location',data.location)
-            window.localStorage.setItem('photo_profile', data.data_url)
+            if(data.dataUrl != undefined){
+                console.log("Data url empty : ", data.dataUrl);
+                console.log("Dataurl is not empty!");
+                const dataUrlSeparated = data.dataUrl.split(',')
+                window.localStorage.setItem('photo_profile', dataUrlSeparated[1])
+            }
         }
         console.log('useEffect Edit Profile called');
     },[isError, data])
@@ -25,7 +30,6 @@ const useEditProfilePage = () => {
     useEffect(() => {console.log("Upload finished");}, [uploadStatus])
 
     const onPutProfile = async (name,location, photo, photoName, url, dataUrl) => {
-        console.log("THE DATA URL : ", dataUrl);
         setLoading(true);
         console.log("On Put Profile Called");
         try {
@@ -40,22 +44,21 @@ const useEditProfilePage = () => {
             })
             console.log('response useEditProfile => ',response);
             setPosts(response.status);
-            const dataUrlSeparated = dataUrl.split(',')
             setData({
                 name: name,
                 location: location,
                 photo_name: photoName,
                 url: url,
-                data_url: dataUrlSeparated[1]
+                data_url: dataUrl
             })
             console.log('data.name', data.name);
-            setIsError(false)
             console.log('error edit profile', isError);
             swal({
                 title:'Edit Profile Success',
                 icon:'success'
             })
             setUploadStatus(!uploadStatus)
+            setIsError(false)
         } catch (error) {
             setPosts(error);
             swal({
