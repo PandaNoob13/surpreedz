@@ -29,11 +29,11 @@ a {
     text-decoration: none !important;
 }
 
-.active {
+.active-occasion {
     transform: scale(1.2);
     color: white;
 }
 
-.active .border {
+.active-occasion .border {
     border-color: white!important;
 }
