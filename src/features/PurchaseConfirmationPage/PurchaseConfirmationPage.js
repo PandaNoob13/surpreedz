@@ -14,36 +14,32 @@ const PurchaseConfirmationPage = () => {
     const data = location.state
 
     const data2 = {
-                buyerId: parseInt(window.localStorage.getItem('account_id')),
-                serviceDetailId: window.localStorage.getItem('order_detail_serviceDetailId'),
-                dueDate: window.localStorage.getItem('order_detail_dueDate'),
-                occasion: window.localStorage.getItem('order_detail_occasion'),
-                message: window.localStorage.getItem('order_detail_message'),
-                description: window.localStorage.getItem('order_detail_description'),
-                price: parseInt(window.localStorage.getItem('order_detail_price')),
-                recipient: window.localStorage.getItem('order_detail_recipient')
+        buyerId: parseInt(window.localStorage.getItem('account_id')),
+        serviceDetailId: parseInt(window.localStorage.getItem('order_detail_serviceDetailId')),
+        dueDate: window.localStorage.getItem('order_detail_dueDate'),
+        occasion: window.localStorage.getItem('order_detail_occasion'),
+        message: window.localStorage.getItem('order_detail_message'),
+        description: window.localStorage.getItem('order_detail_description'),
+        price: parseInt(window.localStorage.getItem('order_detail_price')),
+        recipient: window.localStorage.getItem('order_detail_recipient')
     }
     
    
     const handleSubmit = () => {
         console.log('data => ', data);
-        console.log('data => ', data2);
+        console.log('data2 => ', data2);
         if (data) {
             onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
             
         }else {
             onPostService(data2.buyerId, data2.serviceDetailId, data2.dueDate, data2.occasion, data2.recipient, data2.message, data2.description)
-
         }
-        // onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
-        //navigate('/')
+
         swal({
             title:'Transaction Success',
             icon:'success'
         })
     }
-
-    
 
     return (
         <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>

@@ -148,12 +148,10 @@ return (
                                     name="submit" 
                                     id="submit"  
                                     className="col-md-10 btn btn-light"
-                                    disabled={buttonDisabled}
-                                    
-                             >Continue</button>
+                                    disabled={buttonDisabled}>Continue</button>
                           
                           <div className="col-md-12 d-flex m-3 flex-row justify-content-around">
-                                <div className="form-check">
+                                {/* <div className="form-check">
                                         <input className="form-check-input" type="checkbox" value="" id="check-remmeber-me" />
                                         <label className="already" htmlFor="check-remmeber-me">
                                             Remember me
@@ -161,7 +159,7 @@ return (
                                 </div>
                                 <div className="sign-in btn-link">
                                 Forget Password?
-                                </div>
+                                </div> */}
                           </div>
                           
                           <div className="col-md-12" style={{border: "1px solid #000000"}}></div>

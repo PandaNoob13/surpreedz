@@ -9,12 +9,11 @@ const Nav = () => {
     const account_name = window.localStorage.getItem('account_name')
     const photo_profile = window.localStorage.getItem('photo_profile')
     if (!token){
-        window.sessionStorage.clear();
         window.localStorage.clear();
     }
     return (
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="navbar-brand pt-0 ms-3">
                     <NavLink to='/' className="nav-link" aria-current="page"><img src={logo} alt='surpreedz' height={'24'}></img></NavLink>
                 </div>
@@ -23,13 +22,12 @@ const Nav = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll me-3">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink to='/' className="nav-link" aria-current="page">Category</NavLink>
-                        </li>
+                        </li> */}
                     </ul>
 
                 { token ?
-
                     <ul className="navbar-nav mb-2 mb-lg-0" >
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target=".navbar-collapse.show" aria-expanded="false">

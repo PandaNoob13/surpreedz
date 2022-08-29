@@ -4,10 +4,9 @@ import { AuthProvider } from "./shared/auth/UseAuth";
 const App = () => {
   return (
     <>
-    <AuthProvider>
-    <AppRouter/>
-    </AuthProvider>
-    
+      <AuthProvider>
+        <AppRouter/>
+      </AuthProvider> 
     </>
   )
 }

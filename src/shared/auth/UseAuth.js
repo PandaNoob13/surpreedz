@@ -1,11 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
     const navigate = useNavigate();
-    const [token, setToken] = useState();
+    const [token, setToken] = useState(window.localStorage.getItem('token'));
     const orderData = {
         recipient : localStorage.getItem('order_detail_recipient'),
         message : localStorage.getItem('order_detail_message'),
@@ -15,10 +15,9 @@ export const AuthProvider = ({children}) => {
         if (token.AccessToken !== undefined){
             console.log(`Token : ${token}`);
             console.log(token);
-            window.sessionStorage.setItem('token', token.AccessToken);
+            window.localStorage.setItem('token', token.AccessToken);
             setToken(token.AccessToken);
            
-            
             console.log('orderData 2 ', orderData);
 
             if (localStorage.getItem('order_detail_recipient') != 'null' && localStorage.getItem('order_detail_occasion') != 'null' ) {
@@ -26,7 +25,7 @@ export const AuthProvider = ({children}) => {
                 console.log('recipient',localStorage.getItem('order_detail_recipient'));
                 console.log('occasion',localStorage.getItem('order_detail_occasion'));
                 navigate('/purchase-confirmation')
-            }else if(localStorage.getItem('order_detail_recipient') == 'null' && localStorage.getItem('order_detail_occasion') == 'null'){
+            } else if (localStorage.getItem('order_detail_recipient') == 'null' && localStorage.getItem('order_detail_occasion') == 'null'){
                 console.log('recipient 2',localStorage.getItem('order_detail_recipient'));
                 console.log('occasion 2',localStorage.getItem('order_detail_occasion'));
                 navigate('/', {replace: true})
@@ -34,12 +33,9 @@ export const AuthProvider = ({children}) => {
         } else {
             console.log(token.AccessToken);
             console.log('Token is null');
-            window.sessionStorage.clear();
         }
-
     }
     const onLogout = () => {
-        window.sessionStorage.clear();
         window.localStorage.clear();
         setToken(null)
         navigate('/', {replace: true})
