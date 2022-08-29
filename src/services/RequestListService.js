@@ -4,6 +4,17 @@ const requestListService = ({doGet, doPost}) => {
         try {
             return await doPost({url: '/order-status/create-order-status', data: data})
         } catch (error) {
+            throw error
+
+        }
+    }
+
+    const postVideoResult = async (data) => {
+        console.log("Try to post video result");
+        try {
+            return await doPost({url: '/video-result/create-video-result', data: data})
+        } catch (error) {
+            throw error
 
         }
     }
@@ -17,7 +28,7 @@ const requestListService = ({doGet, doPost}) => {
             throw error
         }
     }
-    return {postService ,getService}
+    return {postService, postVideoResult ,getService}
 }
 
 export default requestListService

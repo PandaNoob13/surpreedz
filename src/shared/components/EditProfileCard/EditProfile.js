@@ -35,7 +35,6 @@ const EditProfile = (props) => {
             reader.readAsDataURL(file);
             reader.onload = function() {
                 console.log("Data read : ", reader.result);
-                console.log("READER RESULT TYPE : ", typeof reader.result);
                 result = reader.result
                 console.log("READER RESULT : ", result);
                 setData({
@@ -46,8 +45,9 @@ const EditProfile = (props) => {
                 })
             };
             reader.onerror = function() {
-            console.log(reader.error);
-        };}
+                console.log(reader.error);
+            };
+        }
     };
 
     const handleChangeName = async (event) => {

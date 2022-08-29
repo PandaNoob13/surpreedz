@@ -6,9 +6,19 @@ import "./RequestCard.css"
 
 const RequestCard = (props) => {
    const [modalShow, setModalShow] = useState(false);
-   const {onPostService} = useRequestListService();
+   const [videoData, setVideoData] = useState({})
+   const [buttonDisable, setButtonDisable] = useState(true)
+   const {onPostService, onPostVideoResult} = useRequestListService();
    const data = props.data
    console.log("Data to be sent to detail : ", data.orderRequest);
+
+   useEffect(() => {
+      if (Object.keys(videoData).length != 0) {
+         setButtonDisable(false)
+      }
+   }, [videoData])
+
+   useEffect(()=>{}, [buttonDisable])
 
    const handleSubmit = (value) => {
       if (value == 'Accept'){
@@ -16,10 +26,37 @@ const RequestCard = (props) => {
       } else if (value == 'Reject'){
          onPostService(data.orderId, "Rejected")
       } else if (value == 'Submit') {
+         onPostVideoResult(data.orderId, videoData.dataUrl)
          onPostService(data.orderId, "Submitted")
       }
       props.callback()
    }
+
+   const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      console.log("Type of file ", typeof file);
+      console.log('file => ', file);
+      const url = URL.createObjectURL(file);
+      console.log("File name : ", file.name);
+      var result = ''
+      let reader = new FileReader();
+      if (data) {
+          reader.readAsDataURL(file);
+          reader.onload = function() {
+              console.log("Data read : ", reader.result);
+              result = reader.result
+              console.log("READER RESULT : ", result);
+              setVideoData({
+                  videoFile: file,
+                  videoName: file.name,
+                  videoUrl: url,
+                  dataUrl: result
+              })
+          };
+          reader.onerror = function() {
+          console.log(reader.error);
+      };}
+  };
 
    const StatusCondition = (status) => {
       if (status == 'Waiting for confirmation'){
@@ -32,7 +69,8 @@ const RequestCard = (props) => {
       } else if (status == 'On progress') {
          return (
             <div className="col-md-11 text-center">
-               <button className="btn btn-light m-2" onClick={() => handleSubmit('Submit')}>Submit Video</button>
+               <input type="file" onChange={handleFileChange} accept=".mov,.mp4"/>
+               <button disabled={buttonDisable} className="btn btn-light m-2" onClick={() => handleSubmit('Submit')}>Submit Video</button>
             </div>
          )
       }

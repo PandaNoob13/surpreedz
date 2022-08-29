@@ -44,8 +44,26 @@ const useRequestListService = () => {
         }   
     }
 
+    const onPostVideoResult = async (orderId, dataUrl) => {
+        console.log("On post video result called");
+        try {
+            const response = await requestListService.postVideoResult({
+                order_id: orderId,
+                data_url: dataUrl
+            })
+            console.log('Response: ', response.data);
+            setPosts(response.data)
+            setIsError(false)
+        } catch (error) {
+            setPosts(error)
+            console.log(error);
+        }finally{
+            setLoading(false)
+        }   
+    }  
+
     return {
-        posts, onGetService, onPostService
+        posts, onGetService, onPostService, onPostVideoResult
     }
 }
 
