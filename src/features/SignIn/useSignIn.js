@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 
 const useSignIn = () => {
@@ -25,9 +26,18 @@ const useSignIn = () => {
             console.log('response account', response.account);
             setPosts(response.token)
             setAccount(response.account)
+            swal({
+                title:'Sign In Success',
+                text:'Have fun on Surpreedz !',
+                icon:'success'
+            })
         } catch (error) {
             console.log(error);
-            alert(error)
+            swal({
+                title:'Sign In Failed',
+                text:'Wrong Email or Password !',
+                icon:'error'
+            })
         }finally{
             setLoading(false)
         }

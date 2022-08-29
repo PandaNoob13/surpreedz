@@ -3,6 +3,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- im
 import {regular} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useLocation, useNavigate } from "react-router-dom";
 import useOrderService from "../OrderDetailPage/useOrderDetail";
+import swal from "sweetalert";
 
 
 const PurchaseConfirmationPage = () => {
@@ -15,6 +16,10 @@ const PurchaseConfirmationPage = () => {
     const handleSubmit = () => {
         onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
         //navigate('/')
+        swal({
+            title:'Transaction Success',
+            icon:'success'
+        })
     }
     return (
         <div className="col-md-12 purchase-confirmation-container">

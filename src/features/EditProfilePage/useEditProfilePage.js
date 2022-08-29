@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 import { useDeps } from "../../shared/DepContext"
 
 const useEditProfilePage = () => {
@@ -44,10 +45,17 @@ const useEditProfilePage = () => {
             console.log('data.name', data.name);
             setIsError(false)
             console.log('error edit profile', isError);
+            swal({
+                title:'Edit Profile Success',
+                icon:'success'
+            })
         } catch (error) {
-            console.log('On Put Profile Called => Error');
             setPosts(error);
-            console.log('edit profile eror => ', error);
+            swal({
+                title:'Edit Profile Failed',
+                text:'Something wrong , Try again!',
+                icon:'error'
+            })
         } finally{
             console.log('On Put Profile Called => Finally');
             setLoading(false)

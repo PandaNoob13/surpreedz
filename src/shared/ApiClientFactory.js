@@ -32,9 +32,6 @@ const ApiClientFactory = (client) => {
     const doPut = async ({url='', data=null}) => {
         try {
             const response = await client.put(url, data)
-            console.log('apiclient factory2 => ', response);
-            console.log('apiclient factory3 => ', response.data);
-            alert(`api client factory`)
             return response.data
         } catch (error) {
             throw error
