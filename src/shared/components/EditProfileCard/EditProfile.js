@@ -8,8 +8,47 @@ const EditProfile = (props) => {
     const {picUrl, name, email, location, joinDate} = props.data;
     const [changeName, setChangeName] = useState(name)
     const [changeLocation,setChangeLocation] = useState(location);
-
+    const [data, setData] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
     const {onPutProfile} = useEditProfilePage();
+
+    useEffect(() => {
+        if (Object.keys(data).length != 0) {
+            console.log("Data load finished");
+            console.log("Data : ", data);
+            setIsLoading(false)
+        }
+    }, [data])
+    useEffect(() => {
+
+    }, [isLoading])
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        console.log("Type of file ", typeof file);
+        console.log('file => ', file);
+        const url = URL.createObjectURL(file);
+        console.log("File name : ", file.name);
+        var result = ''
+        let reader = new FileReader();
+        if (data) {
+            reader.readAsDataURL(file);
+            reader.onload = function() {
+                console.log("Data read : ", reader.result);
+                result = reader.result
+                console.log("READER RESULT : ", result);
+                setData({
+                    photoFile: file,
+                    photoName: file.name,
+                    photoUrl: url,
+                    dataUrl: result
+                })
+            };
+            reader.onerror = function() {
+                console.log(reader.error);
+            };
+        }
+    };
 
     const handleChangeName = async (event) => {
         setChangeName(event.target.value)
@@ -22,12 +61,11 @@ const EditProfile = (props) => {
 
     }
 
-    const handleSubbmitEditProfile = async (event) => {
+    const handleSubmitEditProfile = async (event) => {
         event.preventDefault()
         console.log('changeName1', changeName);
         console.log('changeLocation2', changeLocation);
-        onPutProfile(changeName,changeLocation);
-        alert(`profile has already change`)
+        onPutProfile(changeName,changeLocation, data.photoFile, data.photoName, data.photoUrl, data.dataUrl);
     }
 
     return (
@@ -44,11 +82,24 @@ const EditProfile = (props) => {
                         <label htmlFor="inputLocation" className="form-label text-white">Location</label>
                         <input type="text" className="form-control" onChange={handleChangeLocation} value={changeLocation} id="inputLocation"/>
                     </div>
-                    {/* <div className="mb-3">
-                        <label htmlFor="inputLanguage" className="form-label text-white">Language</label>
-                        <input type="text" className="form-control" placeholder="Indonesian, English" id="inputLanguage"/>
-                    </div> */}
-                    <button type="submit" className="btn btn-success" onClick={handleSubbmitEditProfile}>Submit</button>
+                    <div className="mb-3">
+                        <label htmlFor="inputLanguage" className="form-label text-white">Photo Profile</label><br/>
+                        <input 
+                            type="file"
+                            onChange={handleFileChange}
+                            accept=".png,.jpg"
+                        />                    
+                    </div>
+                    <div className='mb-3'>
+                        {data.photoUrl && (
+                            <img
+                                width="20%"
+                                src={data.photoUrl}
+                            />
+                        )}
+                    </div>
+
+                    <button disabled={isLoading} type="submit" className="btn btn-success" onClick={handleSubmitEditProfile}>Submit</button>
                 </form>
             </div>
         </div>        

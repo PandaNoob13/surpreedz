@@ -5,6 +5,14 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 function OccasionCard(props) {
     const chooseIcon = (occasion) => {
+        let elements = document.querySelectorAll('.icon')
+
+        elements.forEach(el => {
+        el.addEventListener('click', () => {
+            elements.forEach(el => el.classList.remove('active'))
+            el.classList.add('active')
+        })})
+
         switch (occasion){
             case "Birthday":
                 return <FontAwesomeIcon className='fa-2x' icon={solid("cake")} />
@@ -18,7 +26,7 @@ function OccasionCard(props) {
                 return ""
         }
     }
-    console.log("Occasion : ", props.occasion);
+    
     
     return (
         <div className='icon'>

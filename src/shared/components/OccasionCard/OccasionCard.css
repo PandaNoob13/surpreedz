@@ -28,3 +28,12 @@
 a {
     text-decoration: none !important;
 }
+
+.active {
+    transform: scale(1.2);
+    color: white;
+}
+
+.active .border {
+    border-color: white!important;
+}
