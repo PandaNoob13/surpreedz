@@ -1,14 +1,11 @@
-import AppRouter from "./navigation/AppRouter";
-import { AuthProvider } from "./shared/auth/UseAuth";
+import PurchasedCard from "./shared/components/PurchasedCard/PurchasedCard";
 
-const App = () => {
+function App() {
   return (
     <>
-      <AuthProvider>
-        <AppRouter/>
-      </AuthProvider> 
+      <PurchasedCard />
     </>
-  )
+  );
 }
 
 export default App;
