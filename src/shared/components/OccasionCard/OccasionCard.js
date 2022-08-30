@@ -9,8 +9,8 @@ function OccasionCard(props) {
 
         elements.forEach(el => {
         el.addEventListener('click', () => {
-            elements.forEach(el => el.classList.remove('active'))
-            el.classList.add('active')
+            elements.forEach(el => el.classList.remove('active-occasion'))
+            el.classList.add('active-occasion')
         })})
 
         switch (occasion){
