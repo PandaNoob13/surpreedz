@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import AccountCard from '../../shared/components/AccountCard/AccountCard'
 import EditProfileCard from '../../shared/components/EditProfileCard/EditProfileCard'
+import Loading from '../../shared/components/Loading/Loading'
 import ProfileCard from '../../shared/components/ProfileCard/ProfileCard'
+import useEditProfilePage from './useEditProfilePage'
 // import useEditProfilePage from './useEditProfilePage'
 
 const serviceCardData = () => {
@@ -25,6 +27,7 @@ function EditProfilePage() {
     useEffect(() => {
         console.log("Data changed");
     }, [data])
+    const {isLoading} = useEditProfilePage()
     return (
         <div className='text-white' style={{background: "#212121", marginTop: "3.5rem", minHeight:'100vh'}}>
             <div className='container py-5'>
@@ -37,6 +40,7 @@ function EditProfilePage() {
                         <EditProfileCard data={data} callback={() => setTrigger(!trigger)}/>
                     </div>
                 </div>
+                {isLoading ? <Loading/> : console.log(isLoading)}
             </div>
         </div>
     )

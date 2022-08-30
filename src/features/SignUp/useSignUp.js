@@ -50,7 +50,7 @@ const useSignUp = () => {
     }
 
   return {
-    onPostSignUp
+    onPostSignUp,isLoading
   }
 }
 

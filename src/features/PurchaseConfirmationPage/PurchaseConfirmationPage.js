@@ -5,10 +5,11 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useOrderService from "../OrderDetailPage/useOrderDetail";
 import swal from "sweetalert";
 import { useEffect, useState } from "react";
+import Loading from "../../shared/components/Loading/Loading";
 
 
 const PurchaseConfirmationPage = () => {
-    const {onPostService} = useOrderService()
+    const {onPostService, isLoading} = useOrderService()
     const navigate = useNavigate()
     const location = useLocation()
     const data = location.state
@@ -142,6 +143,7 @@ const PurchaseConfirmationPage = () => {
                     </div>
                 </div>
             </div>
+            {isLoading ? <Loading/> : <></>}
         </div>
     </div>
 

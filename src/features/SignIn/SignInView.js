@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../shared/components/Loading/Loading";
 import "./signInView.css"
 import useSignIn from "./useSignIn";
 
 const SignInView = () => {
     const navigate = useNavigate();
-    const {onPostSignIn} = useSignIn();
+    const {onPostSignIn, isLoading} = useSignIn();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailErrorMessage, setEmailErrorMessage] = useState('')
@@ -173,7 +174,9 @@ return (
 
                   </div>
               </div>
+             
           </div>
+          {isLoading ? <Loading/> : <></>}
     </div>
 );
 }

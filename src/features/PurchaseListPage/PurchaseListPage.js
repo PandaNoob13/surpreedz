@@ -2,9 +2,10 @@ import "./PurchaseListPage.css"
 import PurchasedCard from "../../shared/components/PurchasedCard/PurchasedCard"
 import React, { useEffect } from "react";
 import usePurchaseListPage from "./usePurchaseListPage";
+import Loading from "../../shared/components/Loading/Loading";
 
 const PurchaseListPage = () => {
-	const {posts, onGetOrder, onGetVideoResult} = usePurchaseListPage();
+	const {posts, onGetOrder, onGetVideoResult, isLoading} = usePurchaseListPage();
 		useEffect(() => {
 			onGetOrder()
 		}, [])
@@ -43,6 +44,7 @@ const PurchaseListPage = () => {
 			<PurchaseCard/>
 			<PurchaseCard/> */}
 			
+			{isLoading ? <Loading/> : <></>}
 		</div>    
 		</div>
   )

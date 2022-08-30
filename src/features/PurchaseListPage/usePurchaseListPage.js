@@ -75,7 +75,7 @@ function usePurchaseListPage() {
     }
 
     return {
-        posts, onGetOrder, onGetVideoResult
+        posts, onGetOrder, onGetVideoResult,isLoading
     }
 }
 
