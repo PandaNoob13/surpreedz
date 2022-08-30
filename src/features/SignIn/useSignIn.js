@@ -104,7 +104,7 @@ const useSignIn = () => {
     },[posts])
 
   return {
-    onPostSignIn
+    onPostSignIn,isLoading
   }
 }
 

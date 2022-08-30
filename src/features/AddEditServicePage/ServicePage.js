@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Loading from "../../shared/components/Loading/Loading";
 import "./ServicePage.css";
 import useAddEditService from "./useAddEditService";
 import VideoInput from "./videoInput/VideoInput";
@@ -8,7 +9,7 @@ const ServicePage = () => {
       var serviceDetailRole = window.localStorage.getItem('service_detail_role')
       var serviceDetailDesc = window.localStorage.getItem('service_detail_desc')
       var serviceDetailPrice = window.localStorage.getItem('service_detail_price')
-      const {onPostService} = useAddEditService();
+      const {onPostService, isLoading} = useAddEditService();
       const [role, setRole] = useState(serviceDetailRole)
       const [description, setDescription] = useState(serviceDetailDesc)
       const [price, setPrice] = useState(serviceDetailPrice)
@@ -100,7 +101,7 @@ const ServicePage = () => {
                               </div>
                         </div>   
                   </form>
-                  
+                  {isLoading ? <Loading/> : <></>}
             </div>
       </div>
       )

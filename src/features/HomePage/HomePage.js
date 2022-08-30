@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import ServiceCard from "../../../src/shared/components/ServiceCard/ServiceCard"
+import Loading from '../../shared/components/Loading/Loading';
 import "./HomePage.css"
 import useHomeService from './useHomeService';
 
 const url = "url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/comedians3-1600899167.jpg')"
 
 function HomePage() {
-    const {posts, onGetService} = useHomeService();
+    const {posts, onGetService, isLoading} = useHomeService();
     useEffect(() => {
         onGetService()
     }, [])
@@ -67,6 +68,7 @@ function HomePage() {
                 </div>
             </div>
             </div>
+            {isLoading ? <Loading/> : <></>}
         </div>
     )
 }

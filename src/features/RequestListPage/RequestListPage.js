@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import Loading from "../../shared/components/Loading/Loading";
 import RequestCard from "./RequestCard/RequestCard";
 import "./RequestListPage.css"
 import useRequestListService from "./UseRequestListPage";
 
 const RequestListPage = () => {
-  const {posts, onGetService} = useRequestListService();
+  const {posts, onGetService, isLoading} = useRequestListService();
   const [trigger, setTrigger] = useState(false)
   const triggerChange = () => {
     setTimeout(() => {
@@ -43,7 +44,9 @@ const RequestListPage = () => {
                     return <RequestCard data={sentaccount} callback={triggerChange}/>
                 })
                 return orders
-            }) : <h1>Empty request</h1>}        
+            }) : <h1>Empty request</h1>} 
+                   
+            {isLoading ? <Loading/> : <></>}
         </div>
     </div>
     

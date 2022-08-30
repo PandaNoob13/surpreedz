@@ -32,6 +32,7 @@ const useEditProfilePage = () => {
     const onPutProfile = async (name,location, photo, photoName, url, dataUrl) => {
         setLoading(true);
         console.log("On Put Profile Called");
+        console.log('islOading edit profile', isLoading);
         try {
             console.log('On Put Profile Called => Try');
             const response = await editProfileService.putProfile({
@@ -69,11 +70,13 @@ const useEditProfilePage = () => {
         } finally{
             console.log('On Put Profile Called => Finally');
             setLoading(false)
+            console.log('islOading final edit profile', isLoading);
+
         }
     }
 
     return {
-        onPutProfile
+        onPutProfile,isLoading
     }
   
 }
