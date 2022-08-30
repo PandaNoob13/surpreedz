@@ -39,10 +39,6 @@ const PurchaseListPage = () => {
 					})
 					return orders
 				}) : <h1>Empty Data</h1>}
-
-			{/* <PurchaseCard/>
-			<PurchaseCard/>
-			<PurchaseCard/> */}
 			
 			{isLoading ? <Loading/> : <></>}
 		</div>    

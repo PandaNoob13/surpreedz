@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { data } from 'jquery';
 
 const serviceCardData = {
     picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
@@ -32,6 +33,7 @@ const ServiceCard = (props) => {
     });
 
     formatter.format(2500); /* $2,500.00 */
+    console.log("Data service card : ", props.data);
     console.log("Photo Link : ", photo_link);
     return (
         <NavLink key={"/order-detail-page"} to='/order-detail-page' state={{
@@ -39,7 +41,7 @@ const ServiceCard = (props) => {
             name: name,
             email: props.data.email,
             location: location,
-            joinDate: props.date,
+            joinDate: props.data.join_date,
             serviceDetailId: id,
             price: price,
             dataUrl: props.pic

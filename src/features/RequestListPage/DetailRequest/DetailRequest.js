@@ -17,8 +17,7 @@ const DetailRequest = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="col-md-12 person-name">Order from {data.buyerName}</div>
-
+                    {/* <div className="col-md-12 person-name">Order from {data.buyerName}</div> */}
                     <div className="col-md-12 d-flex flex-row">
                         <div className="col-md-3 font-inter-r">Recipient name</div>
                         <div className="col-md-1 font-inter-r">:</div>

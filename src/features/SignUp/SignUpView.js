@@ -96,7 +96,7 @@ const SignUpView = () => {
             setButtonDisabled(true)
         }
       } else {
-        if (nameErrorMessage === '' && location.length > 4){
+        if (nameErrorMessage === '' && location.length > 3){
           setButtonDisabled(false)
         } else {
           setButtonDisabled(true)

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import Loading from "../../../shared/components/Loading/Loading";
 import DetailRequest from "../DetailRequest/DetailRequest"
 import useRequestListService from "../UseRequestListPage";
 import moment from "moment";
@@ -9,7 +10,7 @@ const RequestCard = (props) => {
    const [modalShow, setModalShow] = useState(false);
    const [videoData, setVideoData] = useState({})
    const [buttonDisable, setButtonDisable] = useState(true)
-   const {onPostService, onPostVideoResult} = useRequestListService();
+   const {onPostService, onPostVideoResult, isLoading} = useRequestListService();
    const data = props.data
    const dueDate = data.dueDate
    const orderRequest = data.orderRequest
@@ -73,7 +74,9 @@ const RequestCard = (props) => {
       } else if (status == 'On progress') {
          return (
             <div className="col-md-11 text-center">
-               <input type="file" onChange={handleFileChange} accept=".mov,.mp4"/>
+               <div style={{margin:'15px'}}>
+                  <input type="file" onChange={handleFileChange} accept=".mov,.mp4"/>
+               </div>
                <button disabled={buttonDisable} className="btn btn-light m-2" onClick={() => handleSubmit('Submit')}>Submit Video</button>
             </div>
          )
@@ -96,15 +99,15 @@ const RequestCard = (props) => {
                   <div className="vr line-vertikal" ></div>
 
                   <div className="col-md-8 d-flex p-2 flex-column justify-content-around">
-                     <div className="col-md-10 all-text-font" style={{fontSize:'32px'}}>Message for {orderRequest.recipient_name}</div>
+                     <div className="col-md-10 all-text-font" style={{fontSize:'28px'}}>Message for {orderRequest.recipient_name}</div>
 
-                     <div className="col-md-12 d-flex flex-row">
+                     {/* <div className="col-md-12 d-flex flex-row">
                               <div className="col-md-1 font-price">Price: </div>
-                              {/* <div className="col-md-1 font-price">:</div> */}
+                              <div className="col-md-1 font-price">:</div>
                               <div className="col-md-3 font-nominal">Rp {data.price}</div>
-                     </div>
-                     <br/>
+                     </div> */}
                      <div className="col-md-6">
+                           <br/>
                               <Button className="btn btn-light" onClick={() => setModalShow(true)}>Request detail</Button>
                               <DetailRequest
                                  show={modalShow}
@@ -122,10 +125,10 @@ const RequestCard = (props) => {
                   <div className="vr line-vertikal" ></div>
 
                   <div className="col-md-3 d-flex p-2 flex-column justify-content-between">
-                        <div className="col-md-11 font-price">Due date :</div>
-                        <div className="col-md-11 text-center font-nominal">{moment({dueDate}).format("MMMM Do YYYY")}</div>
-                        <div className="col-md-11 font-price">Status :</div>
-                        <div className="col-md-11 text-center font-nominal">{data.status}</div>
+                        <div className="col-md-11 font-price">Due date: {moment({dueDate}).format("MMMM Do YYYY")}</div>
+                        {/* <div className="col-md-11 text-center font-nominal">{moment({dueDate}).format("MMMM Do YYYY")}</div> */}
+                        <div className="col-md-11 font-price">Status: {data.status}</div>
+                        {/* <div className="col-md-11 text-center font-nominal">{data.status}</div> */}
                         <div className="col-md-11 text-center">
                            {StatusCondition(data.status)}
                         </div>
@@ -135,6 +138,7 @@ const RequestCard = (props) => {
                <div>
                   <br/>
                </div>
+               {isLoading ? <Loading/> : <></>}
       </div>
    )
 }

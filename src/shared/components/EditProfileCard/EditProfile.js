@@ -106,8 +106,7 @@ const EditProfile = (props) => {
                     <button type="submit" className="btn btn-success" onClick={handleSubmitEditProfile}>Submit</button>
                 </form>
             </div>
-            {/* {isLoading ? <Loading/> : console.log(isLoading)} */}
-
+            {isLoading ? <Loading/> : console.log(isLoading)}
         </div>        
     )
 };

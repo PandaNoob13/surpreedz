@@ -20,6 +20,8 @@ const serviceCardData = () => {
 function EditProfilePage() {
     const [trigger , setTrigger] = useState(false);
     const [data, setData] = useState(serviceCardData())
+    const {isLoading} = useEditProfilePage()
+
     useEffect(() => {
         console.log("Trigger called");
         setData(serviceCardData())
@@ -27,7 +29,6 @@ function EditProfilePage() {
     useEffect(() => {
         console.log("Data changed");
     }, [data])
-    const {isLoading} = useEditProfilePage()
     return (
         <div className='text-white' style={{background: "#212121", marginTop: "3.5rem", minHeight:'100vh'}}>
             <div className='container py-5'>
@@ -40,8 +41,8 @@ function EditProfilePage() {
                         <EditProfileCard data={data} callback={() => setTrigger(!trigger)}/>
                     </div>
                 </div>
-                {isLoading ? <Loading/> : console.log(isLoading)}
             </div>
+            {isLoading ? <Loading/> : console.log(isLoading)}
         </div>
     )
 }

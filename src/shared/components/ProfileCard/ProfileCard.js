@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const IsSeller = (category) => {
     if (category != undefined){
@@ -28,7 +29,7 @@ const ProfileCard = (props) => {
                     {/* <p className="card-text mb-0"><small>Language</small></p>
                     <p className="card-text">Indonesian, English</p> */}
                     <p className="card-text mb-0"><small>Member since</small></p>
-                    <p className="card-text">{joinDate}</p>
+                    <p className="card-text">{moment({joinDate}).format("MMMM Do YYYY")}</p>
                 </div>
             </div>
         </div>

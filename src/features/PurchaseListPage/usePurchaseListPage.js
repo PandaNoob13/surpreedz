@@ -1,6 +1,7 @@
 import { post } from "jquery";
 import { useEffect, useState } from "react";
 import { useDeps } from "../../shared/DepContext";
+import swal from "sweetalert";
 import { triggerBase64Download } from 'react-base64-downloader';
 
 function usePurchaseListPage() {
@@ -15,7 +16,7 @@ function usePurchaseListPage() {
         }
     }, [posts])
     useEffect(() => {
-        if (video != '') {
+        if (video !== '') {
             const blob = b64toBlob(video.data_url, 'video/mp4');
             const blobUrl = URL.createObjectURL(blob);
             var tempLink = document.createElement('a');
@@ -61,6 +62,7 @@ function usePurchaseListPage() {
         }
     }
     const onGetVideoResult = async (orderId) => {
+        setLoading(true)
         console.log("On get video result called");
         try {
             const response = await purchaseListService.getVideoResult(orderId)
@@ -71,7 +73,19 @@ function usePurchaseListPage() {
         } catch (error) {
             setPosts(error)
             console.log(error);
-        } finally {}
+            swal({
+                title:'Download Failed!',
+                text:'An error occured while getting video..',
+                icon:'success'
+            })
+        } finally {
+            setLoading(false)
+            swal({
+                title:'Download Started!',
+                text:'Your download should have been started by now!',
+                icon:'success'
+            })
+        }
     }
 
     return {

@@ -16,10 +16,8 @@ export const AuthProvider = ({children}) => {
             console.log(`Token : ${token}`);
             console.log(token);
             window.sessionStorage.setItem('token', token.AccessToken);
-            setToken(token.AccessToken);
-           
+            setToken(token.AccessToken);           
             console.log('orderData 2 ', orderData);
-
             if (localStorage.getItem('order_detail_recipient') != 'null' && localStorage.getItem('order_detail_occasion') != 'null' ) {
                 console.log('orderData 1 ', orderData);
                 console.log('recipient',localStorage.getItem('order_detail_recipient'));
