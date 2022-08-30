@@ -18,8 +18,8 @@ const RequestListPage = () => {
   }, [trigger])
   return (
     <div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
-        <div className="container d-flex flex-column ">
-            <div className="col-md-12 text-white ">
+        <div className="container d-flex flex-column">
+            <div className="col-md-12 text-white " style={{marginTop: "1.5rem"}}>
                 <h3>Request List</h3>
             </div>
             <div className="col-md-12">

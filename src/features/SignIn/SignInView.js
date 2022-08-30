@@ -46,11 +46,10 @@ const SignInView = () => {
 
     const handlePasswordChange = async (event) => {
         setPassword(event.target.value)
-        // localStorage.setItem('occasion', dataOrder.occasion)
     }
 
     const validatePasswordInput = async () => {
-        let minPasswordLength = 6
+        let minPasswordLength = 3
         let passwordErrorMessage = ''
         if (password.length < minPasswordLength){
             passwordErrorMessage = `${minPasswordLength} min length character`

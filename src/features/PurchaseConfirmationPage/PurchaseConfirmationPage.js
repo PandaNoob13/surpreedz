@@ -132,7 +132,7 @@ const PurchaseConfirmationPage = () => {
 
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">total delivery days</p>
-                            <p className="card-text">5 days</p>
+                            <p className="card-text">3 days</p>
                         </div>
 
 

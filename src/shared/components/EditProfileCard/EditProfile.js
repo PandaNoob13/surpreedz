@@ -63,6 +63,9 @@ const EditProfile = (props) => {
         event.preventDefault()
         console.log('changeName1', changeName);
         console.log('changeLocation2', changeLocation);
+        const url = data.dataUrl.split(',')
+        window.localStorage.setItem('photo_profile', url[1])
+        props.callback()
         onPutProfile(changeName,changeLocation, data.photoFile, data.photoName, data.photoUrl, data.dataUrl);
     }
 

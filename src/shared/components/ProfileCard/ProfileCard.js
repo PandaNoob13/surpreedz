@@ -14,7 +14,6 @@ const IsSeller = (category) => {
 
 const ProfileCard = (props) => {
     const {picUrl, name, email, location, joinDate, dataUrl} = props.data;
-
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <img src={`data:image/jpg;base64,${dataUrl}`} className="img rounded-circle mx-auto d-block" style={{padding: "4px",width: "150px", height: "150px", objectFit: "cover"}} alt="artist"/>

@@ -10,7 +10,7 @@ function usePurchaseListPage() {
     const [posts, setPosts] = useState([]);
     const [video, setVideo] = useState('');
     useEffect(() => { 
-        if (posts.length != 0 ){
+        if (posts != null ){
             console.log("Done set posts : ", posts);
         }
     }, [posts])

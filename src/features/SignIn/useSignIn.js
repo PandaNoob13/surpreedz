@@ -14,10 +14,6 @@ const useSignIn = () => {
     const [posts, setPosts] = useState({})
     const [orderData, setOrderData] = useState('')
 
-    const navigate = useNavigate()
-
-
-
     const onPostSignIn = async (email,password) => {
         setLoading(true);
         console.log("On Post Sign In Called"); 
@@ -44,7 +40,6 @@ const useSignIn = () => {
                 text:'Have fun on Surpreedz !',
                 icon:'success'
             })
-            // navigate('/#category', {replace: true})
         } catch (error) {
             console.log(error);
             swal({
@@ -77,9 +72,6 @@ const useSignIn = () => {
                 window.localStorage.setItem('service_detail_price', 0)
                 console.log("No service detail");
             }
-            // const accountDetail = account.AccountDetail
-            // console.log("Photo Profiles : ", accountDetail.PhotoProfiles);
-            // const photoProfile = accountDetail.PhotoProfiles[accountDetail.PhotoProfiles.length - 1]
             window.localStorage.setItem('photo_profile', data.data_url);
         }
 
