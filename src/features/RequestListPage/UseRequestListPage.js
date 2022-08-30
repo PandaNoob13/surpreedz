@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDeps } from "../../shared/DepContext";
+import swal from "sweetalert";
+
 
 const useRequestListService = () => {
     const {requestListService} = useDeps();
@@ -26,7 +28,6 @@ const useRequestListService = () => {
     }
 
     const onPostService = async (order_id, status) => {
-        setLoading(true);
         console.log("On Get Request List Called");
         try {
             const response = await requestListService.postService({
@@ -39,9 +40,7 @@ const useRequestListService = () => {
         } catch (error) {
             setPosts(error)
             console.log(error);
-        }finally{
-            setLoading(false)
-        }   
+        }finally{}   
     }
 
     const onPostVideoResult = async (orderId, dataUrl) => {
@@ -54,17 +53,28 @@ const useRequestListService = () => {
             })
             console.log('Response: ', response.data);
             setPosts(response.data)
+            
             setIsError(false)
         } catch (error) {
             setPosts(error)
             console.log(error);
+            swal({
+                title:'Upload Video Failed',
+                text:'Error while uploading your video..',
+                icon:'error'
+            })
         }finally{
             setLoading(false)
+            swal({
+                title:'Upload Video Success',
+                text:'Your customer has received your video!',
+                icon:'success'
+            })
         }   
     }  
 
     return {
-        posts, onGetService, onPostService, onPostVideoResult,isLoading
+        posts, onGetService, onPostService, onPostVideoResult, isLoading
     }
 }
 

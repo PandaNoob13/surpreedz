@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AccountCard from '../../shared/components/AccountCard/AccountCard'
 import EditProfileCard from '../../shared/components/EditProfileCard/EditProfileCard'
 import Loading from '../../shared/components/Loading/Loading'
@@ -18,28 +18,31 @@ const serviceCardData = () => {
 }
 
 function EditProfilePage() {
-    // const {onPutProfile} = useEditProfilePage();
-    // const [name , setName] = useState(serviceCardData.name);
-
-    // const handleChangeName = (nameAccount) => {
-    //     setName(nameAccount)
-    // }
+    const [trigger , setTrigger] = useState(false);
+    const [data, setData] = useState(serviceCardData())
     const {isLoading} = useEditProfilePage()
 
+    useEffect(() => {
+        console.log("Trigger called");
+        setData(serviceCardData())
+    }, [trigger])
+    useEffect(() => {
+        console.log("Data changed");
+    }, [data])
     return (
         <div className='text-white' style={{background: "#212121", marginTop: "3.5rem", minHeight:'100vh'}}>
             <div className='container py-5'>
                 <div className='row'>
                     <div className='col-md-4 p-2'>
-                        <ProfileCard data={serviceCardData()}/>
-                        <AccountCard data={serviceCardData()}/>
+                        <ProfileCard data={data} />
+                        <AccountCard data={data}/>
                     </div>
                     <div className='col-md-8 p-2'>
-                        <EditProfileCard data={serviceCardData()}/>
+                        <EditProfileCard data={data} callback={() => setTrigger(!trigger)}/>
                     </div>
                 </div>
-                {isLoading ? <Loading/> : console.log(isLoading)}
             </div>
+            {isLoading ? <Loading/> : console.log(isLoading)}
         </div>
     )
 }

@@ -39,18 +39,12 @@ const useSignUp = () => {
             })
         } catch (error) {
             setPosts(error)
-            // console.log(error);
             swal({
                 title:'Sign Up Failed',
                 text:'Email already exist !',
                 icon:'error'
             })
         }finally{
-            // if (posts != "SUCCESS"){
-            //     alert(posts)
-            // } else {
-            //     navigate('/sign-in')
-            // }
             setLoading(false)
         }
     }

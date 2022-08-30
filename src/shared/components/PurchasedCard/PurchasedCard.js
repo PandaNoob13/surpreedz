@@ -1,8 +1,9 @@
 import React from 'react';
+import moment from "moment";
 
 const StatusCondition = (status, callback, orderId) => {
     switch (status) {
-        case "On Progress":
+        case "On progress":
             return (
                 <h4 className="card-text">ON PROGRESS</h4>
             )
@@ -56,7 +57,7 @@ const PurchasedCard = (props) => {
                 <div className="col-md-2">
                     <div className="card-body text-white">
                         <h5 className="card-title">Rp. {price}</h5>
-                        <p className="card-text">Due : {dueDate}</p>
+                        <p className="card-text">Due : {moment({dueDate}).format("MMMM Do YYYY")}</p>
                         {StatusCondition(status, props.callback, orderId)}
                     </div>
                 </div>

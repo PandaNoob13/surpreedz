@@ -12,7 +12,6 @@ const useEditProfilePage = () => {
     const [posts, setPosts] = useState({})
     const [uploadStatus, setUploadStatus] = useState(false)
 
-    
     useEffect(()=>{
         if (isError === false) {
             window.localStorage.setItem('account_name', data.name)
@@ -76,7 +75,7 @@ const useEditProfilePage = () => {
     }
 
     return {
-        onPutProfile,isLoading
+        onPutProfile, isLoading
     }
   
 }

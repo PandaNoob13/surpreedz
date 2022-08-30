@@ -5,9 +5,9 @@ import logo from "./SurpreedzLogo.png"
 
 const Nav = () => {
     const {token,onLogout} = useAuth()
-    const navigate = useNavigate();
     const account_name = window.localStorage.getItem('account_name')
     const photo_profile = window.localStorage.getItem('photo_profile')
+    if (account_name == undefined) {window.sessionStorage.clear()}
     if (!token){
         window.localStorage.clear();
     }
@@ -46,9 +46,12 @@ const Nav = () => {
                                 <li><NavLink to="/purchase-list" className="dropdown-item">Purchase List</NavLink></li>
                             </ul>
                         </li>
+                        {/* <li className="nav-item dropdown me-2">
+                            <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{marginTop: "0.5rem"}}>
+                                <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem', objectFit: "cover"}} src={`data:image/jpg;base64,${photo_profile}`} alt="" /> */}
                         <li className="nav-item dropdown me-2 p-1">
                             <div className="nav-link dropdown-toggle py-0 dropdown-profile"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src={`data:image/jpg;base64,${photo_profile}`} alt="" />
+                                <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem', marginTop:'0.3rem', objectFit: "cover"}} src={`data:image/jpg;base64,${photo_profile}`} alt="" />
                             </div>
                             <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                                 <li><span className="dropdown-item text-dropdown">Signed in as <b>{account_name}</b></span></li>

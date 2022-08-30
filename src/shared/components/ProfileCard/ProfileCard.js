@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const IsSeller = (category) => {
     if (category != undefined){
@@ -14,7 +15,6 @@ const IsSeller = (category) => {
 
 const ProfileCard = (props) => {
     const {picUrl, name, email, location, joinDate, dataUrl} = props.data;
-
     return (
         <div className="card mb-3 py-3" style={{borderRadius: "12px", backgroundColor:"#373535"}}>
             <img src={`data:image/jpg;base64,${dataUrl}`} className="img rounded-circle mx-auto d-block" style={{padding: "4px",width: "150px", height: "150px", objectFit: "cover"}} alt="artist"/>
@@ -29,7 +29,7 @@ const ProfileCard = (props) => {
                     {/* <p className="card-text mb-0"><small>Language</small></p>
                     <p className="card-text">Indonesian, English</p> */}
                     <p className="card-text mb-0"><small>Member since</small></p>
-                    <p className="card-text">{joinDate}</p>
+                    <p className="card-text">{moment({joinDate}).format("MMMM Do YYYY")}</p>
                 </div>
             </div>
         </div>
