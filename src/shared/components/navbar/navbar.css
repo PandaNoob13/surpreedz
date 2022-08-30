@@ -56,3 +56,7 @@
 -webkit-animation-name: slideIn;
 animation-name: slideIn;
 }
+
+.dropdown-profile::after {
+    vertical-align: 0px!important;
+}

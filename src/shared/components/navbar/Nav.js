@@ -46,8 +46,8 @@ const Nav = () => {
                                 <li><NavLink to="/purchase-list" className="dropdown-item">Purchase List</NavLink></li>
                             </ul>
                         </li>
-                        <li className="nav-item dropdown me-2">
-                            <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li className="nav-item dropdown me-2 p-1">
+                            <div className="nav-link dropdown-toggle py-0 dropdown-profile"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src={`data:image/jpg;base64,${photo_profile}`} alt="" />
                             </div>
                             <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
