@@ -94,7 +94,7 @@ return (
                   <div  className="col-lg-4 card bg-card align-self-center align-items-center">
                       <form onSubmit={handleSubmit} className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
                           <input className="form-control p-3 m-2"
-                            placeholder="Username/email"
+                            placeholder="Email"
                             type="email"
                             name="email"
                             id="email"
