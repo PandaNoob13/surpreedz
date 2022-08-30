@@ -1,0 +1,26 @@
+.bg-card{
+    background-color: #373535;
+    border-radius: 8px;
+}
+
+.hr{
+    height: 1px;
+    background-color: #ffffff;
+    border: none;
+}
+
+.person-name{
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.font-inter-w{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.font-inter-r{
+    color: #ffffff;
+    font-size: 20px;
+}
+

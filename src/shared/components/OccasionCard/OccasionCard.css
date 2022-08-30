@@ -1,0 +1,39 @@
+.border {
+    border-color: rgb(191, 191, 191)!important;
+}
+
+.icon {
+    transition: .3s;
+    color: rgb(191, 191, 191)
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    color: white!important;
+}
+
+.icon .border:hover {
+    border-color: white!important;
+}
+
+.icon:focus {
+    transform: scale(1.2);
+    color: white!important;
+}
+
+.icon:focus .border {
+    border-color: white!important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.active {
+    transform: scale(1.2);
+    color: white;
+}
+
+.active .border {
+    border-color: white!important;
+}
