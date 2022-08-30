@@ -10,12 +10,12 @@ function usePurchaseListPage() {
     const [posts, setPosts] = useState([]);
     const [video, setVideo] = useState('');
     useEffect(() => { 
-        if (posts.length != 0 ){
+        if (posts.length !== 0 ){
             console.log("Done set posts : ", posts);
         }
     }, [posts])
     useEffect(() => {
-        if (video != '') {
+        if (video !== '') {
             const blob = b64toBlob(video.data_url, 'video/mp4');
             const blobUrl = URL.createObjectURL(blob);
             var tempLink = document.createElement('a');
