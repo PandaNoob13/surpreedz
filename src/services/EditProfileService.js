@@ -5,7 +5,9 @@ const EditProfileService = ({doPut}) => {
             console.log('Data before sent : ', data);
             return await doPut({url: '/account/edit-profile', data: data})
         } catch (error) {
-            console.log('Try Edit Profile Put : Error', error);
+            console.log('Error', error);
+            window.sessionStorage.clear()
+            window.localStorage.clear()
             throw error
         }
     }

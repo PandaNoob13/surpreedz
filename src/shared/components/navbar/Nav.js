@@ -47,8 +47,8 @@ const Nav = () => {
                             </ul>
                         </li>
                         <li className="nav-item dropdown me-2">
-                            <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem'}} src={`data:image/jpg;base64,${photo_profile}`} alt="" />
+                            <div className="nav-link dropdown-toggle py-0"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{marginTop: "0.5rem"}}>
+                                <img className="rounded-circle" style={{width:'1.5rem',height:'1.5rem', objectFit: "cover"}} src={`data:image/jpg;base64,${photo_profile}`} alt="" />
                             </div>
                             <ul className="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                                 <li><span className="dropdown-item text-dropdown">Signed in as <b>{account_name}</b></span></li>
