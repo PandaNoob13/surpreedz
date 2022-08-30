@@ -3,14 +3,16 @@
 import { useEffect, useState } from 'react';
 // import { event } from 'jquery';
 import useEditProfilePage from '../../../features/EditProfilePage/useEditProfilePage';
+import Loading from '../Loading/Loading';
 
 const EditProfile = (props) => {
     const {picUrl, name, email, location, joinDate} = props.data;
     const [changeName, setChangeName] = useState(name)
     const [changeLocation,setChangeLocation] = useState(location);
     const [data, setData] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
-    const {onPutProfile} = useEditProfilePage();
+    const [isLoad, setIsLoad] = useState(true)
+    const {onPutProfile, isLoading} = useEditProfilePage();
+
 
     useEffect(() => {
         if (Object.keys(data).length != 0) {
@@ -19,7 +21,7 @@ const EditProfile = (props) => {
     }, [data])
     useEffect(() => {
 
-    }, [isLoading])
+    }, [isLoad])
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -93,6 +95,7 @@ const EditProfile = (props) => {
                             <img
                                 width="20%"
                                 src={data.photoUrl}
+                                alt= ""
                             />
                         )}
                     </div>
@@ -100,6 +103,8 @@ const EditProfile = (props) => {
                     <button type="submit" className="btn btn-success" onClick={handleSubmitEditProfile}>Submit</button>
                 </form>
             </div>
+            {/* {isLoading ? <Loading/> : console.log(isLoading)} */}
+
         </div>        
     )
 };

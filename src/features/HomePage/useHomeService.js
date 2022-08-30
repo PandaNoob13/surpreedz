@@ -27,7 +27,7 @@ const useHomeService = () => {
     }
 
     return {
-        posts, onGetService
+        posts, onGetService,isLoading
     }
 }
 

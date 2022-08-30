@@ -93,7 +93,7 @@ const useAddEditService = () => {
     }
 
   return {
-    onPostService
+    onPostService,isLoading
   }
 }
 

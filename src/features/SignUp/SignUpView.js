@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom";
 import EditAccount from "../../shared/components/EditProfileCard/EditAccount";
+import Loading from "../../shared/components/Loading/Loading";
 import "./signUpView.css"
 import useSignUp from "./useSignUp";
 
 const SignUpView = () => {
-    const {onPostSignUp} = useSignUp();
+    const {onPostSignUp, isLoading} = useSignUp();
     const [step,setStep]= useState(1);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -192,6 +193,7 @@ const SignUpView = () => {
                       </form> 
                   </div>
               </div>
+              {isLoading ? <Loading/> : <></>}
           </div>
     </div>
         );
