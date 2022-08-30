@@ -13,7 +13,6 @@ const IsSeller = (category) => {
 }
 
 const ProfileCard = (props) => {
-    console.log("Profile card props data : ", props.data);
     const {picUrl, name, email, location, joinDate, dataUrl} = props.data;
 
     return (

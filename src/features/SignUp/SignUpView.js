@@ -19,6 +19,7 @@ const SignUpView = () => {
 
     const handleEmailChange = async (event) => {
         setEmail(event.target.value)
+        console.log(event.target.value);
     }
 
     const validateEmailInput = async () => {
@@ -39,6 +40,8 @@ const SignUpView = () => {
 
     const handlePasswordChange = async (event) => {
         setPassword(event.target.value)
+        console.log(event.target.value);
+
     }
 
     const validatePasswordInput = async () => {
@@ -56,6 +59,8 @@ const SignUpView = () => {
 
     const handleNameChange = async (event) => {
       setName(event.target.value)
+      console.log(event.target.value);
+
     }
 
     const validateNameInput = async () => {
@@ -77,7 +82,9 @@ const SignUpView = () => {
 
     const handleSubmit = async (event) => {
       event.preventDefault(); // Supaya ga render ulang
+      console.log(email, password, name, location);
       onPostSignUp(email, password, name, location)
+      
     }
 
     const checkInputState = async () => {

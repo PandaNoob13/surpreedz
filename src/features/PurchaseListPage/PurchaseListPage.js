@@ -1,10 +1,10 @@
 import "./PurchaseListPage.css"
-import PurchaseCard from "../../shared/components/PurchasedCard/PurchasedCard"
+import PurchasedCard from "../../shared/components/PurchasedCard/PurchasedCard"
 import React, { useEffect } from "react";
 import usePurchaseListPage from "./usePurchaseListPage";
 
 const PurchaseListPage = () => {
-	const {posts, onGetOrder} = usePurchaseListPage();
+	const {posts, onGetOrder, onGetVideoResult} = usePurchaseListPage();
 		useEffect(() => {
 			onGetOrder()
 		}, [])
@@ -19,11 +19,24 @@ const PurchaseListPage = () => {
 				<br/>
 			</div>
 				{posts ? posts.map((data) => {
-					console.log(data);
-					if (data !== 0){
-						return (<PurchaseCard data={data}/>)
-					}
-					return console.error();
+					const account = data.account
+					const orders = account.Orders.map((order) => {
+						const serviceDetail = account.ServiceDetail
+						const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
+						const orderStatus = order.OrderStatus[order.OrderStatus.length - 1]
+						const sentaccount = {
+							occasion: order.OrderRequest.occasion,
+							name: account.AccountDetail.name,
+							price: servicePrice.price,
+							dueDate: order.due_date,
+							status: orderStatus.order_status,
+							orderId: order.id,
+							orderRequest: order.OrderRequest,
+							photoUrl: data.data_url
+						}
+						return <PurchasedCard data={sentaccount} callback={(orderId) => onGetVideoResult(orderId)}/>
+					})
+					return orders
 				}) : <h1>Empty Data</h1>}
 
 			{/* <PurchaseCard/>

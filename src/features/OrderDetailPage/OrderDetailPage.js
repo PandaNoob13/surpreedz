@@ -91,7 +91,19 @@ function OrderDetailPage() {
                                 }
                              }>Send Request</NavLink>
                              :
-                             <NavLink to='/sign-in' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink>
+                             <NavLink to='/sign-in' className="btn btn-light btn-lg mt-3" role="button"
+                             state={
+                                {
+                                    serviceDetailId: data.serviceDetailId,
+                                    dueDate: dueDate,
+                                    occasion: occasion,
+                                    recipient: recipient,
+                                    message: message,
+                                    description: description,
+                                    price: data.price
+                                }
+                             }
+                             >Send Request</NavLink>
                          }
                          </div>
                 </div>

@@ -3,7 +3,6 @@ import "./DetailRequest.css"
 
 const DetailRequest = (props) => {
     const data = props.data
-    console.log("Data detail request : ", data);
     return (
         <Modal
             {...props}

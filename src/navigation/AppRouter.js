@@ -22,11 +22,12 @@ const AppRouter = () => {
           <Route path="/service" element={<ServicePage/>}></Route>
           <Route path='/purchase-list' element={<PurchaseListPage/>}></Route>
           <Route path='/profile' element={<EditProfilePage/>}></Route>
-          <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route>
+          {/* <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route> */}
           <Route path='/purchase-confirmation' element={<PurchaseConfirmationPage/>}></Route>
       </Route>
 
       <Route index element={<HomePage/>}></Route>
+      <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route>
       <Route  path="/sign-in" element={<SignInView/>}></Route>
       <Route  path="/sign-up" element={<SignUpView/>}></Route>
      

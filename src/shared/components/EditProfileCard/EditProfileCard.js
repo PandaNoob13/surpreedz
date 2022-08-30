@@ -24,9 +24,9 @@ const EditProfileCard = (props) => {
                         {/* <Nav.Item>
                             <Nav.Link eventKey="#account">Account</Nav.Link>
                         </Nav.Item> */}
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link eventKey="#security">Security</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                     </Nav>
                 </Card.Header>
                 <Card.Body style={{borderRadius: "12px", backgroundColor:"#373535"}}>
@@ -37,9 +37,9 @@ const EditProfileCard = (props) => {
                         {/* <TabPane id="account" aria-labelledby='account-tab' eventKey={"#account"}>
                             <EditAccount />
                         </TabPane> */}
-                        <TabPane id="security" aria-labelledby='security-tab' eventKey={"#security"}>
+                        {/* <TabPane id="security" aria-labelledby='security-tab' eventKey={"#security"}>
                             <EditSecurity/>
-                        </TabPane>
+                        </TabPane> */}
                     </Tab.Content>                    
                 </Card.Body>
             </Tab.Container>

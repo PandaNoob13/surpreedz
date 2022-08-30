@@ -14,9 +14,7 @@ const EditProfile = (props) => {
 
     useEffect(() => {
         if (Object.keys(data).length != 0) {
-            console.log("Data load finished");
             console.log("Data : ", data);
-            setIsLoading(false)
         }
     }, [data])
     useEffect(() => {
@@ -99,7 +97,7 @@ const EditProfile = (props) => {
                         )}
                     </div>
 
-                    <button disabled={isLoading} type="submit" className="btn btn-success" onClick={handleSubmitEditProfile}>Submit</button>
+                    <button type="submit" className="btn btn-success" onClick={handleSubmitEditProfile}>Submit</button>
                 </form>
             </div>
         </div>        
