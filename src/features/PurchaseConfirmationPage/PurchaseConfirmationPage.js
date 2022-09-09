@@ -6,40 +6,43 @@ import useOrderService from "../OrderDetailPage/useOrderDetail";
 import swal from "sweetalert";
 import { useEffect, useState } from "react";
 import Loading from "../../shared/components/Loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { addOrder } from "../OrderDetailPage/state/OrderDetailAction";
 
 
 const PurchaseConfirmationPage = () => {
     const {onPostService, isLoading} = useOrderService()
     const navigate = useNavigate()
-    const location = useLocation()
-    const data = location.state
 
-    const data2 = {
-        buyerId: parseInt(window.localStorage.getItem('account_id')),
-        serviceDetailId: parseInt(window.localStorage.getItem('order_detail_serviceDetailId')),
-        dueDate: window.localStorage.getItem('order_detail_dueDate'),
-        occasion: window.localStorage.getItem('order_detail_occasion'),
-        message: window.localStorage.getItem('order_detail_message'),
-        description: window.localStorage.getItem('order_detail_description'),
-        price: parseInt(window.localStorage.getItem('order_detail_price')),
-        recipient: window.localStorage.getItem('order_detail_recipient')
-    }
-    
+
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
+    const dispatch = useDispatch();
+
+
+
+  
    
     const handleSubmit = () => {
-        console.log('data => ', data);
-        console.log('data2 => ', data2);
-        if (data) {
-            onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
-            
-        }else {
-            onPostService(data2.buyerId, data2.serviceDetailId, data2.dueDate, data2.occasion, data2.recipient, data2.message, data2.description)
-        }
+        const buyerId = parseInt(window.localStorage.getItem('account_id'))
+       
+        console.log('order data dari purchase => ', addOrderDataResult);
+        dispatch(addOrder({buyerId : buyerId, serviceDetailId: addOrderDataResult.serviceDetailId,dueDate: addOrderDataResult.dueDate, occasion:addOrderDataResult.occasion, recipient: addOrderDataResult.recipient, message: addOrderDataResult.message, description: addOrderDataResult.description}))
+        onPostService(buyerId, addOrderDataResult.serviceDetailId, addOrderDataResult.dueDate, addOrderDataResult.occasion, addOrderDataResult.recipient, addOrderDataResult.message, addOrderDataResult.description)
 
         swal({
-            title:'Transaction Success',
-            icon:'success'
+            title:'Transaction Succes',
+            icon:'success',
+            buttons:["Go to Home", "View Your Order"]
+        }).then((value)=> {
+            if (value) {
+                dispatch(addOrder(false))
+                navigate('/purchase-list')
+            }else{
+                dispatch(addOrder(false))
+                navigate('/')
+            }
         })
+
     }
 
     return (
@@ -74,16 +77,19 @@ const PurchaseConfirmationPage = () => {
                     <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
                         <div className="d-flex flex-row align-items-center">
                             <img className="img-thumbnail" src="" alt=""></img>
-                            {data ?
+                            {/* {data ?
                             <h4 className="card-title ms-3">{data.occasion} Greeting</h4>
                             :
                             <h4 className="card-title ms-3">{data2.occasion} Greeting</h4>
-                            }
+                            } */}
+
+                            <h4 className="card-title ms-3">{addOrderDataResult.occasion} Greeting</h4>
+
                             
 
                         </div>
                         <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
-                        {data ?
+                        {/* {data ?
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">{data.occasion} greeting</p>
                             <p className="card-text">Rp. {data.price} </p>
@@ -93,7 +99,13 @@ const PurchaseConfirmationPage = () => {
                             <p className="card-text">{data2.occasion} greeting</p>
                             <p className="card-text">Rp. {data2.price}</p>
                         </div>
-                        }
+                        } */}
+
+                        <div className="d-flex flex-row justify-content-between">
+                            <p className="card-text">{addOrderDataResult.occasion} greeting</p>
+                            <p className="card-text">Rp. {addOrderDataResult.price} </p>
+                        </div> 
+
                         
                         <div className="card detail-order mb-3">
                             <div className="container text-black py-2">
@@ -128,7 +140,9 @@ const PurchaseConfirmationPage = () => {
 
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">TOTAL</p>
-                            {data ? <p className="card-text">Rp.{data.price}</p> : <p className="card-text">Rp.{data2.price}</p>}
+                            {/* {data ? <p className="card-text">Rp.{data.price}</p> : <p className="card-text">Rp.{data2.price}</p>} */}
+
+                            <p className="card-text">Rp.{addOrderDataResult.price}</p>
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">
