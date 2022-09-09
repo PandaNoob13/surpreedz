@@ -56,9 +56,7 @@ function OrderDetailPage() {
             message: message,
             description: description,
             price: data.price}))
-        console.log('addOrderDataResult', addOrderDataResult);
-        // alert(useSelector)
-        
+        console.log('addOrderDataResult', addOrderDataResult);        
     }
 
     useEffect(()=>{
@@ -113,34 +111,6 @@ function OrderDetailPage() {
                             </div>
                         </div> 
                         <div className='d-flex justify-content-end'>
-                             {/* <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink> */}
-                             {/* { token ? <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button" state={
-                                {
-                                    buyerId: parseInt(window.localStorage.getItem('account_id')),
-                                    serviceDetailId: data.serviceDetailId,
-                                    dueDate: dueDate,
-                                    occasion: occasion,
-                                    recipient: recipient,
-                                    message: message,
-                                    description: description,
-                                    price: data.price
-                                }
-                             }>Send Request</NavLink>
-                             :
-                             <NavLink to='/sign-in' onClick={handleSendRequest} className="btn btn-light btn-lg mt-3" role="button"
-                             state={
-                                {
-                                    serviceDetailId: data.serviceDetailId,
-                                    dueDate: dueDate,
-                                    occasion: occasion,
-                                    recipient: recipient,
-                                    message: message,
-                                    description: description,
-                                    price: data.price
-                                }
-                             }
-                             >Send Request</NavLink>
-                         } */}
                              <div  className="btn btn-light btn-lg mt-3" onClick={handleSendRequest} >
                                     Send Request
                              </div>
