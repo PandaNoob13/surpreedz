@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { addOrder } from "../../features/OrderDetailPage/state/OrderDetailAction";
-import "./auth.css"
+
 
 const AuthContext = createContext({});
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({children}) => {
         if (addOrderDataResult) {
             swal({
                 title:'Are you sure ?',
-                text:'If you sign out before completing the payment, your order data will be deleted',
+                text:`If you sign out before completing the payment, \n your order data will be deleted`,
                 icon:'warning',
                 buttons:["Cancel", "Sign Out"]
             }).then((value)=> {

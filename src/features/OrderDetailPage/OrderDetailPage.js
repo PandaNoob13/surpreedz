@@ -8,6 +8,7 @@ import {useAuth} from "../../shared/auth/UseAuth"
 import useOrderService from './useOrderDetail'
 import { useDispatch, useSelector } from 'react-redux'
 import { addOrder } from './state/OrderDetailAction'
+import swal from 'sweetalert'
 
 
 function OrderDetailPage() {
@@ -56,7 +57,14 @@ function OrderDetailPage() {
             message: message,
             description: description,
             price: data.price}))
-        console.log('addOrderDataResult', addOrderDataResult);        
+        // console.log('addOrderDataResult', addOrderDataResult);
+        swal({
+            title:'Your request has been saved successfully',
+            text:'Please complete the transaction !',
+            icon:'success',
+            buttons: false,
+            timer: 2500,
+        })     
     }
 
     useEffect(()=>{

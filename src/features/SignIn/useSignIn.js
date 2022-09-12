@@ -3,6 +3,7 @@ import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { useSelector } from "react-redux";
 
 
 const useSignIn = () => {
@@ -12,7 +13,9 @@ const useSignIn = () => {
 
     const [data, setData] = useState('');
     const [posts, setPosts] = useState({})
-    const [orderData, setOrderData] = useState('')
+    const [orderData, setOrderData] = useState('');
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer);
+
 
     const onPostSignIn = async (email,password) => {
         setLoading(true);
@@ -35,11 +38,21 @@ const useSignIn = () => {
             console.log('response account', response.account);
             setPosts(response.token)
             setData(response.account)
-            swal({
-                title:'Sign In Success',
-                text:'Have fun on Surpreedz !',
-                icon:'success'
-            })
+            if (addOrderDataResult) {
+                swal({
+                    title:'Sign In Success',
+                    text:`Have fun on Surpreedz ! \n Please complete your transaction`,
+                    icon:'success'
+                })
+            } else {
+                swal({
+                    title:'Sign In Success',
+                    text:'Have fun on Surpreedz !',
+                    icon:'success',
+                    buttons:false,
+                    timer:3000
+                })
+            }
         } catch (error) {
             console.log(error);
             swal({
