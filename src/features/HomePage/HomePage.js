@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { NavLink } from 'react-router-dom';
 import ServiceCard from "../../../src/shared/components/ServiceCard/ServiceCard"
 import Loading from '../../shared/components/Loading/Loading';
 import "./HomePage.css"
@@ -21,7 +22,9 @@ function HomePage() {
                             {/* <hr className="col-1 m-0 mb-2" style={{borderTop: "5px solid"}}/> */}
                             <h1 className="display-4">Bring joy and surprise your loved one with surpreedz!</h1>
                             <p className="lead">
-                                <a className="btn btn-light btn-lg mt-3" href="#" role="button">What is surpreedz?</a>
+                                <NavLink to='/about' className="nav-link" aria-current="page">
+                                    <button className="btn btn-light btn-lg mt-3">What is surpreedz?</button>
+                                </NavLink>
                             </p>    
                         </div>                   
                     </div>               
