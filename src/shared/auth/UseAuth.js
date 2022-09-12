@@ -1,13 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import { addOrder } from "../../features/OrderDetailPage/state/OrderDetailAction";
+import "./auth.css"
 
 const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
     const navigate = useNavigate();
     const [token, setToken] = useState(window.sessionStorage.getItem('token'));
-    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer);
+    const dispatch = useDispatch();
 
     useEffect(()=> {
         console.log('orderData useEffect', addOrderDataResult);
@@ -34,10 +38,30 @@ export const AuthProvider = ({children}) => {
         }
     }
     const onLogout = () => {
-        window.localStorage.clear();
-        window.sessionStorage.clear()
-        setToken(null)
-        navigate('/', {replace: true})
+        if (addOrderDataResult) {
+            swal({
+                title:'Are you sure ?',
+                text:'If you sign out before completing the payment, your order data will be deleted',
+                icon:'warning',
+                buttons:["Cancel", "Sign Out"]
+            }).then((value)=> {
+                if (value) {
+                    window.localStorage.clear();
+                    window.sessionStorage.clear()
+                    setToken(null)
+                    dispatch(addOrder(false))
+                    navigate('/', {replace: true})
+                }
+            })
+    
+        }else{
+            window.localStorage.clear();
+            window.sessionStorage.clear()
+            setToken(null)
+            dispatch(addOrder(false))
+            navigate('/', {replace: true})
+        }
+        
     }
     return (
         <AuthContext.Provider value={{token, onLogin, onLogout}}>
