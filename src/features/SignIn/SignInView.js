@@ -36,15 +36,6 @@ const SignInView = () => {
 
     useEffect(() => {
         validateEmailInput()
-        // if (dataOrder) {
-        //     localStorage.setItem('order_detail_serviceDetailId',dataOrder.serviceDetailId)
-        //     localStorage.setItem('order_detail_dueDate',dataOrder.dueDate)
-        //     localStorage.setItem('order_detail_occasion',dataOrder.occasion)
-        //     localStorage.setItem('order_detail_message',dataOrder.message)
-        //     localStorage.setItem('order_detail_description',dataOrder.description)
-        //     localStorage.setItem('order_detail_price',dataOrder.price)
-        //     localStorage.setItem('order_detail_recipient',dataOrder.recipient)
-        // }
     }, [email])
 
     const handlePasswordChange = async (event) => {
@@ -107,44 +98,6 @@ return (
                             name="password"
                             id="password"
                             onChange={handlePasswordChange} />
-                        
-                          {/* {
-                            dataOrder? <NavLink className="col-md-10"  to="/purchase-confirmation"
-                            state={
-                                {
-                                    buyerId: parseInt(window.localStorage.getItem('account_id')),
-                                    serviceDetailId: dataOrder.serviceDetailId,
-                                    dueDate: dataOrder.dueDate,
-                                    occasion: dataOrder.occasion,
-                                    recipient: dataOrder.recipient,
-                                    message: dataOrder.message,
-                                    description: dataOrder.description,
-                                    price: dataOrder.price
-                                }}
-                                onClick={handleSubmit}
-                                
-                                >
-                                    <button
-                                    type="submit"
-                                    name="submit" 
-                                    id="submit"  
-                                    className="col-md-12 btn btn-light"
-                                    disabled={buttonDisabled}
-                                    
-                                    >Continue</button>
-                            </NavLink>
-                            :
-                            <NavLink className="col-md-10"  to="/" onClick={handleSubmit}>
-                                <button
-                                    type="submit"
-                                    name="submit" 
-                                    id="submit"  
-                                    className="col-md-12 btn btn-light"
-                                    disabled={buttonDisabled}
-                                    >Continue</button>
-                          </NavLink>
-                          } */}
-
                             <button
                                     type="submit"
                                     name="submit" 

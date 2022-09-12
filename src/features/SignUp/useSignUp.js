@@ -4,12 +4,15 @@ import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { useSelector } from "react-redux";
+import useSignIn from "../SignIn/useSignIn";
 
 const useSignUp = () => {
     const navigate = useNavigate();
     const {signUpService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer);
+    const {onPostSignIn} = useSignIn();
+
     
 
     const [posts, setPosts] = useState({})
@@ -34,16 +37,17 @@ const useSignUp = () => {
                     text:`Welcome to Surpreedz ! \n Please Sign In to complete your transaction`,
                     icon:'success'
                 })
-                navigate('/sign-in')
+                onPostSignIn(email,password)
+                // navigate('/sign-in')
             }else{
                 swal({
                     title:'Sign Up Succes',
                     text:'Welcome to Surpreedz !',
                     icon:'success',
-                    buttons:["Go to Home", "Sign In"]
+                    buttons:["Cancel", "Sign In"]
                 }).then((value)=> {
                     if (value) {
-                        navigate('/sign-in')
+                    onPostSignIn(email,password)
                     }else{
                         navigate('/')
                     }
