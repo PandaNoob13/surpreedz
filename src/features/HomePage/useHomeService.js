@@ -11,10 +11,10 @@ const useHomeService = () => {
     }, [posts])
     const onGetService = async () => {
         setLoading(true);
-        console.log("On Get Home Service Called");
+        // console.log("On Get Home Service Called");
         try {
             const response = await homeService.getService()
-            console.log('Response: ', response);
+            // console.log('Response: ', response);
             setPosts(response.data)
             setIsError(false)
         } catch (error) {

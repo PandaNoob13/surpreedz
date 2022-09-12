@@ -33,8 +33,8 @@ const ServiceCard = (props) => {
     });
 
     formatter.format(2500); /* $2,500.00 */
-    console.log("Data service card : ", props.data);
-    console.log("Photo Link : ", photo_link);
+    // console.log("Data service card : ", props.data);
+    // console.log("Photo Link : ", photo_link);
     return (
         <NavLink key={"/order-detail-page"} to='/order-detail-page' state={{
             picUrl: photo_link,

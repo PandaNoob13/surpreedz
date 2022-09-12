@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import OccasionCard from '../../shared/components/OccasionCard/OccasionCard'
 import PersonalisedMessageCard from '../../shared/components/PersonalisedMessageCard/PersonalisedMessageCard'
 import ProfileCard from '../../shared/components/ProfileCard/ProfileCard'
 import VideoCarouselCard from '../../shared/components/VideoCarouselCard/VideoCarouselCard'
 import {useAuth} from "../../shared/auth/UseAuth"
 import useOrderService from './useOrderDetail'
+import { useDispatch, useSelector } from 'react-redux'
+import { addOrder } from './state/OrderDetailAction'
+import swal from 'sweetalert'
 
 
 function OrderDetailPage() {
@@ -18,7 +21,13 @@ function OrderDetailPage() {
     const [message, setMessage] = useState('')
     const [description, setDescription] = useState('')
     const dueDate = new Date();
+    const navigate = useNavigate()
+
     dueDate.setDate(dueDate.getDate() + 3)
+
+
+    const dispatch = useDispatch();
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
 
 
     const handleOccasionChange = async (data) => {
@@ -28,6 +37,7 @@ function OrderDetailPage() {
 
     const handleRecipientChange = async (event) => {
         setRecipient(event.target.value)
+        
     }
 
     const handleMessageChange = async (event) => {
@@ -37,6 +47,38 @@ function OrderDetailPage() {
     const handleDescriptionChange = async (event) => {
         setDescription(event.target.value)
     }
+
+    const handleSendRequest = (event) => {
+        event.preventDefault();
+        dispatch(addOrder({serviceDetailId: data.serviceDetailId,
+            dueDate: dueDate,
+            occasion: occasion,
+            recipient: recipient,
+            message: message,
+            description: description,
+            price: data.price}))
+        // console.log('addOrderDataResult', addOrderDataResult);
+        swal({
+            title:'Your request has been saved successfully',
+            text:'Please complete the transaction !',
+            icon:'success',
+            buttons: false,
+            timer: 2500,
+        })     
+    }
+
+    useEffect(()=>{
+        // console.log('addOrderData', addOrderData.serviceDetailId);
+        console.log('addOrderData', addOrderDataResult);
+        if (addOrderDataResult) {
+          console.log('5. masuk use effect add order');
+          if (token) {
+            navigate('/purchase-confirmation')
+          }else {
+            navigate('/sign-in')
+          }
+        }
+      },[addOrderDataResult,dispatch])
 
     return (
         <div className='text-white h-100 min-vh-100' style={{background: "#212121", marginTop: '50px'}}>
@@ -77,34 +119,9 @@ function OrderDetailPage() {
                             </div>
                         </div> 
                         <div className='d-flex justify-content-end'>
-                             {/* <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button">Send Request</NavLink> */}
-                             { token ? <NavLink to='/purchase-confirmation' className="btn btn-light btn-lg mt-3" role="button" state={
-                                {
-                                    buyerId: parseInt(window.localStorage.getItem('account_id')),
-                                    serviceDetailId: data.serviceDetailId,
-                                    dueDate: dueDate,
-                                    occasion: occasion,
-                                    recipient: recipient,
-                                    message: message,
-                                    description: description,
-                                    price: data.price
-                                }
-                             }>Send Request</NavLink>
-                             :
-                             <NavLink to='/sign-in' className="btn btn-light btn-lg mt-3" role="button"
-                             state={
-                                {
-                                    serviceDetailId: data.serviceDetailId,
-                                    dueDate: dueDate,
-                                    occasion: occasion,
-                                    recipient: recipient,
-                                    message: message,
-                                    description: description,
-                                    price: data.price
-                                }
-                             }
-                             >Send Request</NavLink>
-                         }
+                             <div  className="btn btn-light btn-lg mt-3" onClick={handleSendRequest} >
+                                    Send Request
+                             </div>
                          </div>
                 </div>
                 </div>

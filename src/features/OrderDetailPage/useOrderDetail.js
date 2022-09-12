@@ -6,6 +6,8 @@ const useOrderService = () => {
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [posts, setPosts] = useState([])
+
+
     useEffect(() => { 
         
     }, [posts])
@@ -22,9 +24,11 @@ const useOrderService = () => {
                 message_to_recipient: message_to_recipient,
                 recipient_description: recipient_description
             })
-            console.log('Response: ', response);
+            
+            console.log('Response use order detail : ', response);
             setPosts(response.data)
             setIsError(false)
+            
         } catch (error) {
             setPosts(error)
             console.log(error);

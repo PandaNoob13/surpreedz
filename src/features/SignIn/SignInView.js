@@ -15,9 +15,11 @@ const SignInView = () => {
     const location = useLocation();
     const dataOrder = location.state
 
+   
+
     const handleEmailChange = async (event) => {
         setEmail(event.target.value)
-        console.log('dataOrder => ', dataOrder);
+        // console.log('dataOrder => ', dataOrder);
     }
 
     const validateEmailInput = async () => {
@@ -34,15 +36,15 @@ const SignInView = () => {
 
     useEffect(() => {
         validateEmailInput()
-        if (dataOrder) {
-            localStorage.setItem('order_detail_serviceDetailId',dataOrder.serviceDetailId)
-            localStorage.setItem('order_detail_dueDate',dataOrder.dueDate)
-            localStorage.setItem('order_detail_occasion',dataOrder.occasion)
-            localStorage.setItem('order_detail_message',dataOrder.message)
-            localStorage.setItem('order_detail_description',dataOrder.description)
-            localStorage.setItem('order_detail_price',dataOrder.price)
-            localStorage.setItem('order_detail_recipient',dataOrder.recipient)
-        }
+        // if (dataOrder) {
+        //     localStorage.setItem('order_detail_serviceDetailId',dataOrder.serviceDetailId)
+        //     localStorage.setItem('order_detail_dueDate',dataOrder.dueDate)
+        //     localStorage.setItem('order_detail_occasion',dataOrder.occasion)
+        //     localStorage.setItem('order_detail_message',dataOrder.message)
+        //     localStorage.setItem('order_detail_description',dataOrder.description)
+        //     localStorage.setItem('order_detail_price',dataOrder.price)
+        //     localStorage.setItem('order_detail_recipient',dataOrder.recipient)
+        // }
     }, [email])
 
     const handlePasswordChange = async (event) => {
@@ -94,7 +96,7 @@ return (
                   <div  className="col-lg-4 card bg-card align-self-center align-items-center">
                       <form onSubmit={handleSubmit} className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
                           <input className="form-control p-3 m-2"
-                            placeholder="Username/email"
+                            placeholder="Email"
                             type="email"
                             name="email"
                             id="email"
