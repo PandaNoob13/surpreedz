@@ -1,4 +1,4 @@
-import loadingAnimation from "./loadingAmination.json"
+import loadingAnimation from "./loadingAnimation.json"
 import "./loading.css"
 import Lottie from "lottie-react"
 

@@ -14,13 +14,13 @@
 }
 
 .backdrop-content{
-    background-color: #ffffff;
+    background-color: #212121;
     height: 200px;
     width: 200px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid rgb(102, 108, 106);
-    border-radius: 5px;
+    border: 2px solid #212121;
+    border-radius: 12px;
     flex-direction: column;
 }
