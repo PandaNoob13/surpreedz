@@ -8,40 +8,47 @@ import { useEffect, useState } from "react";
 import Loading from "../../shared/components/Loading/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { addOrder } from "../OrderDetailPage/state/OrderDetailAction";
+import useMidtransService from "./useMidtransService";
+import Midtrans from "./Midtrans";
 
 
 const PurchaseConfirmationPage = () => {
     const {onPostService, isLoading} = useOrderService()
     const navigate = useNavigate()
-
-
+    const {onPostMidtrans, midPosts, statMidtrans} = useMidtransService()
     const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
     const dispatch = useDispatch();
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const buyerId = parseInt(window.localStorage.getItem('account_id'))
        
         console.log('order data dari purchase => ', addOrderDataResult);
         // dispatch(addOrder({buyerId : buyerId, serviceDetailId: addOrderDataResult.serviceDetailId,dueDate: addOrderDataResult.dueDate, occasion:addOrderDataResult.occasion, recipient: addOrderDataResult.recipient, message: addOrderDataResult.message, description: addOrderDataResult.description}))
-        onPostService(buyerId, addOrderDataResult.serviceDetailId, addOrderDataResult.dueDate, addOrderDataResult.occasion, addOrderDataResult.recipient, addOrderDataResult.message, addOrderDataResult.description)
-
-        swal({
-            title:'Transaction Succes',
-            icon:'success',
-            buttons:["Go to Home", "View Your Order"]
-        }).then((value)=> {
-            if (value) {
-                dispatch(addOrder(false))
-                console.log('delete data order',addOrderDataResult);
-                navigate('/purchase-list')
-            }else{
-                dispatch(addOrder(false))
-                console.log('delete data order',addOrderDataResult);
-                navigate('/')
-            }
-        })
-
+        await onPostService(buyerId, addOrderDataResult.serviceDetailId, addOrderDataResult.dueDate, addOrderDataResult.occasion, addOrderDataResult.recipient, addOrderDataResult.message, addOrderDataResult.description)
+        const token = await onPostMidtrans(addOrderDataResult.price)
+        if (token !== '') {
+            await Midtrans(token);
+        }
+        
     }
+
+    useEffect(() => {
+        // //change this to the script source you want to load, for example this is snap.js sandbox env
+        const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js'; 
+        //change this according to your client-key
+        const myMidtransClientKey = 'SB-Mid-client-N7kVs82-uwgSIgaJ'; 
+    
+        let scriptTag = document.createElement('script');
+        scriptTag.src = midtransScriptUrl;
+        // optional if you want to set script attribute
+        // for example snap.js have data-client-key attribute
+        scriptTag.setAttribute('data-client-key', myMidtransClientKey); // data-client-key diganti dengan posts.token
+    
+        document.body.appendChild(scriptTag);
+        return () => {
+            document.body.removeChild(scriptTag);
+        }
+    }, [midPosts]);
 
     return (
         <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
@@ -127,12 +134,18 @@ const PurchaseConfirmationPage = () => {
 
 
                         <div className="d-flex flex-row justify-content-around mb-4 mt-4">
-                            <NavLink to='/' onClick={handleSubmit} className="col-10 btn btn-light" >Confirm & Pay</NavLink>
+                            <div onClick={handleSubmit} className="col-10 btn btn-light" >Confirm & Pay</div>
                         </div>
                     </div>
                 </div>
             </div>
             {isLoading ? <Loading/> : <></>}
+            {/* {statMidtrans ? <div>
+                    <Midtrans midPosts={midPosts}></Midtrans>
+                </div>
+                :
+                <></>   
+            } */}
         </div>
     </div>
 
