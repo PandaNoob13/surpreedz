@@ -7,7 +7,7 @@ const url = "url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/c
 function AboutPage() {
     return (
         <div className='text-white min-vh-100' style={{background: "#212121", marginTop: "3.5rem"}}>
-            <div className="jumbotron mb-4" style={{backgroundImage: "linear-gradient(#FF8484, #212121)"}}>
+            <div className="jumbotron mb-4" style={{backgroundImage: "linear-gradient(#2C2C2C, #212121)"}}>
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>
@@ -32,14 +32,14 @@ function AboutPage() {
                             <img src="https://cdn.cameo.com/static/assets/search-for-a-star-1x.png" alt="" className="img-fluid mh-100"></img>
                         </picture>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#FF8484"}}>1. SEARCH FOR A STAR</p>
+                            <p className='mb-1' style={{color: "#2C2C2C"}}>1. SEARCH FOR A STAR</p>
                             <h1 className="display-5">Find the right celeb for any occasion</h1>
                             <p>Birthdays, milestones, or even a well-deserved roast, the perfect celebrity is only a search away. Find yours and request them.</p>   
                         </div>
                     </div>
                     <div className='row gx-4 row-direction-media-reverse'>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#FF8484"}}>2. REQUEST THEM</p>
+                            <p className='mb-1' style={{color: "#2C2C2C"}}>2. REQUEST THEM</p>
                             <h1 className="display-5">Get your personalized video message</h1>
                             <p>Include all the important details in your request form. After it’s submitted, stars have up to 7 days to complete it. Choose our 24hr delivery option if you need it sooner.</p>
                         </div>
@@ -53,14 +53,14 @@ function AboutPage() {
                             <source src="https://cdn.cameo.com/static/assets/img-share.mp4" type="video/mp4"></source>
                         </video>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#FF8484"}}>3. SHARE THE MAGIC</p>
+                            <p className='mb-1' style={{color: "#2C2C2C"}}>3. SHARE THE MAGIC</p>
                             <h1 className="display-5">Capture the WOW</h1>
                             <p>Magical moments deserve to be shared. Whether you’re giving one or receiving a personalized video, we want to see your reaction. Bonus points if you tag us.</p>   
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="jumbotron" style={{backgroundImage: "linear-gradient(#212121, #FF8484, #212121)"}}>
+            <div className="jumbotron" style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)"}}>
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>

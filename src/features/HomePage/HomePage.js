@@ -18,7 +18,7 @@ function HomePage() {
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>
-                            {/* <p className='mb-1' style={{color: "#FF8484"}}>COMEDIANS</p> */}
+                            {/* <p className='mb-1' style={{color: "#2C2C2C"}}>COMEDIANS</p> */}
                             {/* <hr className="col-1 m-0 mb-2" style={{borderTop: "5px solid"}}/> */}
                             <h1 className="display-4">Bring joy and surprise your loved one with surpreedz!</h1>
                             <p className="lead">

@@ -51,7 +51,7 @@ const PurchaseConfirmationPage = () => {
     }, [midPosts]);
 
     return (
-        <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
+        <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundImage: "linear-gradient(black, #2C2C2C, #212121)"}}>
         <div className="container py-5">
             <div className='row'>
                 <div className='payment-option col-md-5 '>
