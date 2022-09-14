@@ -11,16 +11,23 @@ import ApiClientFactory from './shared/ApiClientFactory';
 import { clientInstance } from './shared/AxiosClient';
 import ServiceFactory from './services/ServiceFactory';
 import { DepProvider } from './shared/DepContext';
+import { Provider } from 'react-redux';
+import { setupStore } from './store';
+
 
 const apiClient = ApiClientFactory(clientInstance)
 const services = ServiceFactory(apiClient)
+const store = setupStore()
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-        <DepProvider services={services}>
-            <App />
-       </DepProvider>
+      <Provider store={store}>
+          <DepProvider services={services}>
+                <App />
+          </DepProvider>
+       </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

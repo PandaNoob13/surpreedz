@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { data } from 'jquery';
+import "./ServiceCard.css"
 
 const serviceCardData = {
     picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
@@ -33,8 +33,8 @@ const ServiceCard = (props) => {
     });
 
     formatter.format(2500); /* $2,500.00 */
-    console.log("Data service card : ", props.data);
-    console.log("Photo Link : ", photo_link);
+    // console.log("Data service card : ", props.data);
+    // console.log("Photo Link : ", photo_link);
     return (
         <NavLink key={"/order-detail-page"} to='/order-detail-page' state={{
             picUrl: photo_link,
@@ -46,7 +46,7 @@ const ServiceCard = (props) => {
             price: price,
             dataUrl: props.pic
         }}>
-            <div className="card mx-2" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
+            <div className="card mx-2 service-card" style={{minWidth: '12rem', minHeight: "16rem", borderRadius: "12px", backgroundColor:"#373535"}}>
                 <img src={`data:image/jpg;base64,${props.pic}`} className="card-img-top" style={{maxWidth: "12.5rem", padding: "4px", height: '15rem', objectFit: "cover", borderRadius: "12px"}} alt="artist"/>
                 <div className="card-body text-white" style={{padding: "8px"}}>
                     <p className="card-title h6" style={{marginBottom: "2px"}}>{name}</p>

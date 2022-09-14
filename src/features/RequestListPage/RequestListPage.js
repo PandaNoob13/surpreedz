@@ -18,24 +18,22 @@ const RequestListPage = () => {
     console.log("Use effect called");
   }, [trigger])
   return (
-    <div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
+    <div className="bg-request-list-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
         <div className="container d-flex flex-column">
             <div className="col-md-12 text-white " style={{marginTop: "1.5rem"}}>
                 <h3>Request List</h3>
+                <p>Manage your requested message and deliver your best performance</p>
             </div>
             <div className="col-md-12">
-                <div className="hr"></div>
+                {/* <div className="hr"></div> */}
                 <br/>
             </div>
             {posts ? posts.map((account) => {   
                 const orders = account.Orders.map((order) => {
-                    const serviceDetail = account.ServiceDetail
-                    const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
                     const orderStatus = order.OrderStatus[order.OrderStatus.length - 1]
                     const sentaccount = {
                         occasion: order.OrderRequest.occasion,
                         name: account.AccountDetail.name,
-                        price: servicePrice.price,
                         dueDate: order.due_date,
                         status: orderStatus.order_status,
                         orderId: order.id,

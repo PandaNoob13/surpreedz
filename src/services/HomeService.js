@@ -1,6 +1,6 @@
 const homeService = ({doGet}) => {
     const getService = async () => {
-        console.log("Try Getting Service Cards");
+        // console.log("Try Getting Service Cards");
         try {
             const page = 1;
             const limit = 10;

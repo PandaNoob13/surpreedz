@@ -16,7 +16,7 @@ const AccountCard = (props) => {
                     <p className="card-text mb-0"><small>Email</small></p>
                     <p className="card-text">{email}</p>
                 </div>
-                <p className="card-text text-center"><small className="text-muted">{name}</small></p>
+                {/* <p className="card-text text-center"><small className="text-muted">{name}</small></p> */}
             </div>
         </div>
     )

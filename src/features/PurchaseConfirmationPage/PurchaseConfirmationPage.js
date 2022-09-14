@@ -6,41 +6,49 @@ import useOrderService from "../OrderDetailPage/useOrderDetail";
 import swal from "sweetalert";
 import { useEffect, useState } from "react";
 import Loading from "../../shared/components/Loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { addOrder } from "../OrderDetailPage/state/OrderDetailAction";
+import useMidtransService from "./useMidtransService";
+import Midtrans from "./Midtrans";
 
 
 const PurchaseConfirmationPage = () => {
     const {onPostService, isLoading} = useOrderService()
     const navigate = useNavigate()
-    const location = useLocation()
-    const data = location.state
+    const {onPostMidtrans, midPosts, statMidtrans} = useMidtransService()
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
+    const dispatch = useDispatch();
 
-    const data2 = {
-        buyerId: parseInt(window.localStorage.getItem('account_id')),
-        serviceDetailId: parseInt(window.localStorage.getItem('order_detail_serviceDetailId')),
-        dueDate: window.localStorage.getItem('order_detail_dueDate'),
-        occasion: window.localStorage.getItem('order_detail_occasion'),
-        message: window.localStorage.getItem('order_detail_message'),
-        description: window.localStorage.getItem('order_detail_description'),
-        price: parseInt(window.localStorage.getItem('order_detail_price')),
-        recipient: window.localStorage.getItem('order_detail_recipient')
-    }
-    
-   
-    const handleSubmit = () => {
-        console.log('data => ', data);
-        console.log('data2 => ', data2);
-        if (data) {
-            onPostService(data.buyerId, data.serviceDetailId, data.dueDate, data.occasion, data.recipient, data.message, data.description)
-            
-        }else {
-            onPostService(data2.buyerId, data2.serviceDetailId, data2.dueDate, data2.occasion, data2.recipient, data2.message, data2.description)
+    const handleSubmit = async () => {
+        const buyerId = parseInt(window.localStorage.getItem('account_id'))
+       
+        console.log('order data dari purchase => ', addOrderDataResult);
+        // dispatch(addOrder({buyerId : buyerId, serviceDetailId: addOrderDataResult.serviceDetailId,dueDate: addOrderDataResult.dueDate, occasion:addOrderDataResult.occasion, recipient: addOrderDataResult.recipient, message: addOrderDataResult.message, description: addOrderDataResult.description}))
+        await onPostService(buyerId, addOrderDataResult.serviceDetailId, addOrderDataResult.dueDate, addOrderDataResult.occasion, addOrderDataResult.recipient, addOrderDataResult.message, addOrderDataResult.description)
+        const token = await onPostMidtrans(addOrderDataResult.price)
+        if (token !== '') {
+            await Midtrans(token);
         }
-
-        swal({
-            title:'Transaction Success',
-            icon:'success'
-        })
+        
     }
+
+    useEffect(() => {
+        // //change this to the script source you want to load, for example this is snap.js sandbox env
+        const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js'; 
+        //change this according to your client-key
+        const myMidtransClientKey = 'SB-Mid-client-N7kVs82-uwgSIgaJ'; 
+    
+        let scriptTag = document.createElement('script');
+        scriptTag.src = midtransScriptUrl;
+        // optional if you want to set script attribute
+        // for example snap.js have data-client-key attribute
+        scriptTag.setAttribute('data-client-key', myMidtransClientKey); // data-client-key diganti dengan posts.token
+    
+        document.body.appendChild(scriptTag);
+        return () => {
+            document.body.removeChild(scriptTag);
+        }
+    }, [midPosts]);
 
     return (
         <div className='text-white min-vh-100' style={{marginTop: '56px', backgroundColor:'#212121'}}>
@@ -74,27 +82,15 @@ const PurchaseConfirmationPage = () => {
                     <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
                         <div className="d-flex flex-row align-items-center">
                             <img className="img-thumbnail" src="" alt=""></img>
-                            {data ?
-                            <h4 className="card-title ms-3">{data.occasion} Greeting</h4>
-                            :
-                            <h4 className="card-title ms-3">{data2.occasion} Greeting</h4>
-                            }
-                            
-
+                            <h4 className="card-title ms-3">{addOrderDataResult.occasion} Greeting</h4>
                         </div>
                         <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
-                        {data ?
+            
                         <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">{data.occasion} greeting</p>
-                            <p className="card-text">Rp. {data.price} </p>
+                            <p className="card-text">{addOrderDataResult.occasion} greeting</p>
+                            <p className="card-text">Rp. {addOrderDataResult.price} </p>
                         </div> 
-                        :
-                        <div className="d-flex flex-row justify-content-between">
-                            <p className="card-text">{data2.occasion} greeting</p>
-                            <p className="card-text">Rp. {data2.price}</p>
-                        </div>
-                        }
-                        
+
                         <div className="card detail-order mb-3">
                             <div className="container text-black py-2">
                                 <div className='d-flex flex-auto align-items-center'>
@@ -128,7 +124,7 @@ const PurchaseConfirmationPage = () => {
 
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">TOTAL</p>
-                            {data ? <p className="card-text">Rp.{data.price}</p> : <p className="card-text">Rp.{data2.price}</p>}
+                            <p className="card-text">Rp.{addOrderDataResult.price}</p>
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">
@@ -138,7 +134,7 @@ const PurchaseConfirmationPage = () => {
 
 
                         <div className="d-flex flex-row justify-content-around mb-4 mt-4">
-                            <NavLink to='/' onClick={handleSubmit} className="col-10 btn btn-light" >Confirm & Pay</NavLink>
+                            <div onClick={handleSubmit} className="col-10 btn btn-light" >Confirm & Pay</div>
                         </div>
                     </div>
                 </div>

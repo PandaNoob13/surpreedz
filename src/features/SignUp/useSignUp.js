@@ -3,11 +3,17 @@ import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { useSelector } from "react-redux";
+import useSignIn from "../SignIn/useSignIn";
 
 const useSignUp = () => {
     const navigate = useNavigate();
     const {signUpService} = useDeps();
     const [isLoading, setLoading] = useState(false);
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer);
+    const {onPostSignIn} = useSignIn();
+
+    
 
     const [posts, setPosts] = useState({})
 
@@ -25,18 +31,29 @@ const useSignUp = () => {
             })
             console.log('status: ', response.status);
             setPosts(response.status)
-            swal({
-                title:'Sign Up Succes',
-                text:'Welcome to Surpreedz !',
-                icon:'success',
-                buttons:["Go to Home", "Sign In"]
-            }).then((value)=> {
-                if (value) {
-                    navigate('/sign-in')
-                }else{
-                    navigate('/')
-                }
-            })
+            if (addOrderDataResult) {
+                swal({
+                    title:'Sign Up Success',
+                    text:`Welcome to Surpreedz ! \n Please Sign In to complete your transaction`,
+                    icon:'success'
+                })
+                onPostSignIn(email,password)
+                // navigate('/sign-in')
+            }else{
+                swal({
+                    title:'Sign Up Succes',
+                    text:'Welcome to Surpreedz !',
+                    icon:'success',
+                    buttons:["Cancel", "Sign In"]
+                }).then((value)=> {
+                    if (value) {
+                    onPostSignIn(email,password)
+                    }else{
+                        navigate('/')
+                    }
+                })
+            }
+            
         } catch (error) {
             setPosts(error)
             swal({
