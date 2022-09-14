@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 /* .App {
   text-align: center;
 }
@@ -23,17 +27,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+=======
+/* CSS for page load transition */
+>>>>>>> Stashed changes
 
-.App-link {
-  color: #61dafb;
+.container {
+  animation: transitionIn 0.75s;
 }
 
-@keyframes App-logo-spin {
+@keyframes transitionIn {
   from {
-    transform: rotate(0deg);
+      opacity: 0;
+      transform: rotateX(-10deg);
   }
   to {
-    transform: rotate(360deg);
+      opacity: 1;
+      transform: rotateX(0);
   }
 } */
 

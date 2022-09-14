@@ -13,7 +13,7 @@ function HomePage() {
     }, [])
     return (
         <div className='text-white min-vh-100' style={{background: "#212121", marginTop: "3.5rem"}}>
-            <div className="jumbotron mb-4" style={{backgroundColor: "black"}}>
+            <div className="jumbotron mb-4">
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>
@@ -33,8 +33,8 @@ function HomePage() {
                 {/* <div className='container p-0'>
                     <h3>Musician</h3>
                 </div> */}
-                <div className='container-fluid p-0'>
-                    <div className='d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide'>
+                <div className='container-fluid p-0 py-1'>
+                    <div className='d-flex flex-row flex-nowrap overflow-scroll overflow-hidden scrollbar-hide py-3'>
                         {posts ? posts.map((account) => {
                             const data = account.account
                             // console.log(data);
