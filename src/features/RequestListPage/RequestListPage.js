@@ -22,9 +22,10 @@ const RequestListPage = () => {
         <div className="container d-flex flex-column">
             <div className="col-md-12 text-white " style={{marginTop: "1.5rem"}}>
                 <h3>Request List</h3>
+                <p>Manage your requested message and deliver your best performance</p>
             </div>
             <div className="col-md-12">
-                <div className="hr"></div>
+                {/* <div className="hr"></div> */}
                 <br/>
             </div>
             {posts ? posts.map((account) => {   
