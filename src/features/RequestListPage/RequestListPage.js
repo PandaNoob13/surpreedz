@@ -18,7 +18,7 @@ const RequestListPage = () => {
     console.log("Use effect called");
   }, [trigger])
   return (
-    <div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
+    <div className="bg-request-list-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
         <div className="container d-flex flex-column">
             <div className="col-md-12 text-white " style={{marginTop: "1.5rem"}}>
                 <h3>Request List</h3>
