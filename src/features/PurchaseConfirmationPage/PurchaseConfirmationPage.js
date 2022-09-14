@@ -140,12 +140,6 @@ const PurchaseConfirmationPage = () => {
                 </div>
             </div>
             {isLoading ? <Loading/> : <></>}
-            {/* {statMidtrans ? <div>
-                    <Midtrans midPosts={midPosts}></Midtrans>
-                </div>
-                :
-                <></>   
-            } */}
         </div>
     </div>
 

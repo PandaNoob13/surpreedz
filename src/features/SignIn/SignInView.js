@@ -19,8 +19,6 @@ const SignInView = () => {
     const location = useLocation();
     const dataOrder = location.state
 
-   
-
     const handleEmailChange = async (event) => {
         setEmail(event.target.value)
         // console.log('dataOrder => ', dataOrder);
@@ -79,33 +77,6 @@ const SignInView = () => {
         }
     }
 
-<<<<<<< Updated upstream
-return (
-          <div className="bg-request-page">
-          <div className="container d-flex flex-column min-vh-100 py-auto">
-                  <div className="row my-auto">
-                      <div className="col-md-8 my-auto px-2 py-4">
-                      <div className="welcometext m-2">Welcome Back !</div>
-                      <div className="col-md-6 hr m-2"></div>
-                      <div className="liberate m-2">Sign in to liberate our expression</div>
-                  </div>
-                  <div  className="col-lg-4 card bg-card align-self-center align-items-center">
-                      <form onSubmit={handleSubmit} className="col-md-10 d-flex pt-5 flex-column justify-content-center align-items-center text-center ">
-                          <input className="form-control p-3 m-2"
-                            placeholder="Email"
-                            type="email"
-                            name="email"
-                            id="email"
-                            onChange={handleEmailChange}
-                          />
-                          <input className="form-control p-3 m-2" placeholder="Password"
-                            type="password"
-                            name="password"
-                            id="password"
-                            onChange={handlePasswordChange} />
-<<<<<<< Updated upstream
-=======
-=======
     const Eye = async (event) => {
         event.preventDefault(); // Supaya ga render ulang
         if(passwordType === "password"){
@@ -144,14 +115,14 @@ return (
                                     onChange={handlePasswordChange} />
                                 {eye ? <FontAwesomeIcon className='fa-2x eye' icon={solid("eye")} onClick={Eye} /> : <FontAwesomeIcon className='fa-2x eye-slash' icon={solid("eye-slash")} onClick={Eye} />}
                             </div>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+                            
                             <button
                                 type="submit"
                                 name="submit" 
                                 id="submit"  
                                 className="btn btn-light col-md-12"
-                                disabled={buttonDisabled}>Continue</button>
+                                disabled={buttonDisabled}>Continue
+                            </button>
                                                         
                             <div className="col-md-12 d-flex m-3 flex-row justify-content-around">
                                 {/* <div className="form-check">
