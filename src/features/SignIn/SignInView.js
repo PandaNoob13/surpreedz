@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../shared/components/Loading/Loading";
 import "./signInView.css"
 import useSignIn from "./useSignIn";
@@ -139,9 +139,9 @@ const SignInView = () => {
                             <div className="col-md-12" style={{border: "1px solid #000000"}}></div>
                             <div className="col-md-12 pb-3 d-flex flex-row justify-content-center">
                                 <div className="already"> Not a member yet ?</div>
-                                <div onClick={()=> {navigate('/sign-up')}} className="sign-in btn-link">
+                                <NavLink to='/sign-up' className="sign-in btn-link">
                                     Sign Up
-                                </div>
+                                </NavLink>
                             </div>
                         </form> 
                     </div>

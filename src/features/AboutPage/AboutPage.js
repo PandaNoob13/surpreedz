@@ -2,12 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import "./AboutPage.css"
 
-const url = "url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/comedians3-1600899167.jpg')"
-
 function AboutPage() {
     return (
-        <div className='text-white min-vh-100' style={{background: "#212121", marginTop: "3.5rem"}}>
-            <div className="jumbotron mb-4" style={{backgroundImage: "linear-gradient(#2C2C2C, #212121)"}}>
+        <div className='text-white min-vh-100' style={{backgroundColor: "#212121", paddingTop: "3.5rem"}}>
+            <div className="jumbotron mb-4" style={{backgroundImage: "linear-gradient(black, #212121)"}}>
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>
@@ -41,7 +39,7 @@ function AboutPage() {
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
                             <p className='mb-1' style={{color: "#2C2C2C"}}>2. REQUEST THEM</p>
                             <h1 className="display-5">Get your personalized video message</h1>
-                            <p>Include all the important details in your request form. After it’s submitted, stars have up to 7 days to complete it. Choose our 24hr delivery option if you need it sooner.</p>
+                            <p>Include all the important details in your request form. After it’s submitted, stars have up to 3 days to complete it. Choose our 24hr delivery option if you need it sooner.</p>
                         </div>
                         <picture className='col-md d-flex justify-content-center'>
                             <img src="https://cdn.cameo.com/static/assets/img-get-video-1x.png" alt="" className="img-fluid mh-100"></img>
@@ -60,7 +58,7 @@ function AboutPage() {
                     </div>
                 </div>
             </div>
-            <div className="jumbotron" style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)"}}>
+            <div className="jumbotron" style={{backgroundImage: "linear-gradient(#212121, #383838, #212121)"}}>
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
                         <div className='py-4'>

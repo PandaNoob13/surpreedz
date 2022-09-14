@@ -30,7 +30,7 @@ function EditProfilePage() {
         console.log("Data changed");
     }, [data])
     return (
-        <div className='text-white' style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)", marginTop: "3.5rem", minHeight:'100vh'}}>
+        <div className='text-white' style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)", paddingTop: "3.5rem", minHeight:'100vh'}}>
             <div className='container py-5'>
                 <div className='row'>
                     <div className='col-md-4 p-2'>

@@ -51,11 +51,38 @@
     color: #FFFFFF;
 }
 
-.card-signup {
-    animation: transitionSignUp .75s;
+/* CSS for password show/hide button */
+
+.input-text {
+    position: relative;
+}
+
+.input-text .eye-slash {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+
+.type_password {
+    border: 1px solid red !important
+}
+
+/* CSS for card transition */
+
+.card {
+    animation: transitionCard .75s;
 }
   
-@keyframes transitionSignUp {
+@keyframes transitionCard {
     from {
         opacity: 0;
         transform: rotateX(-10deg);

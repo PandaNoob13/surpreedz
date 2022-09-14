@@ -81,7 +81,7 @@ function OrderDetailPage() {
       },[addOrderDataResult,dispatch])
 
     return (
-        <div className='text-white h-100 min-vh-100' style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)", marginTop: '50px'}}>
+        <div className='text-white h-100 min-vh-100' style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)", paddingTop: '50px'}}>
             <div className='container py-5'>
                 <div className='row'>
                     <div className='col-md-5 p-2'>

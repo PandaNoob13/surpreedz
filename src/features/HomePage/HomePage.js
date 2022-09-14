@@ -13,7 +13,7 @@ function HomePage() {
         onGetService()
     }, [])
     return (
-        <div className='text-white min-vh-100' style={{background: "#212121", marginTop: "3.5rem"}}>
+        <div className='text-white min-vh-100' style={{backgroundColor: "#212121", paddingTop: "3.5rem"}}>
             <div className="jumbotron mb-4">
                 <div className='container'>
                     <div className='col-md-5 py-5 d-flex align-items-center'>
