@@ -1,7 +1,15 @@
 .bg-card{
     background-color: #373535;
-    border-radius: 8px;
 }
+
+.modal-content {
+    background-color: #373535;
+    border-radius: 12px;
+    border-color: #373535;
+}
+
+.btn-close {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(176deg) brightness(109%) contrast(106%);}
 
 .hr{
     height: 1px;
