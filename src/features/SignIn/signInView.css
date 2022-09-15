@@ -1,5 +1,5 @@
 .bg-request-page{
-    background-color: #212121;
+    background-image: linear-gradient(black, #2C2C2C, #212121);
     height: -o-calc(100% - 89px); /* opera */
     height: -webkit-calc(100% - 89px); /* google, safari */
     height: -moz-calc(100% - 89px); /* firefox */
@@ -51,4 +51,64 @@
     font-weight: normal;
     font-size: 16px;
     color: #FFFFFF;
+}
+
+/* CSS for sign in button text */
+
+.btn-link:hover {
+    color: #d3d4d5;
+}
+
+/* CSS for password show/hide button */
+
+.input-text {
+    position: relative;
+}
+
+.input-text .eye-slash {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+
+.type_password {
+    border: 1px solid red !important
+}
+
+/* CSS for Modal popups */
+
+.swal-modal {
+    background-color: #212121;
+    border-radius: 12px;
+}
+
+.swal-title, .swal-text {
+    color: #FFFFFF;
+}
+
+.swal-icon--success__hide-corners {
+    background: none !important;
+}
+.swal-icon--success:before, .swal-icon--success:after {
+    background: none !important;
+}
+
+.swal-button {
+    background-color: #f8f9fa;
+    color: black;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.swal-button:not([disabled]):hover {
+    background-color: #d3d4d5;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

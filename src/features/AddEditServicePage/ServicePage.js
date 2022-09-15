@@ -51,7 +51,7 @@ const ServicePage = () => {
             checkInputState()
       }, [role, description, price])
       return (
-            <div className="bg-request-page h-100 min-vh-100">
+            <div className="bg-service-page h-100 min-vh-100">
             <div className="container d-flex p-5 flex-column">
                   <form id="service-form">
                         <div className="col-md-12 d-flex p-5 flex-column card bg-card">

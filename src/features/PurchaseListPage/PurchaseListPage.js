@@ -10,13 +10,14 @@ const PurchaseListPage = () => {
 			onGetOrder()
 		}, [])
 	return (
-		<div className="bg-request-page h-100 min-vh-100" style={{marginTop: "3.5rem"}}>
+		<div className="bg-purchase-list-page h-100 min-vh-100" style={{paddingTop: "3.5rem"}}>
 		<div className="container d-flex p-3 flex-column">
 			<div className="col-md-12 text-white ">
 				<h3>Purchase List</h3>
+				<p>Brew some coffe while we prepare your purchased message</p>
 			</div>
 			<div className="col-md-12">
-				<div className="hr"></div>
+				{/* <div className="hr"></div> */}
 				<br/>
 			</div>
 				{posts ? posts.map((data) => {

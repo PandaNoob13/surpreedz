@@ -1,5 +1,5 @@
-.bg-request-page{
-    background-color: #212121;
+.bg-service-page{
+  background-image: linear-gradient(black, #2C2C2C, #212121);
     margin-top: 3.5rem;
 }
 

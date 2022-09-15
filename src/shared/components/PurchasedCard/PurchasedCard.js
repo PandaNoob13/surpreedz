@@ -21,12 +21,14 @@ const StatusCondition = (status, callback, orderId) => {
         //     )
         case "Submitted":
             return (
-                <div>
+                <div className='col-md-12 d-flex flex-wrap justify-content-between gap-2 align-items-center mb-1'>
                     <h4 className="card-text">DONE</h4>
-                    <button onClick={(e) => {
+                    <div className='me-1'>
+                        <button onClick={(e) => {
                         e.preventDefault();
                         callback(orderId);
                     }} className="btn btn-light m-2">Get Video</button>
+                    </div>
                 </div>
             )
         default:
@@ -39,6 +41,13 @@ const StatusCondition = (status, callback, orderId) => {
 
 const PurchasedCard = (props) => {
     const {occasion, name, price, dueDate, status, orderId, orderRequest, photoUrl} = props.data
+
+    // Create our number formatter.
+    var formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+    });
+
     return (
         <div className="card mb-3" style={{maxWidth: "100%", borderRadius: "12px", backgroundColor:"#373535"}}>
             <div className="row g-0">
@@ -56,8 +65,9 @@ const PurchasedCard = (props) => {
                 </div>
                 <div className="col-md-2">
                     <div className="card-body text-white">
-                        <h5 className="card-title">Rp. {price}</h5>
-                        <p className="card-text">Due : {moment({dueDate}).format("MMMM Do YYYY")}</p>
+                        <h5 className="card-title">{formatter.format(price)}</h5>
+                        <p className="card-text mb-0"><small>Due date:</small></p>
+                        <p className='card-text mb-2'>{moment({dueDate}).format("MMMM Do YYYY")}</p>
                         {StatusCondition(status, props.callback, orderId)}
                     </div>
                 </div>

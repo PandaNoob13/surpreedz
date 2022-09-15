@@ -8,7 +8,7 @@
     font-weight: 400;
 }
 
-.text-dropdown:focus, .text-dropdown:hover {
+.text-dropdown:hover, .text-dropdown:focus {
     color: black!important;
     background-color: transparent!important;
 }
@@ -60,3 +60,11 @@ animation-name: slideIn;
 .dropdown-profile::after {
     vertical-align: 0px!important;
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    --bs-position: end;
+    right: 0;
+    left: auto;
+  }
