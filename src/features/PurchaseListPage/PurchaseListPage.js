@@ -14,7 +14,7 @@ const PurchaseListPage = () => {
 		<div className="container d-flex p-3 flex-column">
 			<div className="col-md-12 text-white ">
 				<h3>Purchase List</h3>
-				<p>Brew some coffe while we prepare your purchased message</p>
+				<p>Brew some coffee while we prepare your purchased message</p>
 			</div>
 			<div className="col-md-12">
 				{/* <div className="hr"></div> */}

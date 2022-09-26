@@ -4,15 +4,6 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./ServiceCard.css"
 
-const serviceCardData = {
-    picUrl: "https://jabarekspres.com/wp-content/uploads/2020/11/Gisel-.jpg",
-    name: "Gisella Anastasia",
-    category: "Aktris",
-    currency: "IDR",
-    price: 1600000,
-    rating: 4.9
-}
-
 const ServiceCard = (props) => {
     const accountDetail = props.data.AccountDetail
     const {name, location} = accountDetail
