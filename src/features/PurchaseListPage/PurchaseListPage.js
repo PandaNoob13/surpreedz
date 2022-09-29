@@ -3,12 +3,21 @@ import PurchasedCard from "../../shared/components/PurchasedCard/PurchasedCard"
 import React, { useEffect } from "react";
 import usePurchaseListPage from "./usePurchaseListPage";
 import Loading from "../../shared/components/Loading/Loading";
+import { Player } from 'video-react';
+import "../../../node_modules/video-react/dist/video-react.css"
+import { Modal } from "react-bootstrap";
 
 const PurchaseListPage = () => {
-	const {posts, onGetOrder, onGetVideoResult, isLoading} = usePurchaseListPage();
+	const {posts, onGetOrder, onGetVideoResult, isLoading,onPlayVideo,base64Video,setBase64Video,modalVisible,setModalVisible} = usePurchaseListPage();
 		useEffect(() => {
 			onGetOrder()
 		}, [])
+
+		useEffect(()=>{
+			if (modalVisible === false) {
+				setBase64Video('')
+			}
+		},[modalVisible])
 	return (
 		<div className="bg-purchase-list-page h-100 min-vh-100" style={{paddingTop: "3.5rem"}}>
 		<div className="container d-flex p-3 flex-column">
@@ -36,12 +45,34 @@ const PurchaseListPage = () => {
 							orderRequest: order.OrderRequest,
 							photoUrl: data.data_url
 						}
-						return <PurchasedCard data={sentaccount} callback={(orderId) => onGetVideoResult(orderId)}/>
+						return <PurchasedCard data={sentaccount} callback={(orderId) => onGetVideoResult(orderId)} playVideo={(orderId) => onPlayVideo(orderId)} />
 					})
 					return orders
 				}) : <h1>Empty Data</h1>}
 			
 			{isLoading ? <Loading/> : <></>}
+			{
+				modalVisible && base64Video != '' ? 
+				<Modal
+				show={modalVisible}
+				onHide={() => setModalVisible(false)}
+				>
+					<Modal.Header closeButton className="text-white">
+							<Modal.Title id="contained-modal-title-vcenter" className="">
+								<div className="col-md-12 text-white">Your Video</div>
+							</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+					<Player
+						playsInline
+						src={`data:video/mp4;base64,${base64Video}`}
+						/>
+					
+					</Modal.Body>
+	
+				</Modal> : <></>
+			}
+			
 		</div>    
 		</div>
   )

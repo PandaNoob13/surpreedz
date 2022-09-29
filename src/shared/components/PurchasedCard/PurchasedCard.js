@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from "moment";
 
-const StatusCondition = (status, callback, orderId) => {
+const StatusCondition = (status, callback, orderId,playVideo) => {
     switch (status) {
         case "On progress":
             return (
@@ -25,10 +25,18 @@ const StatusCondition = (status, callback, orderId) => {
                     <h4 className="card-text">DONE</h4>
                     <div className='me-1'>
                         <button onClick={(e) => {
+                            e.preventDefault();
+                            playVideo(orderId);
+                        }} className="btn btn-light m-2">Play Video</button>
+
+                        <button onClick={(e) => {
                         e.preventDefault();
                         callback(orderId);
                     }} className="btn btn-light m-2">Get Video</button>
+
+                       
                     </div>
+                    
                 </div>
             )
         default:
@@ -68,7 +76,7 @@ const PurchasedCard = (props) => {
                         <h5 className="card-title">{formatter.format(price)}</h5>
                         <p className="card-text mb-0"><small>Due date:</small></p>
                         <p className='card-text mb-2'>{moment({dueDate}).format("MMMM Do YYYY")}</p>
-                        {StatusCondition(status, props.callback, orderId)}
+                        {StatusCondition(status, props.callback, orderId,props.playVideo)}
                     </div>
                 </div>
             </div>
