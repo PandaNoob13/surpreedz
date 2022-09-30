@@ -11,12 +11,13 @@ const useOrderService = () => {
     useEffect(() => { 
         
     }, [posts])
-    const onPostService = async (buyer_id, service_detail_id, due_date, occasion, recipient_name, message_to_recipient, recipient_description) => {
+    const onPostService = async (buyer_id, buyer_email, service_detail_id, due_date, occasion, recipient_name, message_to_recipient, recipient_description) => {
         setLoading(true);
         console.log("On Get Home Service Called");
         try {
             const response = await orderService.postOrderService({
                 buyer_id: buyer_id,
+                buyer_email: buyer_email,
                 service_detail_id: service_detail_id,
                 due_date: due_date,
                 occasion: occasion,

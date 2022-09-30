@@ -15,10 +15,7 @@ const Nav = () => {
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
             <div className="container px-0">
                 <div className="navbar-brand pt-0 ms-3">
-                    {token ? 
-                    <NavLink to='/' className="nav-link" aria-current="page"><img src={logo} alt='surpreedz' height={'24'}></img></NavLink> 
-                    : 
-                    <NavLink reloadDocument to='/' className="nav-link" aria-current="page"><img src={logo} alt='surpreedz' height={'24'}></img></NavLink>}           
+                    <NavLink reloadDocument to='/' className="nav-link" aria-current="page"><img src={logo} alt='surpreedz' height={'24'}></img></NavLink>           
                 </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
                     <span className="navbar-toggler-icon"></span>

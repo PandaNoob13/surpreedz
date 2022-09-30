@@ -71,14 +71,14 @@ function OrderDetailPage() {
         // console.log('addOrderData', addOrderData.serviceDetailId);
         console.log('addOrderData', addOrderDataResult);
         if (addOrderDataResult) {
-          console.log('5. masuk use effect add order');
+          console.log('masuk use effect add order');
           if (token) {
             navigate('/purchase-confirmation')
           }else {
             navigate('/sign-in')
           }
         }
-      },[addOrderDataResult,dispatch])
+      },[addOrderDataResult, dispatch])
 
     return (
         <div className='text-white h-100 min-vh-100' style={{backgroundImage: "linear-gradient(black, #2C2C2C, #212121)", paddingTop: '50px'}}>

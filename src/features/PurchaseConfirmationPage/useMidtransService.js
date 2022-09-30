@@ -16,10 +16,10 @@ const useMidtransService = () => {
 
     useEffect(() => {
         onGetOrder();
-
+        console.log('On get order called');
     }, [])
 
-    const onPostMidtrans = async (amount) => {
+    const onPostMidtrans = async (email, amount) => {
         setLoading(true);
         console.log("On Post Midtrans Service Called");
         console.log('post', posts);
@@ -36,9 +36,11 @@ const useMidtransService = () => {
             (objA, objB) => Number(objB.CreatedAt) - Number(objA.CreatedAt)
         )
         console.log('sortedDesc', sortedDesc);
+        console.log('Email Buyer: ', email);
 
         try {
             const response = await orderService.postMidtrans({
+                email: email,
                 order_id: String(sortedDesc[0].id),
                 amount: amount,
             })
