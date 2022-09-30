@@ -17,6 +17,7 @@ const useOrderService = () => {
         try {
             const response = await orderService.postOrderService({
                 buyer_id: buyer_id,
+                buyer_email: buyer_email,
                 service_detail_id: service_detail_id,
                 due_date: due_date,
                 occasion: occasion,

@@ -35,24 +35,23 @@ const PurchaseConfirmationPage = () => {
 
     useEffect(() => {
         console.log("Midposts Changed");
-        if (statMidtrans == true) {
+        // if (statMidtrans == true) {
+            // console.log("Stat mid trans : ", statMidtrans);
             //change this to the script source you want to load, for example this is snap.js sandbox env
             const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js'; 
             //change this according to your client-key
             const myMidtransClientKey = 'SB-Mid-client-1FHshRR9jeIp3kfH'; 
-
             let scriptTag = document.createElement('script');
             scriptTag.src = midtransScriptUrl;
             // optional if you want to set script attribute
             // for example snap.js have data-client-key attribute
             scriptTag.setAttribute('data-client-key', myMidtransClientKey); // data-client-key diganti dengan posts.token
-
             document.body.appendChild(scriptTag);
             return () => {
                 document.body.removeChild(scriptTag);
             }
-        }
-    }, [midPosts]);
+        // }
+    });
 
     return (
         <div className='text-white min-vh-100' style={{paddingTop: '56px', backgroundImage: "linear-gradient(black, #2C2C2C, #212121)"}}>

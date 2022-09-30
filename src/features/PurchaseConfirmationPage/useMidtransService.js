@@ -36,6 +36,7 @@ const useMidtransService = () => {
             (objA, objB) => Number(objB.CreatedAt) - Number(objA.CreatedAt)
         )
         console.log('sortedDesc', sortedDesc);
+        console.log('Email Buyer: ', email);
 
         try {
             const response = await orderService.postMidtrans({
