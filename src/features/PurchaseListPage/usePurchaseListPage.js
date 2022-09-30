@@ -10,6 +10,9 @@ function usePurchaseListPage() {
     const [isError, setIsError] = useState(false);
     const [posts, setPosts] = useState([]);
     const [video, setVideo] = useState('');
+    const [base64Video, setBase64Video] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+
     useEffect(() => { 
         if (posts != null ){
             console.log("Done set posts : ", posts);
@@ -18,7 +21,10 @@ function usePurchaseListPage() {
     useEffect(() => {
         if (video !== '') {
             const blob = b64toBlob(video.data_url, 'video/mp4');
+            // console.log('video.data_url => ', video.data_url);
+            console.log('blob use purchase list =>', blob);
             const blobUrl = URL.createObjectURL(blob);
+            console.log('blob Url use purchase list =>', blobUrl);
             var tempLink = document.createElement('a');
             tempLink.href = blobUrl;
             tempLink.setAttribute('download', `${video.video_link}`);
@@ -29,6 +35,8 @@ function usePurchaseListPage() {
     const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
         const byteCharacters = atob(b64Data);
         const byteArrays = [];
+
+        console.log('byteCharacters use purchase list ', byteCharacters);
       
         for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
           const slice = byteCharacters.slice(offset, offset + sliceSize);
@@ -41,6 +49,8 @@ function usePurchaseListPage() {
           const byteArray = new Uint8Array(byteNumbers);
           byteArrays.push(byteArray);
         }
+
+        console.log('byteArray', byteArrays);
       
         const blob = new Blob(byteArrays, {type: contentType});
         return blob;
@@ -66,7 +76,7 @@ function usePurchaseListPage() {
         console.log("On get video result called");
         try {
             const response = await purchaseListService.getVideoResult(orderId)
-            console.log('Response: ', response);
+            console.log('Response onGetVideoResult: ', response);
             const data = response.data
             setVideo(data)
             setIsError(false)
@@ -88,8 +98,26 @@ function usePurchaseListPage() {
         }
     }
 
+    const onPlayVideo = async (orderId) => {
+        setLoading(true)
+        setModalVisible(true)
+        console.log("On Play video result called");
+        try {
+            const response = await purchaseListService.getVideoResult(orderId)
+            console.log('Response onGetVideoResult: ', response);
+            const data = response.data
+            setBase64Video(data.data_url)
+            setIsError(false)
+        } catch (error) {
+            setPosts(error)
+            console.log(error);
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return {
-        posts, onGetOrder, onGetVideoResult,isLoading
+        posts, onGetOrder, onGetVideoResult,isLoading,onPlayVideo,base64Video,setBase64Video,modalVisible,setModalVisible
     }
 }
 

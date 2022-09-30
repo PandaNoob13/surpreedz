@@ -41,10 +41,11 @@ const RequestCard = (props) => {
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        console.log("Type of file ", typeof file);
-        console.log('file => ', file);
+        console.log("Type of file video ", typeof file);
+        console.log('file video => ', file);
         const url = URL.createObjectURL(file);
-        console.log("File name : ", file.name);
+        console.log('url video ', url);
+        console.log("File video name : ", file.name);
         var result = ''
         let reader = new FileReader();
         if (data) {
@@ -52,7 +53,7 @@ const RequestCard = (props) => {
             reader.onload = function() {
                 console.log("Data read : ", reader.result);
                 result = reader.result
-                console.log("READER RESULT : ", result);
+                console.log("READER RESULT video : ", result);
                 setVideoData({
                     videoFile: file,
                     videoName: file.name,
