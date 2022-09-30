@@ -35,7 +35,7 @@ const PurchaseConfirmationPage = () => {
 
     useEffect(() => {
         console.log("Midposts Changed");
-        if (statMidtrans == true) {
+        // if (statMidtrans == true) {
             //change this to the script source you want to load, for example this is snap.js sandbox env
             const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js'; 
             //change this according to your client-key
@@ -50,7 +50,7 @@ const PurchaseConfirmationPage = () => {
             document.body.appendChild(scriptTag);
             return () => {
                 document.body.removeChild(scriptTag);
-            }
+            // }
         }
     }, [midPosts]);
 

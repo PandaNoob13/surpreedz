@@ -12,6 +12,7 @@ import ProtectedPage from "../navigation/ProtectedPage"
 import Nav from '../shared/components/navbar/Nav'
 import Footer from "../shared/components/Footer/Footer"
 import AboutPage from '../features/AboutPage/AboutPage'
+import MenuList from '../features/Verificator/menu_list'
 
 const AppRouter = () => {
   return (
@@ -28,7 +29,8 @@ const AppRouter = () => {
       </Route>
 
       <Route index element={<HomePage/>}></Route>
-      <Route path='/about' element={<AboutPage></AboutPage>}></Route>
+      <Route path='/about' element={<MenuList></MenuList>}></Route>
+      {/* <Route path='/about' element={<AboutPage></AboutPage>}></Route> */}
       <Route path='/order-detail-page' element={<OrderDetailPage/>}></Route>
       <Route  path="/sign-in" element={<SignInView/>}></Route>
       <Route  path="/sign-up" element={<SignUpView/>}></Route>
