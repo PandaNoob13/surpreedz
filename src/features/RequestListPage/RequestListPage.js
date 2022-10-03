@@ -29,7 +29,8 @@ const RequestListPage = () => {
                 <br/>
             </div>
             {posts ? posts.map((account) => {   
-                const orders = account.Orders.map((order) => {
+                if(account.Orders != null) {
+                  const orders = account.Orders.map((order) => {
                     const orderStatus = order.OrderStatus[order.OrderStatus.length - 1]
                     const sentaccount = {
                         occasion: order.OrderRequest.occasion,
@@ -42,6 +43,8 @@ const RequestListPage = () => {
                     return <RequestCard data={sentaccount} callback={triggerChange}/>
                 })
                 return orders
+                }
+                
             }) : <h1>Empty request</h1>} 
                    
             {isLoading ? <Loading/> : <></>}

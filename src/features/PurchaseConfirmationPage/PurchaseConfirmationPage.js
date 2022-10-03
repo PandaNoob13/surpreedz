@@ -13,11 +13,18 @@ import Midtrans from "./Midtrans";
 
 
 const PurchaseConfirmationPage = () => {
-    const {onPostService, isLoading} = useOrderService()
+    const {onPostService, isLoading, posts} = useOrderService()
     const navigate = useNavigate()
     const {onPostMidtrans, midPosts, statMidtrans} = useMidtransService()
     const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
     const dispatch = useDispatch();
+    var formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        //These options are needed to round to whole numbers if that's what you want.
+        //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+        //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+    });
 
     const handleSubmit = async () => {
         const buyerId = parseInt(window.localStorage.getItem('account_id'))
@@ -26,10 +33,10 @@ const PurchaseConfirmationPage = () => {
         console.log('order data dari purchase => ', addOrderDataResult);
         // dispatch(addOrder({buyerId : buyerId, serviceDetailId: addOrderDataResult.serviceDetailId,dueDate: addOrderDataResult.dueDate, occasion:addOrderDataResult.occasion, recipient: addOrderDataResult.recipient, message: addOrderDataResult.message, description: addOrderDataResult.description}))
         await onPostService(buyerId, buyerEmail, addOrderDataResult.serviceDetailId, addOrderDataResult.dueDate, addOrderDataResult.occasion, addOrderDataResult.recipient, addOrderDataResult.message, addOrderDataResult.description)
-        const token = await onPostMidtrans(buyerEmail ,addOrderDataResult.price)
-        if (token !== '') {
-            await Midtrans(token);
-        }
+        // const token = await onPostMidtrans(posts.order_id, buyerEmail ,addOrderDataResult.price)
+        // if (token !== '') {
+        //     await Midtrans(token);
+        // }
         
     }
 
@@ -57,7 +64,7 @@ const PurchaseConfirmationPage = () => {
         <div className='text-white min-vh-100' style={{paddingTop: '56px', backgroundImage: "linear-gradient(black, #2C2C2C, #212121)"}}>
         <div className="container py-5">
             <div className='row'>
-                <div className='payment-option col-md-5 '>
+                {/* <div className='payment-option col-md-5 '>
                     <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
                         <h4 className="card-title">Payment Option</h4>
                         <div className="my-2" style={{border: "1px solid #FFFFFF"}}></div>
@@ -80,7 +87,7 @@ const PurchaseConfirmationPage = () => {
                             <p className="card-text p-2">XXXXXXXXXXXXXX</p>
                         </div>
                     </div>                    
-                </div>
+                </div> */}
                 <div className='bill-confirm col-md-7'>
                     <div className="card mb-3 p-4" style={{borderRadius: '12px', backgroundColor:'#373535'}}>
                         <div className="d-flex flex-row align-items-center">
@@ -91,7 +98,7 @@ const PurchaseConfirmationPage = () => {
             
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">{addOrderDataResult.occasion} greeting</p>
-                            <p className="card-text">Rp. {addOrderDataResult.price} </p>
+                            <p className="card-text">{formatter.format(addOrderDataResult.price)} </p>
                         </div> 
 
                         <div className="card detail-order mb-3">
@@ -127,7 +134,7 @@ const PurchaseConfirmationPage = () => {
 
                         <div className="d-flex flex-row justify-content-between">
                             <p className="card-text">TOTAL</p>
-                            <p className="card-text">Rp.{addOrderDataResult.price}</p>
+                            <p className="card-text">{formatter.format(addOrderDataResult.price)}</p>
                         </div>
 
                         <div className="d-flex flex-row justify-content-between">

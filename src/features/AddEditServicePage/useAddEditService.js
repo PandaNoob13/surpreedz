@@ -3,6 +3,7 @@ import { useAuth } from "../../shared/auth/UseAuth"
 import { useDeps } from "../../shared/DepContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { post } from "jquery";
 
 const useAddEditService = () => {
     
@@ -18,6 +19,11 @@ const useAddEditService = () => {
             window.localStorage.setItem('service_detail_price', data.price)
         }    
     }, [isError, data])
+    useEffect(() => {
+        if (posts.service_detail_id != undefined){
+            window.localStorage.setItem('service_detail_id', posts.service_detail_id)
+        }
+    }, [posts])
     const serviceDetailId = window.localStorage.getItem('service_detail_id')
     const onPostService = async (accountId ,role, description, price, video_link) => {
         setLoading(true);
@@ -33,8 +39,8 @@ const useAddEditService = () => {
                         price: price,
                         video_link: video_link
                     })
-                    console.log('status: ', response.status);
-                    setPosts(response.status)
+                    console.log('Create service response data : ', response);
+                    setPosts(response.data)
                     setData({
                         role: role,
                         description: description,

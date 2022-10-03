@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from "moment";
 
-const StatusCondition = (status, callback, orderId,playVideo) => {
+const StatusCondition = (status, callback, orderId, playVideo, paymentStatus) => {
     switch (status) {
         case "On progress":
             return (
@@ -40,15 +40,24 @@ const StatusCondition = (status, callback, orderId,playVideo) => {
                 </div>
             )
         default:
+            var shownText = "CANCELLED"
+            switch(paymentStatus){
+                case "pending":
+                    shownText = "WAITING FOR YOUR PAYMENT"
+                    break;
+                case "settlement":
+                    shownText = "WAITING FOR SELLER CONFIRMATION"
+                    break;
+            }
             return (
-                <h4 className="card-text">Waiting for confirmation</h4>
+                <h4 className="card-text">{shownText}</h4>
             );
             
     }
  }
 
 const PurchasedCard = (props) => {
-    const {occasion, name, price, dueDate, status, orderId, orderRequest, photoUrl} = props.data
+    const {occasion, name, price, dueDate, status, paymentStatus, orderId, orderRequest, photoUrl} = props.data
 
     // Create our number formatter.
     var formatter = new Intl.NumberFormat('id-ID', {
@@ -76,7 +85,7 @@ const PurchasedCard = (props) => {
                         <h5 className="card-title">{formatter.format(price)}</h5>
                         <p className="card-text mb-0"><small>Due date:</small></p>
                         <p className='card-text mb-2'>{moment({dueDate}).format("MMMM Do YYYY")}</p>
-                        {StatusCondition(status, props.callback, orderId,props.playVideo)}
+                        {StatusCondition(status, props.callback, orderId, props.playVideo, paymentStatus)}
                     </div>
                 </div>
             </div>

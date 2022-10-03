@@ -35,12 +35,14 @@ const PurchaseListPage = () => {
 						const serviceDetail = account.ServiceDetail
 						const servicePrice = serviceDetail.ServicePrices[serviceDetail.ServicePrices.length - 1]
 						const orderStatus = order.OrderStatus[order.OrderStatus.length - 1]
+						const paymentStatus = order.PaymentStatuses
 						const sentaccount = {
 							occasion: order.OrderRequest.occasion,
 							name: account.AccountDetail.name,
 							price: servicePrice.price,
 							dueDate: order.due_date,
 							status: orderStatus.order_status,
+							paymentStatus: paymentStatus.transaction_status,
 							orderId: order.id,
 							orderRequest: order.OrderRequest,
 							photoUrl: data.data_url

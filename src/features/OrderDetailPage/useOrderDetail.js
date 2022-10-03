@@ -1,19 +1,36 @@
+import { post } from "jquery";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useDeps } from "../../shared/DepContext";
+import Midtrans from "../PurchaseConfirmationPage/Midtrans";
+import useMidtransService from "../PurchaseConfirmationPage/useMidtransService";
 
 const useOrderService = () => {
+    const {onPostMidtrans} = useMidtransService()
     const {orderService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [posts, setPosts] = useState([])
+    const {addOrderDataResult} = useSelector((state)=> state.orderDetailReducer)
+
 
 
     useEffect(() => { 
-        
+        if (posts.order_id != undefined){
+            const buyerEmail = window.localStorage.getItem('account_email')
+            console.log("Order id changed : ", posts.order_id);
+            const fetchData = async () => {
+                const token = await onPostMidtrans(posts.order_id, buyerEmail ,addOrderDataResult.price)
+                if (token !== '') {
+                    await Midtrans(token);
+                }
+            }
+            fetchData()
+        }
     }, [posts])
     const onPostService = async (buyer_id, buyer_email, service_detail_id, due_date, occasion, recipient_name, message_to_recipient, recipient_description) => {
         setLoading(true);
-        console.log("On Get Home Service Called");
+        console.log("On Post Order Service Called");
         try {
             const response = await orderService.postOrderService({
                 buyer_id: buyer_id,
@@ -39,7 +56,7 @@ const useOrderService = () => {
     }
 
     return {
-        onPostService,isLoading
+        onPostService, isLoading, posts
     }
 }
 
