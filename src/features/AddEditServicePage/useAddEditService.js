@@ -7,7 +7,7 @@ import { post } from "jquery";
 
 const useAddEditService = () => {
     
-    const {addEditServiceService} = useDeps();
+    const {addEditServiceService, editProfileService} = useDeps();
     const [isLoading, setLoading] = useState(false);
     const [isError, setIsError] = useState(true)
     const [data, setData] = useState({})
@@ -25,7 +25,7 @@ const useAddEditService = () => {
         }
     }, [posts])
     const serviceDetailId = window.localStorage.getItem('service_detail_id')
-    const onPostService = async (accountId ,role, description, price, video_link) => {
+    const onPostService = async (accountId, accountEmail ,role, description, price, video_link, photoName, url, dataUrl) => {
         setLoading(true);
         console.log("On Post Service Called");
         const intServiceDetailId = parseInt(serviceDetailId)
@@ -41,10 +41,26 @@ const useAddEditService = () => {
                     })
                     console.log('Create service response data : ', response);
                     setPosts(response.data)
+                    console.log('status: ', response.status);
+                    setPosts(response.status)
+                    const responseProfileImg = await editProfileService.putProfile({
+                        account_id: parseInt(window.localStorage.getItem('account_id')),
+                        name :window.localStorage.getItem('account_name'),
+                        location : window.localStorage.getItem('account_location'),
+                        photo_name: photoName,
+                        url: url,
+                        data_url: dataUrl
+                    })
+                    const responseVerify = await addEditServiceService.postVerify({
+                        email: accountEmail,
+                    })
                     setData({
                         role: role,
                         description: description,
-                        price: price
+                        price: price,
+                        photo_name: photoName,
+                        url: url,
+                        data_url: dataUrl
                     })
                     setIsError(false)
                     swal({

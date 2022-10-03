@@ -16,7 +16,15 @@ const addEditServiceService = ({doPost, doPut}) => {
             throw error
         }
     }
-    return {postService, putService}
+    const postVerify = async (data) => {
+        console.log("Try verify service");
+        try {
+            return await doPost({url: `/verify/account`, data: data})
+        } catch (error) {
+            throw error
+        }
+    }
+    return {postService, putService, postVerify}
   
 }
 
