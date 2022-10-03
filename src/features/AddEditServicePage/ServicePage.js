@@ -6,6 +6,7 @@ import VideoInput from "./videoInput/VideoInput";
 
 const ServicePage = () => {
       var accountId = window.localStorage.getItem('account_id')
+      var accountEmail = window.localStorage.getItem('account_email')
       var serviceDetailRole = window.localStorage.getItem('service_detail_role')
       var serviceDetailDesc = window.localStorage.getItem('service_detail_desc')
       var serviceDetailPrice = window.localStorage.getItem('service_detail_price')
@@ -15,6 +16,8 @@ const ServicePage = () => {
       const [price, setPrice] = useState(serviceDetailPrice)
       const [buttonDisabled, setButtonDisabled] = useState(true)
       const [dataVideo ,setDataVideo] = useState()
+        const [data, setData] = useState({})
+
 
       const handleRoleChange = async (event) => {
             setRole(event.target.value)
@@ -30,11 +33,14 @@ const ServicePage = () => {
 
       const handleSubmit = async (event) => {
             event.preventDefault()
-            onPostService(parseInt(accountId) ,role, description, parseInt(price),dataVideo)
+            const url = data.dataUrl.split(',')
+            window.localStorage.setItem('photo_profile', url[1])
+
+            onPostService(parseInt(accountId), accountEmail ,role, description, parseInt(price),dataVideo, data.photoName, data.photoUrl, data.dataUrl )
       }
 
       const checkInputState = async () => {
-            if (role != '' && description != '' && price != 0){
+            if (role !== '' && description !== '' && price !== 0){
                  setButtonDisabled(false)
             } else {
                   setButtonDisabled(true)
@@ -46,6 +52,33 @@ const ServicePage = () => {
             formData.append('video',videoFile)
             setDataVideo(formData)
       }
+
+      const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        console.log("Type of file ", typeof file);
+        console.log('file => ', file);
+        const url = URL.createObjectURL(file);
+        console.log("File name : ", file.name);
+        var result = ''
+        let reader = new FileReader();
+        if (data) {
+            reader.readAsDataURL(file);
+            reader.onload = function() {
+                console.log("Data read : ", reader.result);
+                result = reader.result
+                console.log("READER RESULT : ", result);
+                setData({
+                    photoFile: file,
+                    photoName: file.name,
+                    photoUrl: url,
+                    dataUrl: result
+                })
+            };
+            reader.onerror = function() {
+                console.log(reader.error);
+            };
+        }
+    };
 
       useEffect(() => {
             checkInputState()
@@ -94,6 +127,19 @@ const ServicePage = () => {
                                     </div>
                               </div> */}
                               <br/>
+
+                                <div className="row">
+                                    <label className="col-md-2 col-form-label text-white">Photo Profile</label><br/>
+                                    <div className="col-md-10">
+                                        <input 
+                                            className="text-white"
+                                            type="file"
+                                            onChange={handleFileChange}
+                                            accept=".png,.jpg"
+                                        />       
+                                    </div>             
+                                </div>
+                                <br/>
 
                               <div className="col-md-12 row justify-content-end">
                                     {/* <button className="col-md-2 btn btn-light m-2">Reset</button> */}
