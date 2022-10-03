@@ -1,6 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import "./AboutPage.css"
+import c1 from "./Component1.png"
+import c2 from "./Component2.png"
+import c3 from "./Component3.png"
 
 function AboutPage() {
     return (
@@ -27,33 +30,32 @@ function AboutPage() {
                 <div className='container'>
                     <div className='row gx-4'>
                         <picture className='col-md d-flex justify-content-center'>
-                            <img src="https://cdn.cameo.com/static/assets/search-for-a-star-1x.png" alt="" className="img-fluid mh-100"></img>
+                            <img src={c1} alt="" className="img-fluid mh-100"></img>
                         </picture>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#2C2C2C"}}>1. SEARCH FOR A STAR</p>
+                            <p className='mb-1' style={{color: 'rgba(255,255,255,0.6)'}}>1. SEARCH FOR A STAR</p>
                             <h1 className="display-5">Find the right celeb for any occasion</h1>
                             <p>Birthdays, milestones, or even a well-deserved roast, the perfect celebrity is only a search away. Find yours and request them.</p>   
                         </div>
                     </div>
                     <div className='row gx-4 row-direction-media-reverse'>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#2C2C2C"}}>2. REQUEST THEM</p>
+                            <p className='mb-1' style={{color: 'rgba(255,255,255,0.6)'}}>2. REQUEST THEM</p>
                             <h1 className="display-5">Get your personalized video message</h1>
                             <p>Include all the important details in your request form. After it’s submitted, stars have up to 3 days to complete it. Choose our 24hr delivery option if you need it sooner.</p>
                         </div>
                         <picture className='col-md d-flex justify-content-center'>
-                            <img src="https://cdn.cameo.com/static/assets/img-get-video-1x.png" alt="" className="img-fluid mh-100"></img>
+                            <img src={c2} alt="" className="img-fluid mh-100"></img>
                         </picture>
                     </div>
                     <div className='row gx-4'>
-                        <video className='col-md-6' autoPlay muted loop playsInline>
-                            <source src="https://cdn.cameo.com/static/assets/img-share.mp4" type="video/mp4" media="(min-width: 768px)"></source>
-                            <source src="https://cdn.cameo.com/static/assets/img-share.mp4" type="video/mp4"></source>
-                        </video>
+                        <picture className='col-md d-flex justify-content-center'>
+                            <img src={c3} alt="" className="img-fluid mh-100"></img>
+                        </picture>
                         <div className='col-md py-4 d-flex flex-column justify-content-center'>
-                            <p className='mb-1' style={{color: "#2C2C2C"}}>3. SHARE THE MAGIC</p>
+                            <p className='mb-1' style={{color: 'rgba(255,255,255,0.6)'}}>3. SHARE THE MAGIC</p>
                             <h1 className="display-5">Capture the WOW</h1>
-                            <p>Magical moments deserve to be shared. Whether you’re giving one or receiving a personalized video, we want to see your reaction. Bonus points if you tag us.</p>   
+                            <p>Magical moments deserve to be shared. Whether you’re giving one or receiving a personalized video, we want to see your reaction by tagging us.</p>   
                         </div>
                     </div>
                 </div>
